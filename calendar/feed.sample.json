@@ -1,0 +1,60 @@
+{
+  "timezone": "America/Los_Angeles",
+  "asOf": "2026-07-24T17:30:00-07:00",
+  "window": {
+    "start": "2026-07-24T00:00:00-07:00",
+    "end": "2027-01-20T00:00:00-08:00"
+  },
+  "sources": {
+    "partiful": {
+      "status": "sample"
+    },
+    "availability": {
+      "status": "sample"
+    }
+  },
+  "events": [
+    {
+      "id": "OpIHV6iBhcBwSz4rmBv3",
+      "title": "The Avalon Fundraiser",
+      "start": "2026-07-25T02:00:00.000Z",
+      "end": null,
+      "timezone": "America/Los_Angeles",
+      "url": "https://partiful.com/e/OpIHV6iBhcBwSz4rmBv3"
+    },
+    {
+      "id": "sampleAugustEvent1",
+      "title": "A Public Lecture at Avalon",
+      "start": "2026-08-08T01:30:00.000Z",
+      "end": "2026-08-08T03:30:00.000Z",
+      "timezone": "America/Los_Angeles",
+      "url": "https://partiful.com/u/bS9uXn3FHs6Sw86R03EX"
+    }
+  ],
+  "busy": [
+    {
+      "kind": "unavailable",
+      "start": "2026-07-26T01:00:00.000Z",
+      "end": "2026-07-26T05:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "kind": "unavailable",
+      "start": "2026-07-28T20:00:00.000Z",
+      "end": "2026-07-28T23:00:00.000Z",
+      "allDay": false
+    },
+    {
+      "kind": "unavailable",
+      "start": "2026-08-02T07:00:00.000Z",
+      "end": "2026-08-03T07:00:00.000Z",
+      "allDay": true
+    },
+    {
+      "kind": "unavailable",
+      "start": "2026-08-08T00:00:00.000Z",
+      "end": "2026-08-08T05:00:00.000Z",
+      "allDay": false
+    }
+  ]
+}
