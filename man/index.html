@@ -3,18 +3,18 @@
 <html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Avalon Press · The Avalon Institute</title>
+<title>Volume 1: Man · The Avalon Quarterly</title>
 
 <link rel="icon" type="image/png" href="/favicon.png"/>
-<meta content="The Avalon Quarterly publishes nonfiction, fiction, and poetry answering the most pressing questions of the past 10,000 years." name="description"/>
-<link rel="canonical" href="https://avalon.institute/press/"/>
+<meta content="The Avalon Quarterly, Volume I — the discovery of Man. Introductory essay and what we’re looking for: essays, poetry, and fiction." name="description"/>
+<link rel="canonical" href="https://avalon.institute/man/"/>
 
 <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="The Avalon Institute"/>
-<meta property="og:title" content="Avalon Press"/>
-<meta property="og:description" content="The Avalon Quarterly publishes nonfiction, fiction, and poetry answering the most pressing questions of the past 10,000 years."/>
-<meta property="og:url" content="https://avalon.institute/press/"/>
+<meta property="og:title" content="Volume 1: Man · The Avalon Quarterly"/>
+<meta property="og:description" content="The Avalon Quarterly, Volume I — the discovery of Man. Introductory essay and what we’re looking for: essays, poetry, and fiction."/>
+<meta property="og:url" content="https://avalon.institute/man/"/>
 <meta property="og:image" content="https://avalon.institute/photos/og-banner.jpg"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
@@ -98,51 +98,23 @@
   nav a:hover { color: var(--cream); }
 
   .masthead { padding: 2.5rem 0 2rem; text-align: center; }
+  .masthead .eyebrow { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-dim); display: block; margin-bottom: 1.1rem; }
   .masthead h1 { font-family: 'Cinzel', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 500; letter-spacing: 0.08em; color: var(--cream); line-height: 1.15; margin-bottom: 0.5rem; }
   .masthead h1 span { color: var(--gold); }
-  .masthead-sub { color: var(--text-dim); font-size: 1.05rem; margin-top: 1rem; }
 
   section { padding: 3rem 0; }
 
-  .intro-frame { max-width: 640px; margin: 2.5rem auto 1.5rem; text-align: center; font-style: italic; color: var(--text); font-size: 1.05rem; line-height: 1.55; }
-
+  h2 { font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.4rem; }
   h3 { font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.75rem; text-transform: uppercase; }
+  .list-label { font-family: 'Cinzel', serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.16em; color: var(--gold-dim); margin: 1.6rem 0 0.5rem; text-transform: uppercase; }
   p { margin-bottom: 1.2rem; color: var(--text); }
   p:last-child { margin-bottom: 0; }
-  p a { color: var(--gold-dim); text-decoration: none; transition: color 0.2s; }
-  p a:hover { color: var(--gold); }
+  p a { color: var(--gold-dim); text-decoration: none; border-bottom: 1px solid rgba(154, 106, 31, 0.35); transition: color 0.2s, border-color 0.2s; }
+  p a:hover { color: var(--gold); border-color: var(--gold); }
 
-  .btn { display: inline-block; font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; text-decoration: none; padding: 0.9rem 2.25rem; border: 1px solid var(--gold); color: var(--gold); background: transparent; cursor: pointer; transition: all 0.25s; position: relative; }
-  .btn::before, .btn::after { content: ''; position: absolute; width: 6px; height: 6px; border-color: var(--gold); border-style: solid; transition: all 0.2s; }
-  .btn::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
-  .btn::after { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
-  .btn:hover { background: var(--gold); color: var(--green-deep); }
-  .btn-primary { background: var(--gold); color: var(--green-deep); }
-  .btn-primary:hover { background: var(--gold-dim); border-color: var(--gold-dim); }
-
-  /* Cushion variant: soft sheen high on the face, wide ambient shadow,
-     rounded corners; lifts on hover, settles on press. */
-  .btn-lg { font-size: 0.8rem; padding: 1.05rem 2.6rem; }
-  .btn-raised {
-    background: radial-gradient(ellipse 120% 90% at 50% 18%, #e5ad50 0%, var(--gold) 55%, #cf9130 100%);
-    border-radius: 8px;
-    box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.3);
-  }
-  .btn-raised::before, .btn-raised::after { display: none; }
-  .btn-raised:hover {
-    transform: translateY(-1px);
-    background: radial-gradient(ellipse 120% 90% at 50% 18%, #ecb459 0%, #dda13f 55%, #d4952f 100%);
-    color: var(--green-deep);
-    border-color: var(--gold);
-    box-shadow: 0 13px 34px -4px rgba(0, 0, 0, 0.55), 0 3px 7px rgba(0, 0, 0, 0.3);
-  }
-  .btn-raised:active {
-    transform: translateY(1px);
-    box-shadow: 0 5px 16px -4px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.3);
-  }
-  @media (max-width: 640px) {
-    .btn-lg { font-size: 0.72rem; letter-spacing: 0.18em; padding: 0.95rem 1.35rem; }
-  }
+  .essay-block { margin-bottom: 1rem; }
+  .section-block { margin-bottom: 2.5rem; }
+  .section-block:last-child { margin-bottom: 0; }
 
   footer { padding: 3rem 0; text-align: center; }
   .footer-text { font-size: 0.8rem; color: var(--text-dim); line-height: 1.8; margin-bottom: 1.25rem; }
@@ -164,40 +136,91 @@
 <a href="/#about">About</a>
 <a href="/#programs">Programming</a>
 <a href="/calendar/">Calendar</a>
-<a href="/press/" aria-current="page" style="color:var(--cream)">Press</a>
+<a href="/press/">Press</a>
 <a href="/#support">Support</a>
 </div>
 </nav>
 <div class="page-wrap">
 <header class="masthead fade-in">
 <img alt="The Avalon Institute" height="96" src="/logo.png" style="display:block;margin:0 auto 1.25rem;border-radius:50%" width="96"/>
-<h1 data-edit-id="press-masthead-h1">Avalon <span>Press</span></h1>
+<span class="eyebrow" data-edit-id="man-eyebrow">The Avalon Quarterly</span>
+<h1 data-edit-id="man-masthead-h1" style="font-size:clamp(1.7rem,4vw,2.7rem)">Volume 1: <span>Man</span></h1>
 </header>
+<div class="rule-echelon fade-in"><span class="rule-gold"></span><span class="rule-echelon-mark">◇</span><span class="rule-gold"></span></div>
 
-<section class="fade-in" id="press" style="padding-top:1.5rem">
-<div style="margin-bottom:2.5rem">
-<h3 data-edit-id="press-what-h3">What Is the Avalon Quarterly</h3>
-<p data-edit-id="press-what-p">The Avalon Quarterly publishes nonfiction, fiction, and poetry answering the most pressing questions of the past 10,000 years. Each issue is a contemplation of a different aspect or quality of the human condition. We practice not detached analysis but philosophy as a living vocation. In this spirit, we publish lively prose that harmonizes conceptual clarity with artistic force.</p>
+<section class="fade-in" id="essay" style="padding-bottom:1.5rem">
+<div class="essay-block">
+<h3 data-edit-id="man-essay-h3">Proemea</h3>
+<p data-edit-id="man-essay-p1">They say that God created him in His own image. They say he is a beast to his brother. They say he stole fire from his gods. They say the sea yielded to his prows. They tell you he is a political beast. They tell you he was not born to live as a beast, but to pursue virtue and knowledge. They tell you he was born unarmed and naked so that reason might shine more brightly in invention. They tell you his hand is the tool of tools. They say he was born free and equal to his brother. They say his dignity is beyond all price. They say he has rights, including the right to have rights. They say he was born free—and that everywhere he is in chains. Then they tell you he is a tool-using beast. That his tools are extensions of himself. That he will live in symbiosis with his machines. That his machines are destined to supplant him. They tell you that he is exhausted. They say he can be overcome. No man, they say, hath seen God at any time.</p>
+<p data-edit-id="man-essay-p2">It should be possible to put these sentences in order. We have tried. One might begin with the creature, proceed to the citizen, and end with the machines that build up his city. Or begin with God, tracing Man’s ascent from his natural nakedness toward the mighty works that make him resemble his Creator. Or begin with chains and tell the history of their breaking through political and technical power. But the sentences resist such histories. The creature made in God’s image is also a beast. The animal distinguished by his tools fashions his possible successor. The subject born free remains in chains.</p>
+<p data-edit-id="man-essay-p3">Even his name is unstable. Before the law he is a person; before the market, a consumer; before the machine, a user. Before God, he is Man. From the moon, one man takes a step for mankind. Humanity names both his population and his virtue, not to mention the victim of certain terrible crimes. Facing catastrophe, he becomes the human race. These words usually point toward the same beings, but they do not teach us to expect the same creature. This indeterminacy, this constant proliferation of contradiction and confusion in our understanding of Man, is our business. The Avalon Quarterly is a magazine of philanthropy; our task is the love of Man. But lovers ought to learn about each other.</p>
+<p data-edit-id="man-essay-p4">Hidden in the actions of any person, corporation, culture, state, or religion is a working model of what Man is, and what he is for. These are only sometimes made explicit. This is the assignment our writers will take up: through essay, fiction, and poetry, to find and make visible to readers what these hidden and half-hidden anthropologies are. These works can take as their subjects any of the works of Man across time and place, and approach their subjects through philosophy, ethnography, material development, or art, but must always be focused on his discovery: what is Man in this context? How is he revealed? What aspects of humanity are excluded? When do we observe that a person or group of people are unmanly, inhuman, inhumane, or otherwise animal?</p>
+<p data-edit-id="man-essay-p5">We must face these questions if we love Man. This is what the essays, poetry, and fiction published in the Avalon Quarterly will do. Writers will take up either their own perspective as one person in relationship to Man, or else present and interrogate the answers of other people and groups. They will never take for granted the hermeneutic through which they approach Man, mankind, humanity, or the human race. We can observe many different particular <em>men</em> and <em>women</em>—holy ones; great ones and terrible; homines sapientes, economici, ludentes and sacri. Hath anyone seen <em>Man</em> at any time?</p>
 </div>
-<div style="margin-bottom:2.5rem">
-<h3 data-edit-id="press-why-h3">Why Should You Write for Us</h3>
-<p data-edit-id="press-why-p1">If you write with us, your work will be published in our carefully crafted magazine. You’ll have a physical, tactile, and beautiful record of your intellectual work.</p>
-<p data-edit-id="press-why-p2">Moreover, we provide writers not only with editorial guidance but also scaffolding for the writing process: each cohort of writers will be given access to Avalon’s private events, including book clubs, writers' retreats, and a conference. We firmly believe writing and thinking together will both elevate the quality of your pieces and bring an aesthetic and intellectual continuity to the quarterly issue as a whole. It will also be a very fun time.</p>
-<p data-edit-id="press-why-p3">Writers receive a small honorarium, as well as writer copies of the print issue at the launch party.</p>
+</section>
+
+<div class="rule-echelon fade-in"><span class="rule-gold"></span><span class="rule-echelon-mark">◇</span><span class="rule-gold"></span></div>
+
+<section class="fade-in" id="guidelines">
+<div class="section-block">
+<h2 data-edit-id="man-looking-h2">What We’re Looking For</h2>
+<div class="section-block">
+<h3 data-edit-id="man-essays-h3">Essays</h3>
+<p data-edit-id="man-essays-p1">We accept essay submissions between 3,000 and 8,000 words. Essays should have a clear thesis, whether explicit or implicit, but we counsel writers that writing obliquely is often far more difficult than arguing in clear, lucid English. However, we do not publish essays with arguments lifelessly laid out in syllogistic series. If you feel compelled to write a fluffy, impressionistic essay, then it must be stylistically radiant. If you need to make a spare, unstylized argument, it must be analytically brilliant.</p>
+<p data-edit-id="man-essays-p2">Although we recognize that you are living, breathing human beings with your own unique experiences, we ask that essay submissions not be strictly autobiographical. We encourage a personal touch, but ask that writers take care to let the essays stand on their own.</p>
 </div>
-<div>
-<h3 data-edit-id="press-pitching-h3">Pitching</h3>
-<p data-edit-id="press-pitching-p1">If you’re interested in writing for the Avalon Quarterly, please submit a 200-600 word pitch to <a href="mailto:editors@avalon.institute">editors@avalon.institute</a>, describing your thesis, the authors or experiences with whom you’ll be in conversation, and the rough development of your argument. Please also provide a writing sample (or several, if so inclined). If you’re pitching poetry or a fiction piece, please provide a first draft in lieu of a pitch.</p>
-<p data-edit-id="press-pitching-p2">We’re very interested in publishing new writers who might not have a portfolio of published work. If this applies to you, please pitch your ideas without a writing sample, and we’ll work together to see if you’re a good fit.</p>
+<div class="section-block">
+<h3 data-edit-id="man-poetry-h3">Poetry</h3>
+<p data-edit-id="man-poetry-p">We welcome poetry submissions. Poems should be related to the theme of the issue. Writers can submit up to five poems.</p>
 </div>
-<div style="text-align:center;margin-top:3rem">
-<a class="btn btn-primary btn-lg btn-raised" data-edit-id="press-submissions-btn" href="/man/">Avalon Volume I: Submissions</a>
+<div class="section-block">
+<h3 data-edit-id="man-fiction-h3">Fiction</h3>
+<p data-edit-id="man-fiction-p">We are interested in publishing short fiction pieces in addition to the essays which make up the bulk of each Avalon Quarterly issue. Like poetry submissions, fiction pieces should address the questions raised by the issue’s chosen theme. Essays and fiction do not need to stick to conventional forms; we welcome cozenage, trickery, and all metatextual mixing of fiction and nonfiction. We have an innate distrust of autofiction: see our above stance on autobiographical writing in essays. Fiction pieces should be between 300 and 3,000 words.</p>
+</div>
+<div class="section-block">
+<h3 data-edit-id="man-presentism-h3">Against Presentism</h3>
+<p data-edit-id="man-presentism-p">The Avalon Quarterly aims to be a possession for all time. All essays, fiction, and poetry should be oriented towards eternal things. This holds doubly true for writing about contemporary politics: itself an ephemeral thing. The Avalon Quarterly holds no party line.</p>
+</div>
+</div>
+
+<div class="section-block">
+<h2 data-edit-id="man-ai-h2">A.I. Use Policy</h2>
+<p data-edit-id="man-ai-p">Do not use AI to write your submissions.</p>
+</div>
+
+<div class="section-block">
+<h2 data-edit-id="man-inspiration-h2">Inspiration</h2>
+<p data-edit-id="man-inspiration-p">The editorial board has been inspired by the following pieces. We encourage potential writers to read through some or all of these essays to get a sense for the kind of writing we’re seeking:</p>
+<p class="list-label" data-edit-id="man-insp-nonfiction-label">Nonfiction</p>
+<p data-edit-id="man-insp-nonfiction-list"><a href="https://philosophynow.org/issues/45/The_Last_Messiah" rel="noopener">Peter Wessel Zapffe, “The Last Messiah”</a><br/>
+<a href="https://web.archive.org/web/20240331053218/http://web.stanford.edu/~mvr2j/docs/Elmauer.pdf" rel="noopener">Peter Sloterdijk, “Rules for the Human Zoo: A Response to the Letter on Humanism”</a><br/>
+<a href="/pdfs/paul-valery-style.pdf" rel="noopener">Paul Valéry, “Style”</a><br/>
+<a href="https://samkriss.substack.com/p/i-love-america-and-the-world" rel="noopener">Sam Kriss, “I Love America and the World”</a><br/>
+<a href="https://nautil.us/the-kekul-problem-236574" rel="noopener">Cormac McCarthy, “The Kekulé Problem”</a><br/>
+<a href="https://www.testpressing.org/magazine/esquirethe-faith-of-graffitinorman-mailer" rel="noopener">Norman Mailer, “The Faith of Graffiti”</a><br/>
+Ryszard Kapuściński, “Inside the Mountain of Ice”</p>
+<p class="list-label" data-edit-id="man-insp-fiction-label">Fiction</p>
+<p data-edit-id="man-insp-fiction-list"><a href="https://ciudadseva.com/texto/la-loteria-en-babilonia/" rel="noopener">Jorge Luis Borges, “La lotería en Babilonia”</a> (<a href="https://web.itu.edu.tr/inceogl4/modernism/lotteryofbabylon.pdf" rel="noopener">English</a>)<br/>
+Michel Houellebecq, <em>Soumission</em><br/>
+Ted Chiang, “The Merchant and the Alchemist’s Gate”</p>
+<p class="list-label" data-edit-id="man-insp-poetry-label">Poetry</p>
+<p data-edit-id="man-insp-poetry-list"><a href="https://poets.org/poem/archaic-torso-apollo" rel="noopener">Rilke, “Archaic Torso of Apollo”</a><br/>
+<a href="https://www.poetryfoundation.org/poems/43292/leda-and-the-swan" rel="noopener">Yeats, “Leda and the Swan”</a><br/>
+<a href="https://www.thelatinlibrary.com/horace/carm1.shtml" rel="noopener">Horace, Ode 1.3</a> (<a href="https://www.poetryintranslation.com/PITBR/Latin/HoraceOdesBkI.php#anchor_Toc39402009" rel="noopener">English</a>)<br/>
+<a href="https://www.poetryfoundation.org/poems/48635/book-of-isaiah-part-i" rel="noopener">Carson, Book of Isaiah</a><br/>
+<a href="https://www.poetryfoundation.org/poems/44214/preludes-56d22338dc954" rel="noopener">T. S. Eliot, “Preludes”</a><br/>
+<a href="https://standardebooks.org/ebooks/t-e-lawrence/seven-pillars-of-wisdom/text/dedication" rel="noopener">T. E. Lawrence, <em>Seven Pillars of Wisdom</em> — Dedication</a></p>
+</div>
+
+<div class="section-block">
+<h2 data-edit-id="man-else-h2">Everything Else</h2>
+<p data-edit-id="man-else-p">Do you have a great idea for a piece that doesn’t fit within any of our guidelines? Are you interested in writing a book review or a piece wildly outside of the current issue topic? You are welcome to <a href="mailto:editors@avalon.institute">email our editorial board</a> regarding any of the above and more. We will be publishing pieces on the Avalon Press Substack outside of the quarterly print editions — feel free to pitch us on a Substack piece too!</p>
 </div>
 </section>
 
 <div class="rule-echelon fade-in" style="margin-top:1rem"><span class="rule-gold"></span><span class="rule-echelon-mark">◇</span><span class="rule-gold"></span></div>
 <footer class="fade-in">
-<div class="footer-text" data-edit-id="press-footer-text">The Avalon Institute · Twin Peaks, San Francisco</div>
+<div class="footer-text" data-edit-id="man-footer-text">The Avalon Institute · Twin Peaks, San Francisco</div>
 <div class="footer-links">
 <a href="https://x.com/AvalonInst">X / Twitter</a>
 <a href="mailto:wallis@avalon.institute">Contact</a>
