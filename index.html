@@ -107,11 +107,12 @@
   }
 
   /* ─── RULE SYSTEM ─── */
+  /* Avalon style: light website echelons use a soft rule plus the quiet diamond hinge. */
   .rule-gold {
     display: block;
     width: 100%;
     height: 1px;
-    background: linear-gradient(to right, transparent, var(--gold-dim), var(--gold), var(--gold-dim), transparent);
+    background: linear-gradient(to right, transparent, rgba(154, 106, 31, 0.7), var(--gold), rgba(154, 106, 31, 0.7), transparent);
   }
   .rule-double {
     display: flex;
@@ -119,16 +120,21 @@
     gap: 4px;
   }
   .rule-double .rule-gold:first-child { opacity: 0.4; }
-  .rule-echelon { display: flex; align-items: center; gap: 0.75rem; }
-  .rule-echelon .rule-gold { flex: 1; }
-  .rule-echelon-mark { color: var(--gold); font-family: 'Cinzel', serif; font-size: 0.75rem; line-height: 1; flex-shrink: 0; }
+  .rule-echelon { display: flex; align-items: center; gap: 0.95rem; max-width: 640px; margin-left: auto; margin-right: auto; }
+  .rule-echelon .rule-gold { flex: 1; opacity: 0.72; }
+  .rule-echelon-mark { color: var(--gold); font-family: 'Cinzel', serif; font-size: 0.7rem; line-height: 1; flex-shrink: 0; transform: translateY(-0.02em); opacity: 0.92; }
 
-  nav { padding: 1.5rem 2.5rem 0.5rem; display: flex; justify-content: flex-end; gap: 2.5rem; font-family: 'Cinzel', serif; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; position: relative; z-index: 1; }
+  nav { padding: 1.5rem 2.5rem 0.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2.5rem; font-family: 'Cinzel', serif; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; position: relative; z-index: 1; }
   nav::before { content: ''; position: absolute; top: 0.7rem; right: 0.7rem; width: 22px; height: 22px; border-top: 1px solid var(--gold-dim); border-right: 1px solid var(--gold-dim); pointer-events: none; }
   body { position: relative; }
   body::after { content: ''; position: absolute; bottom: 0.7rem; right: 0.7rem; width: 22px; height: 22px; border-bottom: 1px solid var(--gold-dim); border-right: 1px solid var(--gold-dim); pointer-events: none; z-index: 1; }
-  @media (max-width: 640px) { nav { padding: 1rem 1.25rem 0.5rem; gap: 0.9rem 1.25rem; font-size: 0.72rem; flex-wrap: wrap; justify-content: center; } }
-  @media (max-width: 360px) { nav { padding-right: 0.75rem; padding-left: 0.75rem; gap: 0.75rem; font-size: 0.62rem; letter-spacing: 0.15em; } }
+  .nav-brand { color: var(--gold-dim); font-size: 0.66rem; letter-spacing: 0.28em; white-space: nowrap; opacity: 0.82; }
+  .nav-links { display: flex; justify-content: flex-end; gap: 2.5rem; }
+  @media (max-width: 760px) {
+    nav { padding: 1rem 1.25rem 0.5rem; gap: 0.9rem 1.25rem; font-size: 0.72rem; flex-direction: column; justify-content: center; }
+    .nav-links { gap: 0.9rem 1.25rem; flex-wrap: wrap; justify-content: center; }
+    .nav-brand { font-size: 0.6rem; letter-spacing: 0.24em; }
+  }
   nav a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
   nav a:hover { color: var(--cream); }
 
@@ -192,6 +198,16 @@
   .btn-primary { background: var(--gold); color: var(--green-deep); }
   .btn-primary:hover { background: var(--gold-dim); border-color: var(--gold-dim); }
   .btn-group { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-top: 1.75rem; }
+  .action-cluster { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin: 1.35rem 0 3.3rem; align-items: center; }
+  .visit-stack { position: relative; display: inline-flex; flex-direction: column; align-items: center; }
+  .visit-caption { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); width: min(360px, calc(100vw - 2.5rem)); padding-top: 0.55rem; color: var(--text-dim); font-size: 0.9rem; font-style: italic; text-align: center; line-height: 1.45; margin: 0; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; z-index: 2; }
+  .visit-stack:hover .visit-caption,
+  .visit-stack:focus-within .visit-caption { opacity: 1; pointer-events: auto; }
+  .visit-caption a { color: var(--gold-dim); text-decoration: none; }
+  .visit-caption a:hover { color: var(--gold); }
+  @media (max-width: 640px) {
+    .visit-caption { left: 50%; right: auto; transform: translateX(-78%); width: min(320px, calc(100vw - 2.5rem)); }
+  }
 
   /* Hover/focus tooltip — wrapper preserves .btn's ::after corner-bracket */
   .tooltip-wrap { position: relative; display: inline-block; }
@@ -218,6 +234,15 @@
 
   .featured-program { border: 1px solid var(--green-muted); padding: 2.5rem; margin: 2rem 0 0; }
   @media (max-width: 640px) { .featured-program { padding: 1.75rem 1.5rem; } }
+
+  .series-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; text-align: center; }
+  @media (max-width: 640px) { .series-grid { grid-template-columns: 1fr; gap: 1.25rem; } }
+  .series-grid h3 { margin-bottom: 0; }
+  .series-more { text-align: center; color: var(--text-dim); font-size: 0.9rem; font-style: italic; margin: 1.5rem 0 0; }
+  .press-link { display: inline-flex; align-items: baseline; gap: 0.4em; text-decoration: none; }
+  .press-link h3 { margin-bottom: 0; transition: color 0.2s; }
+  .press-link .press-arrow { color: var(--gold-dim); transition: color 0.2s; }
+  .press-link:hover h3, .press-link:hover .press-arrow { color: var(--cream); }
 
   .mailing-list-section { text-align: center; }
   .mailing-list-section .section-header { margin-bottom: 0.8rem; }
@@ -262,11 +287,15 @@
 <body>
 <a href="avalon-prospectus.pdf" hidden aria-hidden="true" rel="nofollow">Avalon Prospectus</a>
 <nav>
+<a class="nav-brand" href="/" aria-label="The Avalon Institute home">The Avalon Institute</a>
+<div class="nav-links">
 <a href="#about">About</a>
 <a href="#house">Avalon House</a>
 <a href="#programs">Programming</a>
 <a href="calendar/">Calendar</a>
+<a href="press/">Press</a>
 <a href="#support">Support</a>
+</div>
 </nav>
 <div class="page-wrap">
 <header class="masthead fade-in">
@@ -299,6 +328,13 @@
 <p data-edit-id="about-p-institute"><span id="institute" style="color: rgb(154, 106, 31); font-variant-caps: small-caps; font-weight: 600; letter-spacing: 0.72px;">Avalon Institute&nbsp;</span>builds the capacity needed to draw enduring work into the world. Through technical and media support, publications, and the cultivation of a network, Avalon turns fellowship into a foundation. We work to maintain an ecology of collaboration and exchange where many projects can carve out a home.</p>
 <p data-edit-id="house-p-3" style="color:var(--text-dim);font-size:0.9rem;font-style:italic;margin-top:1.5rem">We co-host with organisations that share a deep intellectual or cultural focus. <a href="mailto:wallis@avalon.institute" style="color:var(--gold-dim);text-decoration:none">Reach out →</a></p>
 </section>
+<div class="action-cluster fade-in">
+<a class="btn btn-primary" href="https://buy.stripe.com/14A9AT5zFdQnfok2bl3gk00">Donate</a>
+<div class="visit-stack">
+<a class="btn" href="mailto:wallis@avalon.institute?subject=Avalon%20Open%20House">Visit</a>
+<p class="visit-caption" data-edit-id="visit-caption">Avalon has an open house on the <a href="mailto:wallis@avalon.institute?subject=Avalon%20Open%20House">first Saturday of every month</a>.</p>
+</div>
+</div>
 <section class="fade-in" id="programs">
 <div class="section-header" style="display:flex;align-items:baseline;gap:0.55em"><span aria-hidden="true" style="color:var(--gold);font-family:'Cinzel',serif;font-size:0.85rem">◇</span><span class="section-title" data-edit-id="programs-label-programming" style="margin-bottom:0">Programming</span></div>
 <div style="display:flex;align-items:center;gap:1.25rem;margin:1.5rem 0 1.5rem">
@@ -329,9 +365,16 @@
 <h3 data-edit-id="programs-conferences-h3" style="font-family:'Cinzel',serif;font-size:clamp(1.3rem,2.5vw,1.7rem);font-weight:500;color:var(--gold);text-align:center;text-transform:none;letter-spacing:0.06em;margin:0 0 1.4rem">Avalon Conferences</h3>
 <p data-edit-id="programs-conferences-p">We're building an apparatus to scale what we do across fields. The leading events in many disciplines have grown listless; we will run the conferences that ought to be happening, working with scholars and patrons across institutional lines. Each event brings our network closer to something capable of changing intellectual culture.</p>
 </div>
-<div class="grid-2" style="margin-top:2.5rem;text-align:center">
-<div><h3 data-edit-id="programs-h3-press">Avalon Press</h3></div>
-<div><h3 data-edit-id="programs-h3-continuity">Conversations on Continuity</h3></div>
+<div class="featured-program" style="margin-top:2rem">
+<span class="section-label" data-edit-id="programs-series-label" style="display:block;text-align:center;margin-bottom:1.4rem">Lecture Series</span>
+<div class="series-grid">
+<div><h3 data-edit-id="programs-series-education" style="font-family:'Cinzel',serif;font-size:clamp(1.05rem,2vw,1.3rem);font-weight:500;color:var(--gold);text-transform:none;letter-spacing:0.06em">Avalon Education Series</h3></div>
+<div><h3 data-edit-id="programs-series-economics" style="font-family:'Cinzel',serif;font-size:clamp(1.05rem,2vw,1.3rem);font-weight:500;color:var(--gold);text-transform:none;letter-spacing:0.06em">Avalon Economics Series</h3></div>
+</div>
+<p class="series-more" data-edit-id="programs-series-more">More to come.</p>
+</div>
+<div style="margin-top:2.5rem;text-align:center">
+<a class="press-link" href="press/"><h3 data-edit-id="programs-h3-press">Avalon Press</h3><span class="press-arrow" aria-hidden="true">→</span></a>
 </div>
 </section>
 <span class="rule-gold fade-in"></span>
