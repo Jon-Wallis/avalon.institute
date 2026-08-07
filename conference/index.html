@@ -191,8 +191,13 @@
   .rv-h:first-child { margin-top: 2px; }
   #rv-modes { display: flex; gap: 4px; }
   #rv-modes button {
-    flex: 1; padding: 7px 2px; border: 1px solid #3a4048; background: #262b33; color: #c6cad2;
-    border-radius: 4px; cursor: pointer; font: 600 11.5px -apple-system, sans-serif;
+    flex: 1; padding: 7px 1px; border: 1px solid #3a4048; background: #262b33; color: #c6cad2;
+    border-radius: 4px; cursor: pointer; font: 600 10.5px -apple-system, sans-serif;
+  }
+  @media (max-width: 700px) {
+    html.rv-open body { margin-right: 0; }
+    #rv-panel { width: min(320px, 86vw); }
+    html.rv-open #rv-tab { right: calc(min(320px, 86vw) + 12px); }
   }
   #rv-modes button.on { background: #b26e45; border-color: #b26e45; color: #fff; }
   #rv-hint { color: #9aa2ae; margin-top: 7px; min-height: 30px; }
@@ -223,6 +228,9 @@
   body[data-rvmode="hide"] [data-rid]:hover { outline: 1.5px dashed #c0554a; outline-offset: 2px; cursor: pointer; }
   body[data-rvmode="move"] [data-rid]:hover { outline: 1.5px solid #4a7bb5; outline-offset: 2px; cursor: grab; }
   body[data-rvmode="move"] { user-select: none; }
+  body[data-rvmode="copy"] [data-copy-id] { cursor: text; }
+  body[data-rvmode="copy"] [data-copy-id]:hover { outline: 1px dashed #b26e45; outline-offset: 3px; }
+  body[data-rvmode="copy"] [data-copy-id]:focus { outline: 1px solid #d99e6d; outline-offset: 3px; background: rgba(216,154,58,0.06); }
   .rv-selected { outline: 2px solid #4a7bb5 !important; outline-offset: 2px; }
   .rv-dragging { opacity: 0.45; }
   .rv-hidden { opacity: 0.14; outline: 1px dashed #c0554a; outline-offset: 2px; }
@@ -489,6 +497,7 @@
   <div id="rv-modes">
     <button data-mode="browse" class="on">Browse</button>
     <button data-mode="notes">Notes</button>
+    <button data-mode="copy">Copy</button>
     <button data-mode="move">Move</button>
     <button data-mode="hide">Hide</button>
   </div>
@@ -536,7 +545,7 @@
   <div id="rv-notelist"></div>
 
   <div class="rv-foot">
-    Move mode: drag cards/guests/strands to reorder; drag the blue chips to reorder whole sections; drag anything else to nudge it freely. Click selects — arrow keys nudge (⇧ = ×8), double-click resets. Everything autosaves in your browser; when you're done, hit "Show summary" and send Jonathan the text (or the exported JSON).
+    Move mode: drag cards/guests/strands to reorder; blue chips move whole sections; anything else nudges freely (click + arrows, double-click resets). Copy mode: click prose and retype it — emptied elements restore themselves. Everything autosaves in your browser; when you're done, hit "Show summary" and send Jonathan the text (or the exported JSON).
   </div>
 </aside>
 
@@ -555,11 +564,12 @@
   var LSKEY = 'expo-review-d-v1';
   var TOKENS = { parchment: '#EEE6D5', ink: '#10253F', copper: '#B26E45', 'mast-scale': 1, 'body-size': 18, 'label-track': 0.32, content: 1020, 'sect-pad': 1, 'toprail-h': 10 };
   var TOKEN_UNITS = { 'body-size': 'px', 'label-track': 'em', content: 'px', 'toprail-h': 'px' };
-  var state = { tokens: {}, toggles: { portrait: 'circle', mastcase: 'upper' }, order: {}, moves: {}, hidden: [], notes: [], floats: [] };
+  var state = { tokens: {}, toggles: { portrait: 'circle', mastcase: 'upper' }, order: {}, moves: {}, hidden: [], notes: [], floats: [], copy: {} };
   var defaultOrder = {};
   var mode = 'browse';
   var selected = null;
   var noteSeq = 1;
+  var floatArm = false;
 
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
@@ -576,7 +586,7 @@
   }
   function load() {
     if (!storageOK) return;
-    try { var raw = localStorage.getItem(LSKEY); if (raw) { var s = JSON.parse(raw); ['tokens','toggles','order','moves','hidden','notes','floats'].forEach(function(k){ if (s[k] !== undefined) state[k] = s[k]; }); } } catch (e) {}
+    try { var raw = localStorage.getItem(LSKEY); if (raw) { var s = JSON.parse(raw); ['tokens','toggles','order','moves','hidden','notes','floats','copy'].forEach(function(k){ if (s[k] !== undefined) state[k] = s[k]; }); } } catch (e) {}
   }
 
   /* ---------- containers / order ---------- */
@@ -646,10 +656,75 @@
   $('#sg-portrait').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; state.toggles.portrait = b.dataset.v; applyToggles(state.toggles); syncTokenUI(); save(); });
   $('#sg-mastcase').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; state.toggles.mastcase = b.dataset.v; applyToggles(state.toggles); syncTokenUI(); save(); });
 
+  /* ---------- copy mode ---------- */
+  var COPY_SEL = 'p, h1, h3, h4, .label, .t-label, .eyebrow, .masthead-sub, .day-date, .evening-sub, .k, .name, .role, .mast-meta span, .nav-brand, .nav-links a, .btn, .evening-link, footer';
+  var copyOriginals = new Map();
+  var copyTimer = null;
+  function assignCopyIds() {
+    var seen = {};
+    $$(COPY_SEL).forEach(function (el) {
+      if (el.closest('#rv-panel,#rv-popover,#rv-modal,#rv-overlay,.rv-float,.rv-grip,.rv-label')) return;
+      if (el.querySelector(COPY_SEL)) return;
+      var host = el.closest('[data-rid]');
+      var base = el.dataset.rid || (host ? host.dataset.rid : 'page');
+      var id = base, n = 2;
+      while (seen[id]) id = base + '-' + n++;
+      seen[id] = 1;
+      el.setAttribute('data-copy-id', id);
+      copyOriginals.set(id, el.innerHTML);
+    });
+  }
+  function byCopyId(id) { return $('[data-copy-id="' + id + '"]'); }
+  function applyCopy(copy) {
+    copyOriginals.forEach(function (orig, id) {
+      var el = byCopyId(id);
+      if (!el) return;
+      var want = copy[id] !== undefined ? copy[id] : orig;
+      if (el.innerHTML !== want) el.innerHTML = want;
+    });
+  }
+  function isEmptyHtml(html) {
+    var d = document.createElement('div');
+    d.innerHTML = html;
+    return d.textContent.trim() === '' && !d.querySelector('img');
+  }
+  function plainText(html, max) {
+    var d = document.createElement('div');
+    d.innerHTML = html || '';
+    var t = d.textContent.replace(/\s+/g, ' ').trim();
+    return t.length > max ? t.slice(0, max - 1) + '…' : t;
+  }
+  function commitCopy(el) {
+    var id = el.getAttribute('data-copy-id');
+    if (!id || !copyOriginals.has(id)) return;
+    if (el.innerHTML === copyOriginals.get(id)) delete state.copy[id];
+    else state.copy[id] = el.innerHTML;
+    save();
+  }
+  var copyPending = null;
+  function recordCopyEdit(el) {
+    if (copyPending && copyPending !== el) commitCopy(copyPending);
+    copyPending = el;
+    clearTimeout(copyTimer);
+    copyTimer = setTimeout(function () { commitCopy(el); copyPending = null; }, 300);
+  }
+  function guardCopyBlur(el) {
+    var id = el.getAttribute('data-copy-id');
+    if (!id || !copyOriginals.has(id)) return;
+    if (isEmptyHtml(el.innerHTML) && !isEmptyHtml(copyOriginals.get(id))) {
+      el.innerHTML = copyOriginals.get(id);
+      delete state.copy[id];
+      save();
+      el.classList.remove('rv-flash'); void el.offsetWidth; el.classList.add('rv-flash');
+      $('#rv-hint').textContent = 'Emptied element restored to its original wording.';
+    }
+  }
+
   /* ---------- modes ---------- */
   var HINTS = {
     browse: 'Plain browsing. Links work; the tool stays out of the way.',
     notes: 'Click any outlined element to pin a note to it. Numbered dots mark existing notes.',
+    copy: 'Click any prose and retype it in place. Edits save automatically; emptied elements restore themselves. Links are off while editing.',
     move: 'Drag guests / day cards / strands to reorder. Drag blue section chips to reorder whole sections. Drag anything else to nudge it; click + arrows for fine moves; double-click resets.',
     hide: 'Click an element to mute it (kept at 14% so you can compare with / without). Click again to restore.'
   };
@@ -658,6 +733,8 @@
     $$('#rv-modes button').forEach(function (b) { b.classList.toggle('on', b.dataset.mode === m); });
     $('#rv-hint').textContent = HINTS[m];
     if (m !== 'move') clearSelection();
+    var editable = m === 'copy';
+    $$('[data-copy-id]').forEach(function (el) { el.contentEditable = editable ? 'true' : 'false'; });
     renderGrips();
   }
   $('#rv-modes').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) setMode(b.dataset.mode); });
@@ -715,6 +792,7 @@
   $('.cancel', popover).addEventListener('click', closePopover);
 
   document.addEventListener('click', function (e) {
+    if (floatArm) return;
     if (e.target.closest('#rv-panel,#rv-popover,#rv-tab,.rv-grip,.rv-float,#rv-modal')) return;
     var marker = e.target.closest('.rv-marker');
     if (marker) { var rid = marker.dataset.rid; var el = byRid(rid); if (el) openPopover(rid, el.getBoundingClientRect()); return; }
@@ -939,8 +1017,37 @@
     document.body.appendChild(d);
   }
   $('#rv-addfloat').addEventListener('click', function () {
-    var f = { id: Date.now(), x: window.scrollX + 120, y: window.scrollY + 140, text: '' };
+    floatArm = true;
+    $('#rv-hint').textContent = 'Click anywhere on the page to drop the note.';
+  });
+  document.addEventListener('click', function (e) {
+    if (!floatArm) return;
+    if (e.target.closest('#rv-panel,#rv-tab,#rv-popover,#rv-modal')) return;
+    floatArm = false;
+    e.preventDefault(); e.stopPropagation();
+    var f = { id: Date.now(), x: Math.max(8, e.pageX - 105), y: e.pageY - 10, text: '' };
     state.floats.push(f); makeFloat(f); save();
+    $('#rv-hint').textContent = HINTS[mode];
+  }, true);
+  document.addEventListener('input', function (e) {
+    if (mode !== 'copy') return;
+    var el = e.target.closest && e.target.closest('[data-copy-id]');
+    if (el) recordCopyEdit(el);
+  });
+  document.addEventListener('blur', function (e) {
+    if (mode !== 'copy') return;
+    var el = e.target && e.target.closest ? e.target.closest('[data-copy-id]') : null;
+    if (el) { guardCopyBlur(el); commitCopy(el); }
+  }, true);
+  document.addEventListener('keydown', function (e) {
+    if ((e.metaKey || e.ctrlKey) && (e.key === 's' || e.key === 'S')) {
+      e.preventDefault();
+      var ae = document.activeElement;
+      if (ae && ae.closest) { var ce = ae.closest('[data-copy-id]'); if (ce) commitCopy(ce); }
+      clearTimeout(saveTimer);
+      try { localStorage.setItem(LSKEY, JSON.stringify(state)); } catch (err) {}
+      $('#rv-hint').textContent = 'Saved.';
+    }
   });
 
   /* ---------- original preview / export / import / reset ---------- */
@@ -948,12 +1055,12 @@
   function showOriginal(on) {
     if (on) {
       applyTokens(TOKENS); applyToggles({ portrait: 'circle', mastcase: 'upper' });
-      applyOrder(defaultOrder); applyMoves({}); applyHidden([]);
+      applyOrder(defaultOrder); applyMoves({}); applyHidden([]); applyCopy({});
       origBtn.textContent = 'Original D (release to return)';
     } else {
       applyTokens(state.tokens); applyToggles(state.toggles);
       applyOrder(Object.keys(state.order).length ? state.order : defaultOrder);
-      applyMoves(state.moves); applyHidden(state.hidden);
+      applyMoves(state.moves); applyHidden(state.hidden); applyCopy(state.copy);
       origBtn.textContent = 'Hold to see original D';
     }
     schedulePosition(); renderGrips();
@@ -977,6 +1084,13 @@
     var mv = Object.keys(state.moves);
     if (mv.length) { lines.push('', '## Nudged elements (dx, dy px)'); mv.forEach(function (rid) { lines.push('- ' + rid + ': ' + state.moves[rid][0] + ', ' + state.moves[rid][1]); }); }
     if (state.hidden.length) { lines.push('', '## Hidden'); state.hidden.forEach(function (rid) { lines.push('- ' + rid); }); }
+    var ck = Object.keys(state.copy);
+    if (ck.length) {
+      lines.push('', '## Copy edits (old -> new)');
+      ck.forEach(function (id) {
+        lines.push('- [' + id + '] "' + plainText(copyOriginals.get(id), 60) + '" -> "' + plainText(state.copy[id], 140) + '"');
+      });
+    }
     if (state.notes.length) { lines.push('', '## Notes'); state.notes.forEach(function (n, i) { lines.push((i + 1) + '. [' + n.rid + '] ' + n.text.replace(/\n/g, ' / ')); }); }
     if (state.floats.length) { lines.push('', '## Floating notes (page x,y)'); state.floats.forEach(function (f) { lines.push('- (' + Math.round(f.x) + ',' + Math.round(f.y) + ') ' + (f.text || '').replace(/\n/g, ' / ')); }); }
     if (lines.length === 1) lines.push('', '(no changes or notes yet)');
@@ -1008,7 +1122,7 @@
       try {
         var payload = JSON.parse(reader.result);
         var s = payload.state || payload;
-        ['tokens','toggles','order','moves','hidden','notes','floats'].forEach(function(k){ if (s[k] !== undefined) state[k] = s[k]; });
+        ['tokens','toggles','order','moves','hidden','notes','floats','copy'].forEach(function(k){ if (s[k] !== undefined) state[k] = s[k]; });
         save(); location.reload();
       } catch (e) { alert('Could not read that file as review state.'); }
     };
@@ -1024,6 +1138,7 @@
   $('#rv-tab').addEventListener('click', function () { document.documentElement.classList.toggle('rv-open'); schedulePosition(); });
 
   /* ---------- boot ---------- */
+  assignCopyIds();
   captureDefaults();
   load();
   if (state.notes.length) noteSeq = Math.max.apply(null, state.notes.map(function (n) { return n.id || 0; })) + 1;
@@ -1032,6 +1147,7 @@
   if (Object.keys(state.order).length) applyOrder(state.order);
   applyMoves(state.moves);
   applyHidden(state.hidden);
+  applyCopy(state.copy);
   state.floats.forEach(makeFloat);
   syncTokenUI();
   renderNotes();
