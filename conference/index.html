@@ -85,6 +85,8 @@
   .lede { font-size: 1.18rem; text-align: center; color: var(--ink-soft); }
   .lede + .lede { margin-top: 1.1rem; }
   .lede .lead-in { font-variant: small-caps; letter-spacing: 0.05em; font-weight: 600; color: var(--copper-deep); }
+  .lede a { color: var(--copper-deep); text-decoration: none; border-bottom: 1px solid var(--copper-faint); transition: border-color 0.3s; }
+  .lede a:hover { border-bottom-color: var(--copper-deep); }
   .days { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--ink); background: var(--parchment-card); }
   @media (max-width: 780px) { .days { grid-template-columns: 1fr; } }
   .day { padding: 2rem 1.7rem 1.9rem; border-right: 1px solid var(--ink-hair); }
@@ -288,15 +290,13 @@
   <div class="nav-links">
     <a href="#occasion">About</a>
     <a href="#company">Speakers</a>
-    <a href="#programme">Format</a>
-    <a href="#days">Schedule</a>
+    <a href="#institute">The Institute</a>
     <a href="halloween/">Halloween Evening</a>
     <a href="#tickets">Tickets</a>
   </div>
 </nav>
 
 <header class="masthead" data-rid="masthead" data-rsection="Masthead">
-  <div class="eyebrow" data-rid="eyebrow">The Avalon Institute Presents</div>
   <h1 data-rid="mast-title">The Avalon<br/>Exposition</h1>
   <p class="masthead-sub" data-rid="mast-sub">For renewing the study and expression of mankind</p>
   <div class="mast-rules" data-rid="mast-rules"></div>
@@ -314,8 +314,9 @@
 <section id="occasion" data-rid="occasion" data-rsection="About">
   <div class="section-head" data-rid="occasion-label"><span class="line"></span><span class="label">What is the Avalon Exposition?</span><span class="line"></span></div>
   <div class="measure">
-    <p class="lede" data-rid="lede-1">Avalon wants to radically restructure the study of mankind. We believe that in order to study man, it is necessary to unite the means of expression with many different fields of study in the same place, under a subject of shared inquiry.</p>
+    <p class="lede" data-rid="lede-1">Avalon aims to radically restructure the study of mankind. We believe that in order to study man well, it is necessary to unite many forms of study and expression in a single place.</p>
     <p class="lede" data-rid="lede-2">We are inviting our friends, allies, and everyone who wants to put the life of the mind on a new footing to share their work and art. We aim to create a cornucopia of expression in a free and open format.</p>
+    <p class="lede" data-rid="lede-3">The Avalon Exposition is a festival dedicated to the study of mankind.</p>
   </div>
 </section>
 
@@ -356,97 +357,19 @@
   </div>
 </section>
 
-<section id="programme" data-rid="programme" data-rsection="Format">
-  <div class="section-head" data-rid="programme-label"><span class="line"></span><span class="label">Format</span><span class="line"></span></div>
-  <div class="wide">
-    <p class="bill-intro" data-rid="bill-intro">Avalon pins the first cards. The rest of the board is open — most of the exposition is brought by the people who come.</p>
-    <div class="board" data-sortable="board">
-      <div class="card" data-rid="card-theater">
-        <span class="k">Avalon Brings</span>
-        <h3>A Theatrical Production</h3>
-        <p>Full production, designed and built for this weekend.</p>
-      </div>
-      <div class="card" data-rid="card-music">
-        <span class="k">Avalon Brings</span>
-        <h3>A Show of New Music</h3>
-        <p>Written for the occasion, performed live.</p>
-      </div>
-      <div class="card" data-rid="card-talks">
-        <span class="k">Avalon Brings</span>
-        <h3>Talks &amp; Demonstrations</h3>
-        <p>A slate from Avalon's own work in the study and expression of human nature.</p>
-      </div>
-      <div class="card" data-rid="card-film">
-        <span class="k">Avalon Brings</span>
-        <h3>A Short Film</h3>
-        <p>If the cut is ready.</p>
-      </div>
-      <div class="card open" data-rid="slot-1">
-        <span class="k">Open Slot</span>
-        <h3>Your Talk</h3>
-        <p>An hour on the thing you know best.</p>
-      </div>
-      <div class="card open" data-rid="slot-2">
-        <span class="k">Open Slot</span>
-        <h3>Your Demonstration</h3>
-        <p>Shown working, not described.</p>
-      </div>
-      <div class="card open" data-rid="slot-3">
-        <span class="k">Open Slot</span>
-        <h3>Your Performance</h3>
-        <p>Any scale, any form.</p>
-      </div>
-      <div class="card open" data-rid="slot-4">
-        <span class="k">Open Slot</span>
-        <h3>Your Session</h3>
-        <p>Proposed on the wall, filled by whoever it draws.</p>
-      </div>
-    </div>
+<section id="institute" data-rid="institute" data-rsection="The Institute">
+  <div class="section-head" data-rid="institute-label"><span class="line"></span><span class="label">What is the Avalon Institute?</span><span class="line"></span></div>
+  <div class="measure">
+    <p class="lede" data-rid="institute-lede-1">Avalon is dedicated to creating the intimacy necessary for the collective pursuit of truth.</p>
+    <p class="lede" data-rid="institute-lede-2">The Institute continuously experiments with formats that cultivate and communicate passion, building the network and infrastructure needed to found a new home for the revival of art and thought. <a href="https://avalon.institute">avalon.institute</a></p>
   </div>
 </section>
 
-<section id="days" data-rid="days" data-rsection="Schedule">
-  <div class="section-head" data-rid="days-label"><span class="line"></span><span class="label">Schedule</span><span class="line"></span></div>
-  <div class="wide">
-    <div class="days" data-sortable="days">
-      <div class="day" data-rid="day-1">
-        <div class="day-no">I.</div>
-        <div class="day-date">Friday · October 30</div>
-        <p>Arrival and first talks. The floor opens in the first hour: sessions go up as they are proposed.</p>
-      </div>
-      <div class="day" data-rid="day-2">
-        <div class="day-no">II.</div>
-        <div class="day-date">Saturday · October 31</div>
-        <p>The exposition at full tilt: the slate, the demonstrations, the performances.</p>
-        <a class="evening-link" id="evening" data-rid="evening-link" href="halloween/">The Halloween Evening&nbsp;→</a>
-        <div class="evening-sub" data-rid="evening-sub">Black Tie · Confirm with Your Ticket</div>
-      </div>
-      <div class="day" data-rid="day-3">
-        <div class="day-no">III.</div>
-        <div class="day-date">Sunday · November 1</div>
-        <p>The clocks fall back overnight, so the last day begins with an extra hour. Closing sessions, and plans made in the open.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="grounds" data-rid="grounds" data-rsection="The Venue">
-  <div class="section-head" data-rid="grounds-label"><span class="line"></span><span class="label">The Venue</span><span class="line"></span></div>
-  <div class="wide">
-    <div class="cols3" data-sortable="grounds">
-      <div class="col" data-rid="grounds-venue">
-        <h3>Lighthaven</h3>
-        <p>A walled campus in Berkeley built for exactly this: stages, salons, gardens, and corners to talk in until late.</p>
-      </div>
-      <div class="col" data-rid="grounds-days">
-        <h3>Days &amp; Nights</h3>
-        <p>Sessions through the day, performances and the long table into the evening. The campus stays open late.</p>
-      </div>
-      <div class="col" data-rid="grounds-getting">
-        <h3>Getting There</h3>
-        <p>Ten minutes from downtown Berkeley BART. Lodging notes and travel details with your ticket.</p>
-      </div>
-    </div>
+<section id="grounds" data-rid="grounds" data-rsection="Where">
+  <div class="section-head" data-rid="grounds-label"><span class="line"></span><span class="label">Where is the Avalon Exposition?</span><span class="line"></span></div>
+  <div class="measure">
+    <p class="lede" data-rid="grounds-lede-1">Lighthaven — a walled campus at 2740 Telegraph Avenue, Berkeley, built for exactly this: stages, salons, gardens, and corners to talk in until late.</p>
+    <p class="lede" data-rid="grounds-lede-2">Ten minutes from downtown Berkeley BART. Lodging notes and travel details come with your ticket.</p>
   </div>
 </section>
 
