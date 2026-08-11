@@ -117,6 +117,8 @@
   .track-head .t-label { font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--ink); white-space: nowrap; }
   .track-head .t-count { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--copper-deep); }
   .track-head .line { flex: 1; height: 1px; background: var(--ink-hair); transform: translateY(-0.2em); }
+  .namelist { font-size: 1.1rem; line-height: 2.1; color: var(--ink); margin: 0; }
+  .namelist .sep { color: var(--copper); padding: 0 0.45rem; }
   .bill-intro { max-width: 620px; margin: 0 auto 2.2rem; text-align: center; font-size: 1.12rem; color: var(--ink-soft); }
   .board { display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 1.1rem; }
   .card { border: 1px solid var(--ink); background: var(--parchment-card); padding: 1.4rem 1.3rem 1.3rem; }
@@ -323,37 +325,22 @@
 <section id="company" data-rid="company" data-rsection="Speakers">
   <div class="section-head" data-rid="company-label"><span class="line"></span><span class="label">Speakers and Performers</span><span class="line"></span></div>
   <div class="wide">
-    <p class="company-sub" data-rid="company-legend">Confirmed / invited.</p>
-    <div class="track-head" data-rid="track-humanities"><span class="t-label">The Humanities</span><span class="line"></span></div>
-    <div class="wall" data-sortable="track-humanities">
-      <div class="guest" data-rid="guest-vance"><div class="portrait">MV</div><div class="name">Miriam Vance</div><div class="role">Historian of science</div><span class="status confirmed">Confirmed</span></div>
-      <div class="guest dim" data-rid="guest-mercer"><div class="portrait">DM</div><div class="name">Daniel Mercer</div><div class="role">Philosopher of mind</div><span class="status invited">Invited</span></div>
-      <div class="guest" data-rid="guest-weiss"><div class="portrait">JW</div><div class="name">Jonah Weiss</div><div class="role">Poet and translator</div><span class="status confirmed">Confirmed</span></div>
-      <div class="guest dim" data-rid="guest-thorne"><div class="portrait">ET</div><div class="name">Elias Thorne</div><div class="role">Classicist</div><span class="status conversation">In Conversation</span></div>
-      <div class="guest dim" data-rid="guest-ferreira"><div class="portrait">NF</div><div class="name">Nadia Ferreira</div><div class="role">Historian of art</div><span class="status conversation">In Conversation</span></div>
-    </div>
-    <div class="track-head" data-rid="track-sciences"><span class="t-label">The Human Sciences</span><span class="line"></span></div>
-    <div class="wall" data-sortable="track-sciences">
-      <div class="guest dim" data-rid="guest-nair"><div class="portrait">PN</div><div class="name">Prisha Nair</div><div class="role">Cognitive scientist</div><span class="status invited">Invited</span></div>
-      <div class="guest dim" data-rid="guest-kirchner"><div class="portrait">AK</div><div class="name">Ada Kirchner</div><div class="role">Neuroscientist</div><span class="status invited">Invited</span></div>
-      <div class="guest" data-rid="guest-delgado"><div class="portrait">RD</div><div class="name">Rosa Delgado</div><div class="role">Anthropologist</div><span class="status confirmed">Confirmed</span></div>
-      <div class="guest" data-rid="guest-ostrowski"><div class="portrait">LO</div><div class="name">Lena Ostrowski</div><div class="role">Mathematician</div><span class="status confirmed">Confirmed</span></div>
-      <div class="guest dim" data-rid="guest-ashdown"><div class="portrait">PA</div><div class="name">Peter Ashdown</div><div class="role">Physicist</div><span class="status invited">Invited</span></div>
-    </div>
-    <div class="track-head" data-rid="track-arts"><span class="t-label">The Arts</span><span class="line"></span></div>
-    <div class="wall" data-sortable="track-arts">
-      <div class="guest" data-rid="guest-reyes"><div class="portrait">SR</div><div class="name">Sofia Reyes-Calder</div><div class="role">Composer</div><span class="status confirmed">Confirmed</span></div>
-      <div class="guest" data-rid="guest-albright"><div class="portrait">TA</div><div class="name">Theo Albright</div><div class="role">Playwright</div><span class="status confirmed">Confirmed</span></div>
-      <div class="guest dim" data-rid="guest-tanabe"><div class="portrait">YT</div><div class="name">Yuki Tanabe</div><div class="role">Choreographer</div><span class="status invited">Invited</span></div>
-      <div class="guest dim" data-rid="guest-hale"><div class="portrait">MH</div><div class="name">Marcus Hale</div><div class="role">Filmmaker</div><span class="status conversation">In Conversation</span></div>
-      <div class="guest dim" data-rid="guest-voss"><div class="portrait">CV</div><div class="name">Clara Voss</div><div class="role">Novelist</div><span class="status invited">Invited</span></div>
-      <div class="guest dim" data-rid="guest-lindqvist"><div class="portrait">AL</div><div class="name">August Lindqvist</div><div class="role">Typographer</div><span class="status conversation">In Conversation</span></div>
-    </div>
-    <div class="track-head" data-rid="track-pedagogy"><span class="t-label">Pedagogy</span><span class="line"></span></div>
-    <div class="wall" data-sortable="track-pedagogy">
-      <div class="guest" data-rid="guest-okafor"><div class="portrait">SO</div><div class="name">Sam Okafor</div><div class="role">Teacher of teachers</div><span class="status confirmed">Confirmed</span></div>
-      <div class="guest" data-rid="guest-chen"><div class="portrait">IC</div><div class="name">Ivy Chen</div><div class="role">Game designer</div><span class="status confirmed">Confirmed</span></div>
-    </div>
+    <div class="track-head" data-rid="field-philosophy-religion"><span class="t-label">Philosophy &amp; Religion</span><span class="line"></span></div>
+    <p class="namelist" data-rid="names-philosophy-religion"><span>Martha Nussbaum</span><span class="sep">·</span><span>Byung-Chul Han</span><span class="sep">·</span><span>John Milbank</span><span class="sep">·</span><span>David Bentley Hart</span><span class="sep">·</span><span>Ann Taves</span><span class="sep">·</span><span>John Vervaeke</span><span class="sep">·</span><span>Agnes Callard</span><span class="sep">·</span><span>Zena Hitz</span><span class="sep">·</span><span>Yiyang Zhuge</span><span class="sep">·</span><span>Keegan Callanan</span><span class="sep">·</span><span>Jeremy England</span><span class="sep">·</span><span>Peter Sloterdijk</span></p>
+    <div class="track-head" data-rid="field-history-strategy"><span class="t-label">History &amp; Strategy</span><span class="line"></span></div>
+    <p class="namelist" data-rid="names-history-strategy"><span>Ada Palmer</span><span class="sep">·</span><span>Edward Watts</span><span class="sep">·</span><span>Yuri Slezkine</span><span class="sep">·</span><span>Peter Turchin</span><span class="sep">·</span><span>Roger Crowley</span><span class="sep">·</span><span>Adrian Goldsworthy</span><span class="sep">·</span><span>Edward Luttwak</span><span class="sep">·</span><span>Robert Kaplan</span><span class="sep">·</span><span>Richard Rhodes</span><span class="sep">·</span><span>Michael Mann</span><span class="sep">·</span><span>Andrew Seth Meyer</span><span class="sep">·</span><span>Leandro Karnal</span><span class="sep">·</span><span>Anton Howes</span><span class="sep">·</span><span>T. Greer</span><span class="sep">·</span><span>Perun</span><span class="sep">·</span><span>Lindybeige</span></p>
+    <div class="track-head" data-rid="field-classics-antiquity"><span class="t-label">Classics &amp; Antiquity</span><span class="line"></span></div>
+    <p class="namelist" data-rid="names-classics-antiquity"><span>Emily Wilson</span><span class="sep">·</span><span>Anne Carson</span><span class="sep">·</span><span>Armand D'Angour</span><span class="sep">·</span><span>Garrett Ryan</span><span class="sep">·</span><span>Jason Pedicone</span></p>
+    <div class="track-head" data-rid="field-letters"><span class="t-label">Letters</span><span class="line"></span></div>
+    <p class="namelist" data-rid="names-letters"><span>Walter Kirn</span><span class="sep">·</span><span>James Pogue</span><span class="sep">·</span><span>Hermione Lee</span><span class="sep">·</span><span>Peter Watts</span><span class="sep">·</span><span>R. Scott Bakker</span><span class="sep">·</span><span>Michael Shindler</span><span class="sep">·</span><span>Sebastian Milbank</span><span class="sep">·</span><span>David Oks</span><span class="sep">·</span><span>Kelsey Piper</span><span class="sep">·</span><span>Tracing Woodgrains</span></p>
+    <div class="track-head" data-rid="field-the-human-sciences"><span class="t-label">The Human Sciences</span><span class="line"></span></div>
+    <p class="namelist" data-rid="names-the-human-sciences"><span>Kay Redfield Jamison</span><span class="sep">·</span><span>Adam Mastroianni</span><span class="sep">·</span><span>Manvir Singh</span><span class="sep">·</span><span>Don Handelman</span><span class="sep">·</span><span>Fuchsia Dunlop</span><span class="sep">·</span><span>John Carroll</span><span class="sep">·</span><span>Mary Harrington</span><span class="sep">·</span><span>Sarah Perry</span><span class="sep">·</span><span>Michael Edward Johnson</span></p>
+    <div class="track-head" data-rid="field-mathematics-natural-science"><span class="t-label">Mathematics &amp; Natural Science</span><span class="line"></span></div>
+    <p class="namelist" data-rid="names-mathematics-natural-science"><span>David Deutsch</span><span class="sep">·</span><span>Sean Carroll</span><span class="sep">·</span><span>Stephen Wolfram</span><span class="sep">·</span><span>Ole Peters</span><span class="sep">·</span><span>James Evans</span><span class="sep">·</span><span>Bret Victor</span><span class="sep">·</span><span>Keoni Gandall</span></p>
+    <div class="track-head" data-rid="field-the-performing-arts"><span class="t-label">The Performing Arts</span><span class="line"></span></div>
+    <p class="namelist" data-rid="names-the-performing-arts"><span>Will Arbery</span><span class="sep">·</span><span>Natalie Wynn</span><span class="sep">·</span><span>Dan Nguyen</span></p>
+    <div class="track-head" data-rid="field-institutions-and-society"><span class="t-label">Institutions and Society</span><span class="line"></span></div>
+    <p class="namelist" data-rid="names-institutions-and-society"><span>Stewart Brand</span><span class="sep">·</span><span>David Krakauer</span><span class="sep">·</span><span>Samo Burja</span><span class="sep">·</span><span>Byrne Hobart</span><span class="sep">·</span><span>Tyler Cowen</span><span class="sep">·</span><span>Patrick McKenzie</span><span class="sep">·</span><span>Dwarkesh Patel</span><span class="sep">·</span><span>Robert D. Putnam</span><span class="sep">·</span><span>Avner Greif</span><span class="sep">·</span><span>Paul Seabright</span><span class="sep">·</span><span>Amy Chua</span><span class="sep">·</span><span>Yuan Yi Zhu</span><span class="sep">·</span><span>Anton Jäger</span><span class="sep">·</span><span>Tobias Huber</span><span class="sep">·</span><span>Matt Clancy</span><span class="sep">·</span><span>Stuart Buck</span><span class="sep">·</span><span>Brad Carson</span><span class="sep">·</span><span>Nathaniel Peters</span><span class="sep">·</span><span>Tamara Winter</span><span class="sep">·</span><span>John Durant</span><span class="sep">·</span><span>François Chollet</span><span class="sep">·</span><span>Tarun Gogineni</span><span class="sep">·</span><span>Leopold Aschenbrenner</span></p>
   </div>
 </section>
 
@@ -392,10 +379,6 @@
       <div class="faq-item" data-rid="faq-4">
         <h4>What does my ticket include?</h4>
         <p>All three days, Friday afternoon through Sunday night, and the black-tie Halloween evening — confirm your spot for it when you click through. Placeholder: all meals included.</p>
-      </div>
-      <div class="faq-item" data-rid="faq-5">
-        <h4>Do I need to bring something to come?</h4>
-        <p>No. An engaged audience is half the exposition. Bring yourself; the rest is optional.</p>
       </div>
       <div class="faq-item" data-rid="faq-6">
         <h4>How do I get a slot on the bill?</h4>
