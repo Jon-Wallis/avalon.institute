@@ -3,10 +3,64 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="robots" content="noindex,nofollow"/>
-<title>The Avalon Exposition — Design Review</title>
+<title>The Avalon Exposition | October 30–November 1, 2026</title>
+<link rel="icon" type="image/png" href="/favicon.png"/>
+<meta name="description" content="A three-day festival for the study of mankind: lectures, performances, seminars, debates, and a Halloween Gala at Lighthaven in Berkeley."/>
+<link rel="canonical" href="https://avalon.institute/conference/"/>
+<meta name="theme-color" content="#EEE6D5"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="The Avalon Institute"/>
+<meta property="og:title" content="The Avalon Exposition"/>
+<meta property="og:description" content="A three-day festival for the study of mankind: lectures, performances, seminars, debates, and a Halloween Gala at Lighthaven in Berkeley."/>
+<meta property="og:url" content="https://avalon.institute/conference/"/>
+<meta property="og:image" content="https://avalon.institute/photos/og-banner.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="The San Francisco skyline at dusk, viewed from Twin Peaks."/>
+<meta property="og:locale" content="en_US"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@AvalonInst"/>
+<meta name="twitter:title" content="The Avalon Exposition"/>
+<meta name="twitter:description" content="A three-day festival for the study of mankind: lectures, performances, seminars, debates, and a Halloween Gala at Lighthaven in Berkeley."/>
+<meta name="twitter:image" content="https://avalon.institute/photos/og-banner.jpg"/>
+<meta name="twitter:image:alt" content="The San Francisco skyline at dusk, viewed from Twin Peaks."/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "The Avalon Exposition",
+  "description": "A three-day festival for the study of mankind at Lighthaven in Berkeley.",
+  "startDate": "2026-10-30T14:00:00-07:00",
+  "endDate": "2026-11-01",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "url": "https://avalon.institute/conference/",
+  "image": ["https://avalon.institute/photos/og-banner.jpg"],
+  "location": {
+    "@type": "Place",
+    "name": "Lighthaven",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2740 Telegraph Avenue",
+      "addressLocality": "Berkeley",
+      "addressRegion": "CA",
+      "postalCode": "94705",
+      "addressCountry": "US"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "The Avalon Institute",
+    "url": "https://avalon.institute/"
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Cinzel:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&amp;display=swap" rel="stylesheet"/>
 <style>
   /* ============ DESIGN: Option D · Exposition Broadsheet (tokenized) ============ */
@@ -24,7 +78,7 @@
     --parchment-card: color-mix(in srgb, var(--parchment) 82%, white);
     --parchment-deep: color-mix(in srgb, var(--parchment) 94%, black);
     --ink-soft: color-mix(in srgb, var(--ink) 84%, var(--parchment));
-    --ink-faint: color-mix(in srgb, var(--ink) 58%, var(--parchment));
+    --ink-faint: color-mix(in srgb, var(--ink) 66%, var(--parchment));
     --ink-hair: color-mix(in srgb, var(--ink) 28%, var(--parchment));
     --copper-deep: color-mix(in srgb, var(--copper) 74%, black);
     --copper-faint: color-mix(in srgb, var(--copper) 50%, var(--parchment));
@@ -32,6 +86,7 @@
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   body {
     background: var(--parchment);
     color: var(--ink);
@@ -41,6 +96,13 @@
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
+  .skip-link {
+    position: absolute; left: 1rem; top: -5rem; z-index: 10; padding: 0.65rem 0.85rem;
+    background: var(--ink); color: var(--parchment); font-family: 'Cinzel', serif; font-size: 0.7rem;
+    letter-spacing: 0.16em; text-transform: uppercase;
+  }
+  .skip-link:focus { top: 1rem; }
+  a:focus-visible { outline: 2px solid var(--copper-deep); outline-offset: 4px; }
   .toprail { height: var(--toprail-h); background: var(--ink); }
   .toprail-tick { height: 3px; background: var(--copper); width: 120px; }
   nav {
@@ -160,7 +222,7 @@
   .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.8rem; }
   @media (max-width: 780px) { .faq-grid { grid-template-columns: 1fr; } }
   .faq-item { border-top: 1px solid var(--ink-hair); padding: 1.05rem 0 1.15rem; }
-  .faq-item h4 { font-family: 'EB Garamond', serif; font-weight: 600; font-size: 1.06rem; color: var(--ink); margin-bottom: 0.25rem; }
+  .faq-item h3 { font-family: 'EB Garamond', serif; font-weight: 600; font-size: 1.06rem; color: var(--ink); margin-bottom: 0.25rem; }
   .faq-item p { font-size: 0.97rem; color: var(--ink-soft); }
   .faq-item p a { color: var(--copper-deep); text-decoration: none; border-bottom: 1px solid var(--copper-faint); }
   .faq-item p a:hover { border-bottom-color: var(--copper-deep); }
@@ -197,123 +259,49 @@
   .register-band p { max-width: 540px; margin: 0 auto 1.9rem; font-size: 1.1rem; color: color-mix(in srgb, var(--on-ink) 85%, transparent); }
   .register-band .btn-primary { color: var(--ink); background: var(--parchment); border-color: var(--parchment); }
   .register-band .btn-primary:hover { background: var(--copper); border-color: var(--copper); color: var(--parchment); }
+  .ticket-intro { max-width: 680px !important; }
+  .ticket-grid {
+    max-width: var(--content); margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid color-mix(in srgb, var(--on-ink) 42%, transparent);
+    border-left: 1px solid color-mix(in srgb, var(--on-ink) 42%, transparent); text-align: left;
+  }
+  .ticket-option {
+    min-height: 220px; min-width: 0; padding: 1.55rem 1.55rem 1.4rem; display: flex; flex-direction: column;
+    border-right: 1px solid color-mix(in srgb, var(--on-ink) 42%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--on-ink) 42%, transparent);
+  }
+  .ticket-option.opening { box-shadow: inset 0 3px 0 var(--copper); }
+  .ticket-option.sponsor { min-height: 220px; background: color-mix(in srgb, var(--copper) 11%, transparent); }
+  .ticket-kicker {
+    min-height: 1.1rem; font-family: 'Cinzel', serif; font-size: 0.56rem; letter-spacing: 0.24em;
+    text-transform: uppercase; color: color-mix(in srgb, var(--copper) 60%, var(--on-ink)); margin-bottom: 0.65rem;
+  }
+  .ticket-option h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; line-height: 1.15; color: var(--on-ink); }
+  .ticket-price { font-family: 'Playfair Display', serif; font-size: 2.15rem; line-height: 1; color: var(--parchment); margin: 0.8rem 0 1rem; }
+  .ticket-price small { font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--copper); }
+  .ticket-option .btn { width: 100%; min-height: 44px; margin-top: auto; padding: 0.78rem 0.7rem; text-align: center; letter-spacing: 0.18em; }
+  .ticket-option .btn-ghost { color: var(--parchment); border-color: color-mix(in srgb, var(--on-ink) 55%, transparent); }
+  .ticket-option .btn-ghost:hover { color: var(--on-ink); background: var(--copper-deep); border-color: var(--copper-deep); }
+  .ticket-option .btn:focus-visible, .sponsor-contact a:focus-visible { outline: 2px solid var(--on-ink); outline-offset: 4px; }
+  .register-band > .label { color: color-mix(in srgb, var(--copper) 60%, var(--on-ink)); font-weight: 500; }
+  .sponsor-contact { max-width: 680px !important; margin: 1.8rem auto 0 !important; font-size: 1rem !important; }
+  .sponsor-contact a { color: var(--parchment); text-decoration: none; border-bottom: 1px solid var(--copper); }
+  .sponsor-contact a:hover { color: var(--copper); }
+  @media (max-width: 560px) { .ticket-grid { grid-template-columns: 1fr; } .ticket-option { min-height: 220px; } }
   footer { text-align: center; padding: 2.6rem 1.5rem; color: var(--ink-faint); font-family: 'Cinzel', serif; font-size: 0.64rem; letter-spacing: 0.3em; text-transform: uppercase; }
   footer .mark { color: var(--copper-deep); }
   footer a, a.nav-brand { color: inherit; text-decoration: none; transition: color 0.3s; }
   footer a:hover, a.nav-brand:hover { color: var(--copper-deep); }
 
-  /* ============ REVIEW TOOL (rv-) ============ */
-  html.rv-open body { margin-right: 320px; }
-  #rv-panel {
-    position: fixed; top: 0; right: 0; bottom: 0; width: 320px; z-index: 9000;
-    background: #20242b; color: #d7dae0; font-family: -apple-system, 'Helvetica Neue', sans-serif;
-    font-size: 12.5px; line-height: 1.45; overflow-y: auto; padding: 14px 14px 40px;
-    border-left: 1px solid #3a4048; transform: translateX(0); transition: transform 0.25s;
-  }
-  html:not(.rv-open) #rv-panel { transform: translateX(320px); }
-  #rv-tab {
-    position: fixed; top: 12px; right: 12px; z-index: 9001;
-    background: #20242b; color: #e8ebf0; border: 1px solid #3a4048; border-radius: 4px;
-    font: 600 12px -apple-system, sans-serif; padding: 7px 11px; cursor: pointer;
-  }
-  html.rv-open #rv-tab { right: 332px; }
-  .rv-h { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #8b93a0; margin: 18px 0 7px; }
-  .rv-h:first-child { margin-top: 2px; }
-  #rv-modes { display: flex; gap: 4px; }
-  #rv-modes button {
-    flex: 1; padding: 7px 1px; border: 1px solid #3a4048; background: #262b33; color: #c6cad2;
-    border-radius: 4px; cursor: pointer; font: 600 10.5px -apple-system, sans-serif;
-  }
-  @media (max-width: 700px) {
-    html.rv-open body { margin-right: 0; }
-    #rv-panel { width: min(320px, 86vw); }
-    html.rv-open #rv-tab { right: calc(min(320px, 86vw) + 12px); }
-  }
-  #rv-modes button.on { background: #b26e45; border-color: #b26e45; color: #fff; }
-  #rv-hint { color: #9aa2ae; margin-top: 7px; min-height: 30px; }
-  .rv-row { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
-  .rv-row label { flex: 0 0 118px; color: #b9bec7; }
-  .rv-row input[type=range] { flex: 1; }
-  .rv-row output { flex: 0 0 44px; text-align: right; color: #e8ebf0; font-variant-numeric: tabular-nums; }
-  .rv-row input[type=color] { width: 34px; height: 24px; border: none; background: none; padding: 0; cursor: pointer; }
-  .rv-row .rv-hex { color: #e8ebf0; }
-  .rv-swatches { display: flex; gap: 6px; margin-top: 4px; }
-  .rv-swatches button { width: 26px; height: 20px; border-radius: 3px; border: 1px solid #4a505a; cursor: pointer; }
-  .rv-seg { display: flex; gap: 4px; }
-  .rv-seg button { flex: 1; padding: 5px 2px; border: 1px solid #3a4048; background: #262b33; color: #c6cad2; border-radius: 4px; cursor: pointer; font-size: 11px; }
-  .rv-seg button.on { background: #3d4a5c; color: #fff; }
-  .rv-btn { display: block; width: 100%; margin: 6px 0; padding: 8px; border: 1px solid #3a4048; background: #262b33; color: #e0e3e9; border-radius: 4px; cursor: pointer; font: 600 12px -apple-system, sans-serif; text-align: center; }
-  .rv-btn:hover { background: #2e343d; }
-  .rv-btn.warn { color: #ff9d80; }
-  #rv-notelist { margin-top: 6px; }
-  .rv-noteitem { background: #262b33; border: 1px solid #3a4048; border-radius: 4px; padding: 7px 9px; margin: 6px 0; cursor: pointer; }
-  .rv-noteitem .rid { color: #d99e6d; font-weight: 700; font-size: 11px; }
-  .rv-noteitem .txt { color: #d7dae0; margin-top: 2px; white-space: pre-wrap; }
-  .rv-foot { color: #7d8592; margin-top: 18px; border-top: 1px solid #3a4048; padding-top: 10px; }
-  .rv-count { color: #d99e6d; }
-
-  /* on-page tool visuals */
-  [data-rid] { scroll-margin: 90px; }
-  body[data-rvmode="notes"] [data-rid]:hover { outline: 1.5px dashed #b26e45; outline-offset: 2px; cursor: crosshair; }
-  body[data-rvmode="hide"] [data-rid]:hover { outline: 1.5px dashed #c0554a; outline-offset: 2px; cursor: pointer; }
-  body[data-rvmode="move"] [data-rid]:hover { outline: 1.5px solid #4a7bb5; outline-offset: 2px; cursor: grab; }
-  body[data-rvmode="move"] { user-select: none; }
-  body[data-rvmode="copy"] [data-copy-id] { cursor: text; }
-  body[data-rvmode="copy"] [data-copy-id]:hover { outline: 1px dashed #b26e45; outline-offset: 3px; }
-  body[data-rvmode="copy"] [data-copy-id]:focus { outline: 1px solid #d99e6d; outline-offset: 3px; background: rgba(216,154,58,0.06); }
-  .rv-selected { outline: 2px solid #4a7bb5 !important; outline-offset: 2px; }
-  .rv-dragging { opacity: 0.45; }
-  .rv-hidden { opacity: 0.14; outline: 1px dashed #c0554a; outline-offset: 2px; }
-  .rv-flash { animation: rvflash 1.2s ease-out; }
-  @keyframes rvflash { 0% { background: rgba(178,110,69,0.35); } 100% { background: transparent; } }
-
-  #rv-overlay { position: fixed; inset: 0; pointer-events: none; z-index: 8800; }
-  .rv-marker {
-    position: fixed; width: 20px; height: 20px; border-radius: 50%; background: #b26e45; color: #fff;
-    font: 700 11px/20px -apple-system, sans-serif; text-align: center; pointer-events: auto; cursor: pointer;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.4); transform: translate(-50%, -50%);
-  }
-  .rv-marker:hover { background: #8a5a28; }
-  .rv-grip {
-    position: fixed; pointer-events: auto; cursor: grab; z-index: 8900;
-    background: #4a7bb5; color: #fff; font: 700 10.5px -apple-system, sans-serif;
-    padding: 3px 8px; border-radius: 3px; box-shadow: 0 1px 4px rgba(0,0,0,0.35);
-  }
-  .rv-label {
-    position: fixed; z-index: 8950; pointer-events: none; background: #20242b; color: #e8c9a8;
-    font: 600 10.5px -apple-system, sans-serif; padding: 2px 7px; border-radius: 3px; display: none;
-  }
-  #rv-popover {
-    position: fixed; z-index: 9100; width: 260px; background: #20242b; border: 1px solid #4a505a;
-    border-radius: 6px; padding: 10px; box-shadow: 0 6px 24px rgba(0,0,0,0.45); display: none;
-    font-family: -apple-system, sans-serif;
-  }
-  #rv-popover .rid { color: #d99e6d; font-weight: 700; font-size: 11px; margin-bottom: 6px; }
-  #rv-popover textarea { width: 100%; height: 74px; background: #171a1f; color: #e8ebf0; border: 1px solid #3a4048; border-radius: 4px; padding: 6px; font: 12.5px -apple-system, sans-serif; resize: vertical; }
-  #rv-popover .rv-pbtns { display: flex; gap: 6px; margin-top: 7px; }
-  #rv-popover .rv-pbtns button { flex: 1; padding: 6px; border-radius: 4px; border: 1px solid #3a4048; background: #262b33; color: #e0e3e9; cursor: pointer; font-size: 12px; }
-  #rv-popover .rv-pbtns .save { background: #b26e45; border-color: #b26e45; color: #fff; }
-  .rv-float {
-    position: absolute; z-index: 8700; width: 210px; background: #fff8b8; border: 1px solid #d8c65a;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.25); font-family: -apple-system, sans-serif; border-radius: 3px;
-  }
-  .rv-float .bar { background: #efe08e; padding: 3px 7px; cursor: grab; font: 700 10px -apple-system, sans-serif; color: #6b5d12; display: flex; justify-content: space-between; }
-  .rv-float .bar .x { cursor: pointer; padding: 0 3px; }
-  .rv-float textarea { width: 100%; height: 78px; border: none; background: transparent; padding: 7px; font: 12.5px -apple-system, sans-serif; color: #4a4110; resize: none; outline: none; }
-  #rv-modal {
-    position: fixed; inset: 0; z-index: 9500; background: rgba(0,0,0,0.5); display: none; align-items: center; justify-content: center;
-  }
-  #rv-modal .box { width: min(620px, 90vw); background: #20242b; border: 1px solid #4a505a; border-radius: 8px; padding: 16px; font-family: -apple-system, sans-serif; }
-  #rv-modal textarea { width: 100%; height: 300px; background: #171a1f; color: #e0e3e9; border: 1px solid #3a4048; border-radius: 4px; padding: 8px; font: 12px ui-monospace, monospace; }
-  #rv-modal .rv-pbtns { display: flex; gap: 8px; margin-top: 10px; justify-content: flex-end; }
-  #rv-modal button { padding: 7px 14px; border-radius: 4px; border: 1px solid #3a4048; background: #262b33; color: #e0e3e9; cursor: pointer; }
 </style>
 </head>
 <body data-portrait="circle" data-mastcase="upper">
 
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
 <div class="toprail" data-rid="toprail"><div class="toprail-tick"></div></div>
 
-<nav data-rid="nav">
+<nav data-rid="nav" aria-label="Conference navigation">
   <a class="nav-brand" href="https://avalon.institute">The Avalon Institute</a>
   <div class="nav-links">
     <a href="#occasion">About</a>
@@ -339,22 +327,23 @@
   </div>
 </header>
 
+<main id="main-content">
 <section id="occasion" data-rid="occasion" data-rsection="About">
-  <div class="section-head" data-rid="occasion-label"><span class="line"></span><span class="label">What is the Avalon Exposition?</span><span class="line"></span></div>
+  <div class="section-head" data-rid="occasion-label"><span class="line" aria-hidden="true"></span><h2 class="label">What is the Avalon Exposition?</h2><span class="line" aria-hidden="true"></span></div>
   <div class="measure">
     <p class="lede" data-rid="lede-1">Avalon wants you to help us radically restructure the study of mankind. In order to do this, we’re uniting a variety of forms of humanistic study and human expression in one place. There will be lectures, performances, roundtables, seminars, debates, love affairs, and, God willing, you.</p>
   </div>
 </section>
 
 <section id="expect" data-rid="expect" data-rsection="Expect">
-  <div class="section-head" data-rid="expect-label"><span class="line"></span><span class="label">What should I expect at the Avalon Exposition?</span><span class="line"></span></div>
+  <div class="section-head" data-rid="expect-label"><span class="line" aria-hidden="true"></span><h2 class="label">What should I expect at the Avalon Exposition?</h2><span class="line" aria-hidden="true"></span></div>
   <div class="measure">
     <p class="lede" data-rid="expect-lede-1">The Avalon Exposition aims to gather the greatest concentration of tools, perspectives, and works which shed light on the human condition in the world today. We are working to assemble speakers, known and unknown, alongside music, theater, DNA sequencers, fMRI machines, and every other scientific, intellectual and artistic tradition useful for understanding the human condition. Our venue supports many simultaneous sessions, allowing participants to attend and organize whatever will be of value to them.</p>
   </div>
 </section>
 
 <section id="company" data-rid="company" data-rsection="Speakers">
-  <div class="section-head" data-rid="company-label"><span class="line"></span><span class="label">Speakers and Performers</span><span class="line"></span></div>
+  <div class="section-head" data-rid="company-label"><span class="line" aria-hidden="true"></span><h2 class="label">Speakers and Performers</h2><span class="line" aria-hidden="true"></span></div>
   <div class="wide">
     <p class="company-sub" data-rid="company-legend">Please send speaking inquiries to <a href="mailto:wallis@avalon.institute">wallis@avalon.institute</a></p>
     <div class="cardkey" data-rid="cardkey"><span class="ncard confirmed">Confirmed</span><span class="ncard">Invited</span></div>
@@ -369,62 +358,66 @@
 </section>
 
 <section id="institute" data-rid="institute" data-rsection="The Institute">
-  <div class="section-head" data-rid="institute-label"><span class="line"></span><span class="label">What is the Avalon Institute?</span><span class="line"></span></div>
+  <div class="section-head" data-rid="institute-label"><span class="line" aria-hidden="true"></span><h2 class="label">What is the Avalon Institute?</h2><span class="line" aria-hidden="true"></span></div>
   <div class="measure">
     <p class="lede" data-rid="institute-lede-1">The Avalon Institute is building infrastructure to help the life of the mind flourish outside of Academia. We have been building a home for cultural ambition in San Francisco through residencies, seminars, reading groups, staged ancient Greek plays, music and poetry nights and much more. We want to perfect the skills necessary to organize productive intellectual and artistic infrastructure at any scale and in any field. Beyond San Francisco, we are building an alliance of groups who want the fundamental logistical, financial, and narrative foundations of the life of the mind to change. <a href="https://avalon.institute">avalon.institute</a></p>
   </div>
 </section>
 
 <section id="grounds" data-rid="grounds" data-rsection="Where">
-  <div class="section-head" data-rid="grounds-label"><span class="line"></span><span class="label">Where is the Avalon Exposition?</span><span class="line"></span></div>
+  <div class="section-head" data-rid="grounds-label"><span class="line" aria-hidden="true"></span><h2 class="label">Where is the Avalon Exposition?</h2><span class="line" aria-hidden="true"></span></div>
   <div class="measure">
     <p class="lede" data-rid="grounds-lede-1">Lighthaven, a 30,000 square foot campus at 2740 Telegraph Avenue.</p>
   </div>
 </section>
 
 <section id="faq" data-rid="faq" data-rsection="FAQ">
-  <div class="section-head" data-rid="faq-label"><span class="line"></span><span class="label">Q&amp;A</span><span class="line"></span></div>
+  <div class="section-head" data-rid="faq-label"><span class="line" aria-hidden="true"></span><h2 class="label">Q&amp;A</h2><span class="line" aria-hidden="true"></span></div>
   <div class="wide">
     <div class="faq-grid" data-sortable="faq">
       <div class="faq-item" data-rid="faq-1">
-        <h4>Where is it happening?</h4>
+        <h3>Where is it happening?</h3>
         <p>Lighthaven, 2740 Telegraph Avenue, Berkeley.</p>
       </div>
       <div class="faq-item" data-rid="faq-8">
-        <h4>Where do I stay?</h4>
-        <p>You can arrange lodging with <a href="https://www.havenbookings.space/events/avalon-institute-festival">Lighthaven booking</a> or at hotels nearby.</p>
+        <h3>Where do I stay?</h3>
+        <p>You can arrange lodging with <a href="https://www.havenbookings.space/events/avalon-exposition">Lighthaven booking</a> or at hotels nearby.</p>
       </div>
       <div class="faq-item" data-rid="faq-2">
-        <h4>When does it start and end?</h4>
+        <h3>When does it start and end?</h3>
         <p>The Exposition starts on Friday at 2:00 pm and ends Sunday night.</p>
       </div>
       <div class="faq-item" data-rid="faq-3">
-        <h4>How many people will be there?</h4>
+        <h3>How many people will be there?</h3>
         <p>We estimate the conference will have around three hundred attendees.</p>
       </div>
       <div class="faq-item" data-rid="faq-4">
-        <h4>What does my ticket include?</h4>
-        <p>The three days of the exposition, dinner on Friday and Saturday, lunch on Saturday and Sunday. Complimentary tickets to the Halloween Gala are included.</p>
+        <h3>What does my ticket include?</h3>
+        <p>Three days, two lunches, three dinners. The Halloween Gala is included.</p>
       </div>
       <div class="faq-item" data-rid="faq-5">
-        <h4>How do I get on the schedule?</h4>
+        <h3>How do I get on the schedule?</h3>
         <p>There will be a scheduling app which allows you to book your own sessions. Those interested in headline slots should email <a href="mailto:wallis@avalon.institute">wallis@avalon.institute</a>.</p>
       </div>
       <div class="faq-item" data-rid="faq-6">
-        <h4>Who should come?</h4>
+        <h3>Who should come?</h3>
         <p>If you want to find new ways of studying humanity, you should come. If you want to find new mentors, collaborators or patrons in your own pursuits, you should come. If you are excited by and want to support a true reorganization of the humanities, you should come.</p>
       </div>
       <div class="faq-item" data-rid="faq-7">
-        <h4>What does a ticket cost?</h4>
-        <p>Early bird tickets are $350. Ticket prices will rise to $500 after three weeks, and increase again closer to the event.</p>
+        <h3>What does a ticket cost?</h3>
+        <p>The first 50 Opening Tickets are $350, and Student Tickets are $150. Standard Tickets begin at $500; Founding Sponsor tickets begin at $1,000. Both Standard and Founding Sponsor tickets let you choose a higher amount.</p>
       </div>
       <div class="faq-item" data-rid="faq-9">
-        <h4>What if I need financial assistance to attend?</h4>
+        <h3>What if I need financial assistance to attend?</h3>
         <p>A limited number of volunteer and discounted tickets are available. Please contact <a href="mailto:zenon@avalon.institute">zenon@avalon.institute</a> to apply for either one.</p>
       </div>
       <div class="faq-item" data-rid="faq-10">
-        <h4>What is your refund policy?</h4>
+        <h3>What is your refund policy?</h3>
         <p>Full refunds are available up to 7 days before the event.</p>
+      </div>
+      <div class="faq-item" data-rid="faq-11">
+        <h3>Can I sponsor the Exposition?</h3>
+        <p>Yes. Founding Sponsor tickets begin at $1,000, let you choose a higher amount, and include full admission and one Avalon gold brick. For institutional sponsorships or larger partnerships, email <a href="mailto:wallis@avalon.institute?subject=Avalon%20Exposition%20Sponsorship">wallis@avalon.institute</a>.</p>
       </div>
     </div>
   </div>
@@ -432,678 +425,41 @@
 
 <section id="tickets" data-rid="register" data-rsection="Tickets" style="padding-left:0;padding-right:0;">
   <div class="register-band" data-rid="register-band">
-    <span class="label">Tickets</span>
-    <a class="btn btn-primary" data-rid="register-cta" href="https://buy.stripe.com/7sY4gz0fl27F6RO9DN3gk07">Get Tickets</a>
+    <h2 class="label">Tickets</h2>
+    <p class="ticket-intro">Each ticket admits one person to all three days, three dinners, two lunches, generous snacks and coffee, and the Halloween Gala. Standard and Founding Sponsor tickets may be purchased above their base price to help underwrite the program.</p>
+    <div class="ticket-grid">
+      <article class="ticket-option opening" data-rid="ticket-opening">
+        <span class="ticket-kicker">First 50 tickets</span>
+        <h3>Opening Ticket</h3>
+        <div class="ticket-price">$350</div>
+        <a class="btn btn-primary" data-rid="register-cta" href="https://buy.stripe.com/7sY4gz0fl27F6RO9DN3gk07">Buy Opening Ticket</a>
+      </article>
+      <article class="ticket-option" data-rid="ticket-standard">
+        <span class="ticket-kicker">Regular admission</span>
+        <h3>Standard Ticket</h3>
+        <div class="ticket-price">$500<small>+</small></div>
+        <a class="btn btn-ghost" data-rid="standard-cta" href="https://buy.stripe.com/4gMdR9d2727F0tq9DN3gk0d">Choose Standard Amount</a>
+      </article>
+      <article class="ticket-option" data-rid="ticket-student">
+        <span class="ticket-kicker">For students</span>
+        <h3>Student Ticket</h3>
+        <div class="ticket-price">$150</div>
+        <a class="btn btn-ghost" data-rid="student-cta" href="https://buy.stripe.com/aFa28raTZ4fN8ZWg2b3gk08">Buy Student Ticket</a>
+      </article>
+      <article class="ticket-option sponsor" data-rid="ticket-sponsor">
+        <span class="ticket-kicker">Help found the Exposition</span>
+        <h3>Founding Sponsor</h3>
+        <div class="ticket-price">$1,000<small>+</small></div>
+        <a class="btn btn-ghost" data-rid="sponsor-cta" href="https://buy.stripe.com/6oUeVd4vB9A7cc8eY73gk0a">Choose Sponsor Amount</a>
+      </article>
+    </div>
+    <p class="sponsor-contact">For institutional sponsorships or larger partnerships, contact <a href="mailto:wallis@avalon.institute?subject=Avalon%20Exposition%20Sponsorship">wallis@avalon.institute</a>.</p>
   </div>
 </section>
+</main>
 
 <footer data-rid="footer"><span class="mark">◇</span> &nbsp; <a href="https://avalon.institute">The Avalon Institute</a> · Berkeley · MMXXVI &nbsp; <span class="mark">◇</span></footer>
 
-<!-- ============ REVIEW TOOL ============ -->
-<button id="rv-tab">Review ☰</button>
-<aside id="rv-panel">
-  <div class="rv-h">Mode</div>
-  <div id="rv-modes">
-    <button data-mode="browse" class="on">Browse</button>
-    <button data-mode="notes">Notes</button>
-    <button data-mode="copy">Copy</button>
-    <button data-mode="move">Move</button>
-    <button data-mode="hide">Hide</button>
-  </div>
-  <div id="rv-hint">Plain browsing. Links work; the tool stays out of the way.</div>
 
-  <div class="rv-h">Design tokens</div>
-  <div class="rv-row"><label>Paper</label><input type="color" id="tk-parchment"/><span class="rv-hex" id="hx-parchment"></span></div>
-  <div class="rv-row"><label>Ink</label><input type="color" id="tk-ink"/><span class="rv-hex" id="hx-ink"></span></div>
-  <div class="rv-row"><label>Accent</label><input type="color" id="tk-copper"/><span class="rv-hex" id="hx-copper"></span></div>
-  <div class="rv-row"><label>Accent presets</label>
-    <div class="rv-swatches">
-      <button title="Copper (default)" style="background:#B26E45" data-accent="#B26E45"></button>
-      <button title="Deep gold" style="background:#a3761f" data-accent="#a3761f"></button>
-      <button title="Oxblood" style="background:#5a262c" data-accent="#5a262c"></button>
-      <button title="Deep green" style="background:#33502c" data-accent="#33502c"></button>
-    </div>
-  </div>
-  <div class="rv-row"><label>Masthead scale</label><input type="range" id="tk-mast-scale" min="0.75" max="1.35" step="0.01"/><output id="ot-mast-scale"></output></div>
-  <div class="rv-row"><label>Body size</label><input type="range" id="tk-body-size" min="16" max="21" step="0.5"/><output id="ot-body-size"></output></div>
-  <div class="rv-row"><label>Label tracking</label><input type="range" id="tk-label-track" min="0.1" max="0.5" step="0.02"/><output id="ot-label-track"></output></div>
-  <div class="rv-row"><label>Content width</label><input type="range" id="tk-content" min="860" max="1240" step="10"/><output id="ot-content"></output></div>
-  <div class="rv-row"><label>Section spacing</label><input type="range" id="tk-sect-pad" min="0.6" max="1.6" step="0.05"/><output id="ot-sect-pad"></output></div>
-  <div class="rv-row"><label>Top rail</label><input type="range" id="tk-toprail-h" min="0" max="18" step="1"/><output id="ot-toprail-h"></output></div>
-  <div class="rv-row"><label>Portraits</label>
-    <div class="rv-seg" id="sg-portrait">
-      <button data-v="circle">Circle</button><button data-v="square">Square</button>
-    </div>
-  </div>
-  <div class="rv-row"><label>Masthead case</label>
-    <div class="rv-seg" id="sg-mastcase">
-      <button data-v="upper">CAPS</button><button data-v="title">Title</button>
-    </div>
-  </div>
-
-  <div class="rv-h">Review</div>
-  <button class="rv-btn" id="rv-addfloat">＋ Floating note (drop anywhere)</button>
-  <button class="rv-btn" id="rv-original">Hold to see original D</button>
-  <button class="rv-btn" id="rv-export">Export state (JSON)</button>
-  <button class="rv-btn" id="rv-summary">Show summary (to send back)</button>
-  <button class="rv-btn" id="rv-import">Import state…</button>
-  <input type="file" id="rv-importfile" accept="application/json" style="display:none"/>
-  <button class="rv-btn warn" id="rv-reset">Reset everything</button>
-
-  <div class="rv-h">Notes <span class="rv-count" id="rv-notecount"></span></div>
-  <div id="rv-notelist"></div>
-
-  <div class="rv-foot">
-    Move mode: drag cards/guests/strands to reorder; blue chips move whole sections; anything else nudges freely (click + arrows, double-click resets). Copy mode: click prose and retype it — emptied elements restore themselves. Everything autosaves in your browser; when you're done, hit "Show summary" and send Jonathan the text (or the exported JSON).
-  </div>
-</aside>
-
-<div id="rv-overlay"></div>
-<div class="rv-label" id="rv-hoverlabel"></div>
-<div id="rv-popover">
-  <div class="rid"></div>
-  <textarea placeholder="Note for this element…"></textarea>
-  <div class="rv-pbtns"><button class="save">Save</button><button class="del">Delete</button><button class="cancel">Cancel</button></div>
-</div>
-<div id="rv-modal"><div class="box"><div class="rv-h" style="margin-top:0">Review summary</div><textarea readonly></textarea><div class="rv-pbtns"><button id="rv-modalcopy">Copy</button><button id="rv-modalclose">Close</button></div></div></div>
-
-<script>
-(function () {
-  'use strict';
-  var LSKEY = 'expo-review-d-v1';
-  var TOKENS = { parchment: '#EEE6D5', ink: '#10253F', copper: '#B26E45', 'mast-scale': 1, 'body-size': 18, 'label-track': 0.32, content: 1020, 'sect-pad': 1, 'toprail-h': 10 };
-  var TOKEN_UNITS = { 'body-size': 'px', 'label-track': 'em', content: 'px', 'toprail-h': 'px' };
-  var state = { tokens: {}, toggles: { portrait: 'circle', mastcase: 'upper' }, order: {}, moves: {}, hidden: [], notes: [], floats: [], copy: {} };
-  var defaultOrder = {};
-  var mode = 'browse';
-  var selected = null;
-  var noteSeq = 1;
-  var floatArm = false;
-
-  var $ = function (s, c) { return (c || document).querySelector(s); };
-  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
-  var byRid = function (rid) { return $('[data-rid="' + rid + '"]'); };
-
-  /* ---------- persistence ---------- */
-  var storageOK = true;
-  try { localStorage.setItem(LSKEY + '-t', '1'); localStorage.removeItem(LSKEY + '-t'); } catch (e) { storageOK = false; }
-  var saveTimer = null;
-  function save() {
-    if (!storageOK) return;
-    clearTimeout(saveTimer);
-    saveTimer = setTimeout(function () { try { localStorage.setItem(LSKEY, JSON.stringify(state)); } catch (e) {} }, 250);
-  }
-  function load() {
-    if (!storageOK) return;
-    try { var raw = localStorage.getItem(LSKEY); if (raw) { var s = JSON.parse(raw); ['tokens','toggles','order','moves','hidden','notes','floats','copy'].forEach(function(k){ if (s[k] !== undefined) state[k] = s[k]; }); } } catch (e) {}
-  }
-
-  /* ---------- containers / order ---------- */
-  function sectionNodes() { return $$('[data-rsection]'); }
-  function captureDefaults() {
-    defaultOrder.__sections = sectionNodes().map(function (n) { return n.dataset.rid; });
-    $$('[data-sortable]').forEach(function (c) {
-      defaultOrder[c.dataset.sortable] = $$('[data-rid]', c).filter(function (n) { return n.parentElement === c; }).map(function (n) { return n.dataset.rid; });
-    });
-  }
-  function applyOrder(order) {
-    if (order.__sections) {
-      var footer = byRid('footer');
-      order.__sections.forEach(function (rid) { var n = byRid(rid); if (n) document.body.insertBefore(n, footer); });
-    }
-    Object.keys(order).forEach(function (key) {
-      if (key === '__sections') return;
-      var c = $('[data-sortable="' + key + '"]'); if (!c) return;
-      order[key].forEach(function (rid) { var n = byRid(rid); if (n) c.appendChild(n); });
-    });
-  }
-  function recordOrder() {
-    state.order.__sections = sectionNodes().map(function (n) { return n.dataset.rid; });
-    $$('[data-sortable]').forEach(function (c) {
-      state.order[c.dataset.sortable] = $$('[data-rid]', c).filter(function (n) { return n.parentElement === c; }).map(function (n) { return n.dataset.rid; });
-    });
-    save();
-  }
-
-  /* ---------- tokens ---------- */
-  function setVar(name, val) { document.documentElement.style.setProperty('--' + name, val + (TOKEN_UNITS[name] && typeof val === 'number' ? TOKEN_UNITS[name] : '')); }
-  function tokenVal(name) { return state.tokens[name] !== undefined ? state.tokens[name] : TOKENS[name]; }
-  function applyTokens(tokens) {
-    Object.keys(TOKENS).forEach(function (name) {
-      var v = tokens[name] !== undefined ? tokens[name] : TOKENS[name];
-      var css = (typeof v === 'number' && TOKEN_UNITS[name]) ? v + TOKEN_UNITS[name] : v;
-      document.documentElement.style.setProperty('--' + name, css);
-    });
-  }
-  function syncTokenUI() {
-    ['parchment', 'ink', 'copper'].forEach(function (name) {
-      var v = tokenVal(name); $('#tk-' + name).value = v; $('#hx-' + name).textContent = v;
-    });
-    ['mast-scale', 'body-size', 'label-track', 'content', 'sect-pad', 'toprail-h'].forEach(function (name) {
-      var v = tokenVal(name); $('#tk-' + name).value = v; $('#ot-' + name).textContent = v + (TOKEN_UNITS[name] || '');
-    });
-    $$('#sg-portrait button').forEach(function (b) { b.classList.toggle('on', b.dataset.v === state.toggles.portrait); });
-    $$('#sg-mastcase button').forEach(function (b) { b.classList.toggle('on', b.dataset.v === state.toggles.mastcase); });
-  }
-  function applyToggles(t) {
-    document.body.dataset.portrait = t.portrait;
-    document.body.dataset.mastcase = t.mastcase;
-  }
-  ['parchment', 'ink', 'copper'].forEach(function (name) {
-    $('#tk-' + name).addEventListener('input', function () { state.tokens[name] = this.value; setVar(name, this.value); $('#hx-' + name).textContent = this.value; save(); });
-  });
-  ['mast-scale', 'body-size', 'label-track', 'content', 'sect-pad', 'toprail-h'].forEach(function (name) {
-    $('#tk-' + name).addEventListener('input', function () {
-      var v = parseFloat(this.value); state.tokens[name] = v;
-      setVar(name, TOKEN_UNITS[name] ? v + TOKEN_UNITS[name] : v);
-      $('#ot-' + name).textContent = v + (TOKEN_UNITS[name] || ''); save();
-    });
-  });
-  $$('.rv-swatches button').forEach(function (b) {
-    b.addEventListener('click', function () { state.tokens.copper = b.dataset.accent; setVar('copper', b.dataset.accent); syncTokenUI(); save(); });
-  });
-  $('#sg-portrait').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; state.toggles.portrait = b.dataset.v; applyToggles(state.toggles); syncTokenUI(); save(); });
-  $('#sg-mastcase').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; state.toggles.mastcase = b.dataset.v; applyToggles(state.toggles); syncTokenUI(); save(); });
-
-  /* ---------- copy mode ---------- */
-  var COPY_SEL = 'p, h1, h3, h4, .label, .t-label, .eyebrow, .masthead-sub, .day-date, .evening-sub, .k, .name, .role, .mast-meta span, .nav-brand, .nav-links a, .btn, .evening-link, footer';
-  var copyOriginals = new Map();
-  var copyTimer = null;
-  function assignCopyIds() {
-    var seen = {};
-    $$(COPY_SEL).forEach(function (el) {
-      if (el.closest('#rv-panel,#rv-popover,#rv-modal,#rv-overlay,.rv-float,.rv-grip,.rv-label')) return;
-      if (el.querySelector(COPY_SEL)) return;
-      var host = el.closest('[data-rid]');
-      var base = el.dataset.rid || (host ? host.dataset.rid : 'page');
-      var id = base, n = 2;
-      while (seen[id]) id = base + '-' + n++;
-      seen[id] = 1;
-      el.setAttribute('data-copy-id', id);
-      copyOriginals.set(id, el.innerHTML);
-    });
-  }
-  function byCopyId(id) { return $('[data-copy-id="' + id + '"]'); }
-  function applyCopy(copy) {
-    copyOriginals.forEach(function (orig, id) {
-      var el = byCopyId(id);
-      if (!el) return;
-      var want = copy[id] !== undefined ? copy[id] : orig;
-      if (el.innerHTML !== want) el.innerHTML = want;
-    });
-  }
-  function isEmptyHtml(html) {
-    var d = document.createElement('div');
-    d.innerHTML = html;
-    return d.textContent.trim() === '' && !d.querySelector('img');
-  }
-  function plainText(html, max) {
-    var d = document.createElement('div');
-    d.innerHTML = html || '';
-    var t = d.textContent.replace(/\s+/g, ' ').trim();
-    return t.length > max ? t.slice(0, max - 1) + '…' : t;
-  }
-  function commitCopy(el) {
-    var id = el.getAttribute('data-copy-id');
-    if (!id || !copyOriginals.has(id)) return;
-    if (el.innerHTML === copyOriginals.get(id)) delete state.copy[id];
-    else state.copy[id] = el.innerHTML;
-    save();
-  }
-  var copyPending = null;
-  function recordCopyEdit(el) {
-    if (copyPending && copyPending !== el) commitCopy(copyPending);
-    copyPending = el;
-    clearTimeout(copyTimer);
-    copyTimer = setTimeout(function () { commitCopy(el); copyPending = null; }, 300);
-  }
-  function guardCopyBlur(el) {
-    var id = el.getAttribute('data-copy-id');
-    if (!id || !copyOriginals.has(id)) return;
-    if (isEmptyHtml(el.innerHTML) && !isEmptyHtml(copyOriginals.get(id))) {
-      el.innerHTML = copyOriginals.get(id);
-      delete state.copy[id];
-      save();
-      el.classList.remove('rv-flash'); void el.offsetWidth; el.classList.add('rv-flash');
-      $('#rv-hint').textContent = 'Emptied element restored to its original wording.';
-    }
-  }
-
-  /* ---------- modes ---------- */
-  var HINTS = {
-    browse: 'Plain browsing. Links work; the tool stays out of the way.',
-    notes: 'Click any outlined element to pin a note to it. Numbered dots mark existing notes.',
-    copy: 'Click any prose and retype it in place. Edits save automatically; emptied elements restore themselves. Links are off while editing.',
-    move: 'Drag guests / day cards / strands to reorder. Drag blue section chips to reorder whole sections. Drag anything else to nudge it; click + arrows for fine moves; double-click resets.',
-    hide: 'Click an element to mute it (kept at 14% so you can compare with / without). Click again to restore.'
-  };
-  function setMode(m) {
-    mode = m; document.body.dataset.rvmode = m;
-    $$('#rv-modes button').forEach(function (b) { b.classList.toggle('on', b.dataset.mode === m); });
-    $('#rv-hint').textContent = HINTS[m];
-    if (m !== 'move') clearSelection();
-    var editable = m === 'copy';
-    $$('[data-copy-id]').forEach(function (el) { el.contentEditable = editable ? 'true' : 'false'; });
-    renderGrips();
-  }
-  $('#rv-modes').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) setMode(b.dataset.mode); });
-
-  document.addEventListener('click', function (e) {
-    if (mode === 'browse') return;
-    if (e.target.closest('#rv-panel,#rv-popover,#rv-tab,.rv-marker,.rv-grip,.rv-float,#rv-modal')) return;
-    var el = e.target.closest('a[href]'); if (el) e.preventDefault();
-  }, true);
-
-  /* ---------- hover label ---------- */
-  var hoverLabel = $('#rv-hoverlabel');
-  document.addEventListener('mouseover', function (e) {
-    if (mode === 'browse') { hoverLabel.style.display = 'none'; return; }
-    var el = e.target.closest('[data-rid]');
-    if (!el || e.target.closest('#rv-panel,#rv-popover,.rv-float')) { hoverLabel.style.display = 'none'; return; }
-    var r = el.getBoundingClientRect();
-    hoverLabel.textContent = el.dataset.rid;
-    hoverLabel.style.display = 'block';
-    hoverLabel.style.left = Math.max(4, r.left) + 'px';
-    hoverLabel.style.top = Math.max(4, r.top - 20) + 'px';
-  });
-
-  /* ---------- notes ---------- */
-  var popover = $('#rv-popover');
-  var popRid = null;
-  function openPopover(rid, nearRect) {
-    popRid = rid;
-    var existing = state.notes.find(function (n) { return n.rid === rid; });
-    $('.rid', popover).textContent = rid;
-    $('textarea', popover).value = existing ? existing.text : '';
-    popover.style.display = 'block';
-    var x = Math.min(window.innerWidth - 280, nearRect.left);
-    var y = Math.min(window.innerHeight - 180, nearRect.bottom + 8);
-    popover.style.left = Math.max(8, x) + 'px';
-    popover.style.top = Math.max(8, y) + 'px';
-    $('textarea', popover).focus();
-  }
-  function closePopover() { popover.style.display = 'none'; popRid = null; }
-  $('.save', popover).addEventListener('click', function () {
-    var text = $('textarea', popover).value.trim();
-    var existing = state.notes.find(function (n) { return n.rid === popRid; });
-    if (text) {
-      if (existing) existing.text = text;
-      else state.notes.push({ id: noteSeq++, rid: popRid, text: text, ts: new Date().toISOString() });
-    } else if (existing) {
-      state.notes = state.notes.filter(function (n) { return n !== existing; });
-    }
-    save(); renderNotes(); closePopover();
-  });
-  $('.del', popover).addEventListener('click', function () {
-    state.notes = state.notes.filter(function (n) { return n.rid !== popRid; });
-    save(); renderNotes(); closePopover();
-  });
-  $('.cancel', popover).addEventListener('click', closePopover);
-
-  document.addEventListener('click', function (e) {
-    if (floatArm) return;
-    if (e.target.closest('#rv-panel,#rv-popover,#rv-tab,.rv-grip,.rv-float,#rv-modal')) return;
-    var marker = e.target.closest('.rv-marker');
-    if (marker) { var rid = marker.dataset.rid; var el = byRid(rid); if (el) openPopover(rid, el.getBoundingClientRect()); return; }
-    if (mode === 'notes') {
-      var el2 = e.target.closest('[data-rid]');
-      if (el2) openPopover(el2.dataset.rid, el2.getBoundingClientRect());
-    } else if (mode === 'hide') {
-      var el3 = e.target.closest('[data-rid]');
-      if (el3) {
-        var rid3 = el3.dataset.rid;
-        var i = state.hidden.indexOf(rid3);
-        if (i >= 0) state.hidden.splice(i, 1); else state.hidden.push(rid3);
-        applyHidden(state.hidden); save();
-      }
-    }
-  });
-
-  function applyHidden(hidden) {
-    $$('[data-rid]').forEach(function (el) { el.classList.toggle('rv-hidden', hidden.indexOf(el.dataset.rid) >= 0); });
-  }
-  function renderNotes() {
-    var list = $('#rv-notelist'); list.innerHTML = '';
-    state.notes.forEach(function (n, idx) {
-      var d = document.createElement('div');
-      d.className = 'rv-noteitem';
-      d.innerHTML = '<span class="rid">' + (idx + 1) + ' · ' + n.rid + '</span><div class="txt"></div>';
-      $('.txt', d).textContent = n.text;
-      d.addEventListener('click', function () {
-        var el = byRid(n.rid);
-        if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); el.classList.remove('rv-flash'); void el.offsetWidth; el.classList.add('rv-flash'); }
-      });
-      list.appendChild(d);
-    });
-    $('#rv-notecount').textContent = state.notes.length ? '(' + state.notes.length + ')' : '';
-    renderMarkers();
-  }
-
-  /* ---------- markers & grips overlay ---------- */
-  var overlay = $('#rv-overlay');
-  function renderMarkers() {
-    $$('.rv-marker', overlay).forEach(function (m) { m.remove(); });
-    state.notes.forEach(function (n, idx) {
-      var m = document.createElement('div');
-      m.className = 'rv-marker'; m.dataset.rid = n.rid; m.textContent = idx + 1;
-      overlay.appendChild(m);
-    });
-    positionMarkers();
-  }
-  function positionMarkers() {
-    $$('.rv-marker', overlay).forEach(function (m) {
-      var el = byRid(m.dataset.rid);
-      if (!el) { m.style.display = 'none'; return; }
-      var r = el.getBoundingClientRect();
-      if (r.bottom < 0 || r.top > window.innerHeight) { m.style.display = 'none'; return; }
-      m.style.display = 'block';
-      m.style.left = Math.min(window.innerWidth - 14, r.right - 4) + 'px';
-      m.style.top = Math.max(12, r.top + 4) + 'px';
-    });
-    positionGrips();
-  }
-  function renderGrips() {
-    $$('.rv-grip').forEach(function (g) { g.remove(); });
-    if (mode !== 'move') return;
-    sectionNodes().forEach(function (sec) {
-      var g = document.createElement('div');
-      g.className = 'rv-grip'; g.dataset.rid = sec.dataset.rid;
-      g.textContent = '≡ ' + sec.dataset.rsection;
-      document.body.appendChild(g);
-      attachSectionDrag(g);
-    });
-    positionGrips();
-  }
-  function positionGrips() {
-    $$('.rv-grip').forEach(function (g) {
-      var el = byRid(g.dataset.rid);
-      if (!el) return;
-      var r = el.getBoundingClientRect();
-      if (r.bottom < 0 || r.top > window.innerHeight) { g.style.display = 'none'; return; }
-      g.style.display = 'block';
-      g.style.left = Math.max(6, r.left + 6) + 'px';
-      g.style.top = Math.max(6, r.top + 6) + 'px';
-    });
-  }
-  var rafPending = false;
-  function schedulePosition() { if (rafPending) return; rafPending = true; requestAnimationFrame(function () { rafPending = false; positionMarkers(); }); }
-  window.addEventListener('scroll', schedulePosition, { passive: true });
-  window.addEventListener('resize', schedulePosition);
-
-  /* ---------- move: free drag + sort + section drag ---------- */
-  function applyMoves(moves) {
-    $$('[data-rid]').forEach(function (el) {
-      var m = moves[el.dataset.rid];
-      el.style.transform = m ? 'translate(' + m[0] + 'px,' + m[1] + 'px)' : '';
-    });
-  }
-  function clearSelection() { if (selected) { var el = byRid(selected); if (el) el.classList.remove('rv-selected'); selected = null; } }
-  function select(rid) { clearSelection(); selected = rid; var el = byRid(rid); if (el) el.classList.add('rv-selected'); }
-
-  document.addEventListener('pointerdown', function (e) {
-    if (mode !== 'move' || e.button !== 0) return;
-    if (e.target.closest('#rv-panel,#rv-popover,#rv-tab,.rv-marker,.rv-grip,.rv-float,#rv-modal')) return;
-    var el = e.target.closest('[data-rid]');
-    if (!el) return;
-    var isSortChild = el.parentElement && el.parentElement.hasAttribute && el.parentElement.hasAttribute('data-sortable');
-    var isSection = el.hasAttribute('data-rsection');
-    if (isSection && !isSortChild) return; /* sections move via grips */
-    e.preventDefault();
-    var startX = e.clientX, startY = e.clientY, dragging = false;
-    var base = state.moves[el.dataset.rid] || [0, 0];
-    function onMove(ev) {
-      var dx = ev.clientX - startX, dy = ev.clientY - startY;
-      if (!dragging && Math.abs(dx) + Math.abs(dy) > 4) { dragging = true; el.classList.add('rv-dragging'); }
-      if (!dragging) return;
-      if (isSortChild) sortStep(el, ev.clientX, ev.clientY);
-      else { state.moves[el.dataset.rid] = [base[0] + dx, base[1] + dy]; el.style.transform = 'translate(' + (base[0] + dx) + 'px,' + (base[1] + dy) + 'px)'; }
-      schedulePosition();
-    }
-    function onUp() {
-      document.removeEventListener('pointermove', onMove);
-      document.removeEventListener('pointerup', onUp);
-      el.classList.remove('rv-dragging');
-      if (dragging) { if (isSortChild) recordOrder(); else { var mv = state.moves[el.dataset.rid]; if (mv && mv[0] === 0 && mv[1] === 0) delete state.moves[el.dataset.rid]; save(); } }
-      else select(el.dataset.rid);
-      schedulePosition();
-    }
-    document.addEventListener('pointermove', onMove);
-    document.addEventListener('pointerup', onUp);
-  });
-
-  function sortStep(el, x, y) {
-    var c = el.parentElement;
-    var sibs = $$('[data-rid]', c).filter(function (n) { return n.parentElement === c && n !== el; });
-    if (!sibs.length) return;
-    var best = null, bestDist = Infinity;
-    sibs.forEach(function (s) {
-      var r = s.getBoundingClientRect();
-      var cx = r.left + r.width / 2, cy = r.top + r.height / 2;
-      var d = Math.pow(x - cx, 2) + Math.pow(y - cy, 2);
-      if (d < bestDist) { bestDist = d; best = { node: s, rect: r, cx: cx, cy: cy }; }
-    });
-    if (!best) return;
-    var after;
-    if (Math.abs(y - best.cy) > best.rect.height * 0.6) after = y > best.cy;
-    else after = x > best.cx;
-    if (after) { if (best.node.nextSibling !== el) c.insertBefore(el, best.node.nextSibling); }
-    else { if (best.node !== el.nextSibling) c.insertBefore(el, best.node); }
-  }
-
-  function attachSectionDrag(grip) {
-    grip.addEventListener('pointerdown', function (e) {
-      e.preventDefault();
-      var sec = byRid(grip.dataset.rid);
-      function onMove(ev) {
-        sec.classList.add('rv-dragging');
-        var secs = sectionNodes().filter(function (s) { return s !== sec; });
-        var best = null, bestDist = Infinity;
-        secs.forEach(function (s) {
-          var r = s.getBoundingClientRect();
-          var cy = r.top + r.height / 2;
-          var d = Math.abs(ev.clientY - cy);
-          if (d < bestDist) { bestDist = d; best = { node: s, cy: cy }; }
-        });
-        if (best) {
-          if (ev.clientY > best.cy) { if (best.node.nextElementSibling !== sec) best.node.parentElement.insertBefore(sec, best.node.nextElementSibling); }
-          else { if (best.node !== sec.nextElementSibling) best.node.parentElement.insertBefore(sec, best.node); }
-        }
-        schedulePosition(); positionGrips();
-      }
-      function onUp() {
-        document.removeEventListener('pointermove', onMove);
-        document.removeEventListener('pointerup', onUp);
-        sec.classList.remove('rv-dragging');
-        recordOrder(); renderGrips();
-      }
-      document.addEventListener('pointermove', onMove);
-      document.addEventListener('pointerup', onUp);
-    });
-  }
-
-  document.addEventListener('keydown', function (e) {
-    if (mode !== 'move' || !selected) return;
-    if (e.target.closest('textarea,input')) return;
-    var step = e.shiftKey ? 8 : 1;
-    var deltas = { ArrowLeft: [-step, 0], ArrowRight: [step, 0], ArrowUp: [0, -step], ArrowDown: [0, step] };
-    var d = deltas[e.key];
-    if (!d) return;
-    e.preventDefault();
-    var m = state.moves[selected] || [0, 0];
-    m = [m[0] + d[0], m[1] + d[1]];
-    state.moves[selected] = m;
-    var el = byRid(selected);
-    if (el) el.style.transform = 'translate(' + m[0] + 'px,' + m[1] + 'px)';
-    save(); schedulePosition();
-  });
-  document.addEventListener('dblclick', function (e) {
-    if (mode !== 'move') return;
-    var el = e.target.closest('[data-rid]');
-    if (!el) return;
-    delete state.moves[el.dataset.rid];
-    el.style.transform = '';
-    save(); schedulePosition();
-  });
-
-  /* ---------- floating notes ---------- */
-  function makeFloat(f) {
-    var d = document.createElement('div');
-    d.className = 'rv-float';
-    d.style.left = f.x + 'px'; d.style.top = f.y + 'px';
-    d.innerHTML = '<div class="bar"><span>NOTE</span><span class="x">✕</span></div><textarea></textarea>';
-    $('textarea', d).value = f.text || '';
-    $('textarea', d).addEventListener('input', function () { f.text = this.value; save(); });
-    $('.x', d).addEventListener('click', function () { state.floats = state.floats.filter(function (o) { return o !== f; }); d.remove(); save(); });
-    $('.bar', d).addEventListener('pointerdown', function (e) {
-      if (e.target.classList.contains('x')) return;
-      e.preventDefault();
-      var sx = e.clientX, sy = e.clientY, ox = f.x, oy = f.y;
-      function onMove(ev) { f.x = ox + ev.clientX - sx; f.y = oy + ev.clientY - sy; d.style.left = f.x + 'px'; d.style.top = f.y + 'px'; }
-      function onUp() { document.removeEventListener('pointermove', onMove); document.removeEventListener('pointerup', onUp); save(); }
-      document.addEventListener('pointermove', onMove);
-      document.addEventListener('pointerup', onUp);
-    });
-    document.body.appendChild(d);
-  }
-  $('#rv-addfloat').addEventListener('click', function () {
-    floatArm = true;
-    $('#rv-hint').textContent = 'Click anywhere on the page to drop the note.';
-  });
-  document.addEventListener('click', function (e) {
-    if (!floatArm) return;
-    if (e.target.closest('#rv-panel,#rv-tab,#rv-popover,#rv-modal')) return;
-    floatArm = false;
-    e.preventDefault(); e.stopPropagation();
-    var f = { id: Date.now(), x: Math.max(8, e.pageX - 105), y: e.pageY - 10, text: '' };
-    state.floats.push(f); makeFloat(f); save();
-    $('#rv-hint').textContent = HINTS[mode];
-  }, true);
-  document.addEventListener('input', function (e) {
-    if (mode !== 'copy') return;
-    var el = e.target.closest && e.target.closest('[data-copy-id]');
-    if (el) recordCopyEdit(el);
-  });
-  document.addEventListener('blur', function (e) {
-    if (mode !== 'copy') return;
-    var el = e.target && e.target.closest ? e.target.closest('[data-copy-id]') : null;
-    if (el) { guardCopyBlur(el); commitCopy(el); }
-  }, true);
-  document.addEventListener('keydown', function (e) {
-    if ((e.metaKey || e.ctrlKey) && (e.key === 's' || e.key === 'S')) {
-      e.preventDefault();
-      var ae = document.activeElement;
-      if (ae && ae.closest) { var ce = ae.closest('[data-copy-id]'); if (ce) commitCopy(ce); }
-      clearTimeout(saveTimer);
-      try { localStorage.setItem(LSKEY, JSON.stringify(state)); } catch (err) {}
-      $('#rv-hint').textContent = 'Saved.';
-    }
-  });
-
-  /* ---------- original preview / export / import / reset ---------- */
-  var origBtn = $('#rv-original');
-  function showOriginal(on) {
-    if (on) {
-      applyTokens(TOKENS); applyToggles({ portrait: 'circle', mastcase: 'upper' });
-      applyOrder(defaultOrder); applyMoves({}); applyHidden([]); applyCopy({});
-      origBtn.textContent = 'Original D (release to return)';
-    } else {
-      applyTokens(state.tokens); applyToggles(state.toggles);
-      applyOrder(Object.keys(state.order).length ? state.order : defaultOrder);
-      applyMoves(state.moves); applyHidden(state.hidden); applyCopy(state.copy);
-      origBtn.textContent = 'Hold to see original D';
-    }
-    schedulePosition(); renderGrips();
-  }
-  origBtn.addEventListener('pointerdown', function () { showOriginal(true); });
-  ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (ev) { origBtn.addEventListener(ev, function () { showOriginal(false); }); });
-
-  function summaryText() {
-    var lines = ['# Exposition D — review state · ' + new Date().toLocaleString()];
-    var tk = Object.keys(state.tokens).filter(function (k) { return String(state.tokens[k]) !== String(TOKENS[k]); });
-    if (tk.length) { lines.push('', '## Tokens changed'); tk.forEach(function (k) { lines.push('- ' + k + ': ' + TOKENS[k] + ' -> ' + state.tokens[k]); }); }
-    var tg = [];
-    if (state.toggles.portrait !== 'circle') tg.push('portraits: ' + state.toggles.portrait);
-    if (state.toggles.mastcase !== 'upper') tg.push('masthead case: ' + state.toggles.mastcase);
-    if (tg.length) { lines.push('', '## Toggles'); tg.forEach(function (t) { lines.push('- ' + t); }); }
-    if (state.order.__sections && state.order.__sections.join() !== defaultOrder.__sections.join()) { lines.push('', '## Section order', state.order.__sections.join(' > ')); }
-    Object.keys(state.order).forEach(function (k) {
-      if (k === '__sections' || !defaultOrder[k]) return;
-      if (state.order[k].join() !== defaultOrder[k].join()) lines.push('', '## Order in ' + k, state.order[k].join(', '));
-    });
-    var mv = Object.keys(state.moves);
-    if (mv.length) { lines.push('', '## Nudged elements (dx, dy px)'); mv.forEach(function (rid) { lines.push('- ' + rid + ': ' + state.moves[rid][0] + ', ' + state.moves[rid][1]); }); }
-    if (state.hidden.length) { lines.push('', '## Hidden'); state.hidden.forEach(function (rid) { lines.push('- ' + rid); }); }
-    var ck = Object.keys(state.copy);
-    if (ck.length) {
-      lines.push('', '## Copy edits (old -> new)');
-      ck.forEach(function (id) {
-        lines.push('- [' + id + '] "' + plainText(copyOriginals.get(id), 60) + '" -> "' + plainText(state.copy[id], 140) + '"');
-      });
-    }
-    if (state.notes.length) { lines.push('', '## Notes'); state.notes.forEach(function (n, i) { lines.push((i + 1) + '. [' + n.rid + '] ' + n.text.replace(/\n/g, ' / ')); }); }
-    if (state.floats.length) { lines.push('', '## Floating notes (page x,y)'); state.floats.forEach(function (f) { lines.push('- (' + Math.round(f.x) + ',' + Math.round(f.y) + ') ' + (f.text || '').replace(/\n/g, ' / ')); }); }
-    if (lines.length === 1) lines.push('', '(no changes or notes yet)');
-    return lines.join('\n');
-  }
-  $('#rv-export').addEventListener('click', function () {
-    var payload = { exported: new Date().toISOString(), state: state, summary: summaryText() };
-    var blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
-    var a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'exposition-review-state.json';
-    a.click();
-    URL.revokeObjectURL(a.href);
-  });
-  $('#rv-summary').addEventListener('click', function () {
-    $('#rv-modal textarea').value = summaryText();
-    $('#rv-modal').style.display = 'flex';
-  });
-  $('#rv-modalcopy').addEventListener('click', function () {
-    var ta = $('#rv-modal textarea'); ta.select();
-    try { document.execCommand('copy'); this.textContent = 'Copied ✓'; } catch (e) {}
-  });
-  $('#rv-modalclose').addEventListener('click', function () { $('#rv-modal').style.display = 'none'; $('#rv-modalcopy').textContent = 'Copy'; });
-  $('#rv-import').addEventListener('click', function () { $('#rv-importfile').click(); });
-  $('#rv-importfile').addEventListener('change', function () {
-    var file = this.files[0]; if (!file) return;
-    var reader = new FileReader();
-    reader.onload = function () {
-      try {
-        var payload = JSON.parse(reader.result);
-        var s = payload.state || payload;
-        ['tokens','toggles','order','moves','hidden','notes','floats','copy'].forEach(function(k){ if (s[k] !== undefined) state[k] = s[k]; });
-        save(); location.reload();
-      } catch (e) { alert('Could not read that file as review state.'); }
-    };
-    reader.readAsText(file);
-  });
-  $('#rv-reset').addEventListener('click', function () {
-    if (!confirm('Discard all notes, moves, and token changes?')) return;
-    try { localStorage.removeItem(LSKEY); } catch (e) {}
-    location.reload();
-  });
-
-  /* ---------- panel toggle ---------- */
-  $('#rv-tab').addEventListener('click', function () { document.documentElement.classList.toggle('rv-open'); schedulePosition(); });
-
-  /* ---------- boot ---------- */
-  assignCopyIds();
-  captureDefaults();
-  load();
-  if (state.notes.length) noteSeq = Math.max.apply(null, state.notes.map(function (n) { return n.id || 0; })) + 1;
-  applyTokens(state.tokens);
-  applyToggles(state.toggles);
-  if (Object.keys(state.order).length) applyOrder(state.order);
-  applyMoves(state.moves);
-  applyHidden(state.hidden);
-  applyCopy(state.copy);
-  state.floats.forEach(makeFloat);
-  syncTokenUI();
-  renderNotes();
-  setMode('browse');
-  document.documentElement.classList.add('rv-open');
-  if (!storageOK) $('.rv-foot').textContent = 'Autosave unavailable in this browser context — use Export to keep your state.';
-})();
-</script>
 </body>
 </html>
