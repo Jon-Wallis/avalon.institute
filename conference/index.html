@@ -271,12 +271,15 @@
   }
   .ticket-option.opening { box-shadow: inset 0 3px 0 var(--copper); }
   .ticket-option.sponsor {
-    --sponsor-gold: color-mix(in srgb, var(--copper) 38%, #D89A3A);
+    --sponsor-copper: #C47D50;
+    --sponsor-blue: #091A2E;
     min-height: 220px;
-    background: color-mix(in srgb, var(--copper) 14%, var(--ink));
-    box-shadow: inset 0 0 0 1px var(--sponsor-gold);
+    background: var(--sponsor-blue);
+    box-shadow: inset 0 0 0 1px var(--sponsor-copper);
   }
-  .ticket-option.sponsor h3 { color: var(--sponsor-gold); }
+  .ticket-option.sponsor h3,
+  .ticket-option.sponsor .ticket-price,
+  .ticket-option.sponsor .ticket-price small { color: var(--sponsor-copper); }
   .ticket-option h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; line-height: 1.15; color: var(--on-ink); }
   .ticket-price { font-family: 'Playfair Display', serif; font-size: 2.15rem; line-height: 1; color: var(--parchment); margin: 0.8rem 0 1rem; }
   .ticket-price small { font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--copper); }
@@ -284,16 +287,16 @@
   .ticket-option .btn-ghost { color: var(--parchment); border-color: color-mix(in srgb, var(--on-ink) 55%, transparent); }
   .ticket-option .btn-ghost:hover { color: var(--on-ink); background: var(--copper-deep); border-color: var(--copper-deep); }
   .ticket-option.sponsor .btn-ghost {
-    color: var(--ink); background: var(--sponsor-gold); border-color: var(--sponsor-gold); font-weight: 600;
+    color: var(--sponsor-blue); background: var(--sponsor-copper); border-color: var(--sponsor-copper); font-weight: 600;
     box-shadow: 0 7px 18px color-mix(in srgb, black 24%, transparent);
   }
   .ticket-option.sponsor .btn-ghost:hover {
-    color: var(--ink); background: color-mix(in srgb, var(--sponsor-gold) 72%, var(--parchment));
-    border-color: color-mix(in srgb, var(--sponsor-gold) 72%, var(--parchment));
+    color: var(--sponsor-blue); background: color-mix(in srgb, var(--sponsor-copper) 72%, var(--parchment));
+    border-color: color-mix(in srgb, var(--sponsor-copper) 72%, var(--parchment));
     box-shadow: 0 9px 22px color-mix(in srgb, black 30%, transparent); transform: translateY(-1px);
   }
   .ticket-option.sponsor .btn-ghost:active { box-shadow: 0 4px 12px color-mix(in srgb, black 22%, transparent); transform: translateY(0); }
-  .ticket-option.sponsor:focus-within { box-shadow: inset 0 0 0 2px var(--sponsor-gold); }
+  .ticket-option.sponsor:focus-within { box-shadow: inset 0 0 0 2px var(--sponsor-copper); }
   .ticket-option .btn:focus-visible { outline: 2px solid var(--on-ink); outline-offset: 4px; }
   .register-band > .label { color: color-mix(in srgb, var(--copper) 60%, var(--on-ink)); font-weight: 500; }
   @media (max-width: 560px) { .ticket-grid { grid-template-columns: 1fr; } .ticket-option { min-height: 220px; } }
