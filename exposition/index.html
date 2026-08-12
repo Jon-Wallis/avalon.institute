@@ -118,6 +118,7 @@
     .nav-links { justify-content: center; gap: 0.7rem 1.3rem; }
   }
   .masthead { text-align: center; padding: 4.2rem 1.5rem 0; }
+  .mast-seal { display: block; margin: 0 auto 1.35rem; border-radius: 50%; }
   .eyebrow { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.34em; text-transform: uppercase; color: var(--copper-deep); }
   .masthead h1 {
     font-family: 'Playfair Display', serif; font-size: calc(clamp(2.8rem, 8vw, 5.4rem) * var(--mast-scale)); font-weight: 700;
@@ -278,6 +279,8 @@
   .ticket-option.sponsor h3,
   .ticket-option.sponsor .ticket-price,
   .ticket-option.sponsor .ticket-price small { color: var(--sponsor-copper); }
+  .ticket-option.standard { filter: grayscale(0.55) opacity(0.72); transition: filter 0.3s; }
+  .ticket-option.standard:hover, .ticket-option.standard:focus-within { filter: none; }
   .ticket-option h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; line-height: 1.15; color: var(--on-ink); }
   .ticket-price { font-family: 'Playfair Display', serif; font-size: 2.15rem; line-height: 1; color: var(--parchment); margin: 0.8rem 0 1rem; }
   .ticket-price small { font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--copper); }
@@ -322,6 +325,7 @@
 </nav>
 
 <header class="masthead" data-rid="masthead" data-rsection="Masthead">
+  <img class="mast-seal" src="seal.png" alt="" width="128" height="128"/>
   <h1 data-rid="mast-title">The Avalon<br/>Exposition</h1>
   <p class="masthead-sub" data-rid="mast-sub">A festival dedicated to the study of mankind</p>
   <div class="mast-rules" data-rid="mast-rules"></div>
@@ -346,7 +350,7 @@
 <section id="expect" data-rid="expect" data-rsection="Expect">
   <div class="section-head" data-rid="expect-label"><span class="line" aria-hidden="true"></span><h2 class="label">What should I expect at the Avalon Exposition?</h2><span class="line" aria-hidden="true"></span></div>
   <div class="measure">
-    <p class="lede" data-rid="expect-lede-1">The Avalon Exposition aims to gather the greatest concentration of tools, perspectives, and works which shed light on the human condition in the world today. We are working to assemble speakers, known and unknown, alongside music, theater, DNA sequencers, fMRI machines, and every other scientific, intellectual and artistic tradition useful for understanding the human condition. Our venue supports many simultaneous sessions, allowing participants to attend and organize whatever will be of value to them.</p>
+    <p class="lede" data-rid="expect-lede-1">The Avalon Exposition aims to gather the greatest concentration of perspectives, tools, and works which shed light on the human condition in the world today. We are working to assemble speakers, known and unknown, alongside music, theater, DNA sequencers, neural imaging machines, and every other scientific, intellectual and artistic tradition useful for understanding the human condition. Our venue supports many simultaneous sessions, allowing participants to attend and organize whatever will be of value to them.</p>
   </div>
 </section>
 
@@ -442,13 +446,13 @@
         <div class="ticket-price">$350</div>
         <a class="btn btn-primary" data-rid="register-cta" href="https://buy.stripe.com/7sY4gz0fl27F6RO9DN3gk07">Buy Opening Ticket</a>
       </article>
-      <article class="ticket-option" data-rid="ticket-standard">
+      <article class="ticket-option standard" data-rid="ticket-standard">
         <h3>Standard Ticket</h3>
         <div class="ticket-price">$500<small>+</small></div>
         <a class="btn btn-ghost" data-rid="standard-cta" href="https://buy.stripe.com/4gMdR9d2727F0tq9DN3gk0d">Choose Standard Amount</a>
       </article>
       <article class="ticket-option" data-rid="ticket-student">
-        <h3>Please Sir, May I Have A Ticket</h3>
+        <h3>Please, Sir, May I Have A Ticket</h3>
         <div class="ticket-price">$150</div>
         <p class="ticket-note">Students, apply for financial aid <em>if necessary</em>.</p>
         <a class="btn btn-ghost" data-rid="student-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSe-Of3GX-9nYa17nIKfsYlrh2UtMUYZT3VEKrAmqbqto4B9ew/viewform">Apply Here</a>
