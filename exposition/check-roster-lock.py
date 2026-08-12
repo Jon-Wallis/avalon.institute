@@ -11,7 +11,7 @@ from pathlib import Path
 
 
 EXPECTED_COUNT = 125
-EXPECTED_SHA256 = "4bcc5e79ee69d86d226a184c70d8963bf1c43f25299130efc931ca4dbeeab9d9"
+EXPECTED_SHA256 = "ef3c9d22a580aa6b60c4e84636fe901fb31a719b592a6cc8c09cb538e62042d5"
 
 
 class RosterParser(HTMLParser):
