@@ -197,8 +197,10 @@
   .company-sub a { color: var(--copper-deep); text-decoration: none; border-bottom: 1px solid var(--copper-faint); }
   .company-sub a:hover { border-bottom-color: var(--copper-deep); }
   .cardkey { text-align: center; margin: -0.4rem 0 1.5rem; }
-  .cardkey-box { display: inline-block; border: 1px solid var(--ink-hair); padding: 0.55rem 0.85rem 0.5rem; }
-  .cardkey .ncard { margin: 0 0.25rem; }
+  .cardkey-lede { font-style: italic; font-size: 0.98rem; color: var(--ink-faint); margin: 0 0 0.55rem; }
+  .cardkey-lede .ck-confirmed { color: var(--ink); }
+  .cardkey-box { display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid var(--copper-faint); padding: 0.5rem 0.65rem; }
+  .cardkey .ncard { margin: 0; }
   .ncard {
     display: inline-block; margin: 0.16rem 0.22rem 0.16rem 0; padding: 0.24rem 0.6rem;
     border: 1px solid var(--ink-hair); background: var(--parchment);
@@ -359,7 +361,7 @@
   <div class="section-head" data-rid="company-label"><span class="line" aria-hidden="true"></span><h2 class="label">Speakers and Performers</h2><span class="line" aria-hidden="true"></span></div>
   <div class="wide">
     <p class="company-sub" data-rid="company-legend">Speaking inquiries: <a href="mailto:wallis@avalon.institute">wallis@avalon.institute</a></p>
-    <div class="cardkey" data-rid="cardkey"><span class="cardkey-box"><span class="ncard confirmed">Confirmed</span><span class="ncard">Invited</span></span></div>
+    <div class="cardkey" data-rid="cardkey"><p class="cardkey-lede">Speakers we have <span class="ck-confirmed">confirmed</span>/invited</p><span class="cardkey-box"><span class="ncard confirmed">Confirmed</span><span class="ncard">Invited</span></span></div>
     <!-- ROSTER LOCK — Jonathan, 2026-08-12: do not remove, replace, reorder, or reclassify a name without Jonathan's explicit instruction in the current task. Run conference/check-roster-lock.py after every conference edit. -->
     <div class="company-cab" data-rid="company-cab">
       <div class="fblock" data-rid="field-philosophy-religion"><div class="f-label">Philosophy &amp; Religion</div><div class="namecards" data-rid="names-philosophy-religion"><span class="ncard">Martha Nussbaum</span><span class="ncard">Byung-Chul Han</span><span class="ncard">John Milbank</span><span class="ncard">David Bentley Hart</span><span class="ncard">Ann Taves</span><span class="ncard">John Vervaeke</span><span class="ncard">Agnes Callard</span><span class="ncard">Zena Hitz</span><span class="ncard">Yiyang Zhuge</span><span class="ncard">Keegan Callanan</span><span class="ncard">Jeremy England</span><span class="ncard">Peter Sloterdijk</span><span class="ncard">Natalie Wynn</span><span class="ncard">Matt Crawford</span><span class="ncard">Slavoj Žižek</span><span class="ncard">Manuel De Landa</span><span class="ncard">Benjamin Bratton</span><span class="ncard">Reza Negarestani</span><span class="ncard">Nick Land</span><span class="ncard">Wolf Tivy</span><span class="ncard">James Poulos</span><span class="ncard">Amanda Askell</span><span class="ncard">Shinzen Young</span></div></div>
