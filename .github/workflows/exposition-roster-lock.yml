@@ -1,0 +1,23 @@
+name: Exposition roster lock
+
+on:
+  push:
+    paths:
+      - exposition/index.html
+      - exposition/check-roster-lock.py
+      - .github/workflows/exposition-roster-lock.yml
+  pull_request:
+    paths:
+      - exposition/index.html
+      - exposition/check-roster-lock.py
+      - .github/workflows/exposition-roster-lock.yml
+
+permissions:
+  contents: read
+
+jobs:
+  check-roster:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 exposition/check-roster-lock.py
