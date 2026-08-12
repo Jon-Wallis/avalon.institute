@@ -70,13 +70,16 @@
     padding: 0 0.2rem;
   }
   .mast-meta .mid { color: var(--copper-deep); }
-  .cta-row { margin: 2.6rem 0 0; display: flex; gap: 1.1rem; justify-content: center; flex-wrap: wrap; padding-bottom: 3.6rem; }
+  .cta-row { margin: 2.6rem 0 0; display: flex; gap: 1.1rem; justify-content: center; flex-wrap: wrap; padding-bottom: 2rem; }
   .btn { font-family: 'Cinzel', serif; font-size: 0.74rem; letter-spacing: 0.26em; text-transform: uppercase; padding: 0.9rem 2rem; text-decoration: none; transition: all 0.3s; }
   .btn-primary { color: var(--parchment); background: var(--ink); border: 1px solid var(--ink); }
   .btn-primary:hover { background: var(--copper-deep); border-color: var(--copper-deep); }
   .btn-ghost { color: var(--ink); border: 1px solid var(--ink-hair); }
   .btn-ghost:hover { border-color: var(--copper-deep); color: var(--copper-deep); }
   section { padding: calc(3.2rem * var(--sect-pad)) 1.5rem; }
+  #occasion { padding-bottom: 1.3rem; }
+  #expect { padding-top: 1.3rem; padding-bottom: 1.7rem; }
+  #company { padding-top: 1.3rem; }
   .measure { max-width: 640px; margin: 0 auto; }
   .wide { max-width: var(--content); margin: 0 auto; }
   .section-head { display: flex; align-items: center; gap: 1.2rem; max-width: var(--content); margin: 0 auto 2rem; }
@@ -338,19 +341,18 @@
 </section>
 
 <section id="expect" data-rid="expect" data-rsection="Expect">
-  <div class="section-head" data-rid="expect-label"><span class="line"></span><span class="label">What should I expect?</span><span class="line"></span></div>
+  <div class="section-head" data-rid="expect-label"><span class="line"></span><span class="label">What should I expect at the Avalon Exposition?</span><span class="line"></span></div>
   <div class="measure">
-    <p class="lede" data-rid="expect-lede-1">The Avalon Exposition aims to gather the greatest concentration of tools, perspectives, and works which shed light on the human condition in the world today. We are working to assemble speakers, known and unknown, alongside music, theater, DNA sequencers, fMRI machines, and every other scientific, intellectual and artistic tradition useful for understanding the human condition.</p>
-    <p class="lede" data-rid="expect-lede-2">Our venue supports many simultaneous sessions, allowing participants to attend and organize whatever will be of value to them.</p>
+    <p class="lede" data-rid="expect-lede-1">The Avalon Exposition aims to gather the greatest concentration of tools, perspectives, and works which shed light on the human condition in the world today. We are working to assemble speakers, known and unknown, alongside music, theater, DNA sequencers, fMRI machines, and every other scientific, intellectual and artistic tradition useful for understanding the human condition. Our venue supports many simultaneous sessions, allowing participants to attend and organize whatever will be of value to them.</p>
   </div>
 </section>
 
 <section id="company" data-rid="company" data-rsection="Speakers">
   <div class="section-head" data-rid="company-label"><span class="line"></span><span class="label">Speakers and Performers</span><span class="line"></span></div>
   <div class="wide">
-    <p class="company-sub" data-rid="company-legend">Here is a list of our confirmed and invited speakers. Filled cards are confirmed. Speaking inquiries: <a href="mailto:wallis@avalon.institute">wallis@avalon.institute</a></p>
+    <p class="company-sub" data-rid="company-legend">Here is a list of our confirmed/invited speakers. Please send speaking inquiries to <a href="mailto:wallis@avalon.institute">wallis@avalon.institute</a></p>
     <div class="company-cab" data-rid="company-cab">
-      <div class="fblock" data-rid="field-philosophy-religion"><div class="f-label">Philosophy &amp; Religion</div><div class="namecards" data-rid="names-philosophy-religion"><span class="ncard">Zena Hitz</span><span class="ncard">Matt Crawford</span><span class="ncard">Slavoj Žižek</span><span class="ncard">Manuel De Landa</span><span class="ncard">Benjamin Bratton</span><span class="ncard">Reza Negarestani</span><span class="ncard">Wolf Tivy</span><span class="ncard">James Poulos</span><span class="ncard">Amanda Askell</span><span class="ncard">Shinzen Young</span></div></div>
+      <div class="fblock" data-rid="field-philosophy-religion"><div class="f-label">Philosophy &amp; Religion</div><div class="namecards" data-rid="names-philosophy-religion"><span class="ncard">Zena Hitz</span><span class="ncard">Matt Crawford</span><span class="ncard">Slavoj Žižek</span><span class="ncard">Manuel De Landa</span><span class="ncard">Benjamin Bratton</span><span class="ncard">Reza Negarestani</span><span class="ncard">Nick Land</span><span class="ncard">Wolf Tivy</span><span class="ncard">James Poulos</span><span class="ncard">Amanda Askell</span><span class="ncard">Shinzen Young</span></div></div>
       <div class="fblock" data-rid="field-history-classics"><div class="f-label">History &amp; Classics</div><div class="namecards" data-rid="names-history-classics"><span class="ncard">Ada Palmer</span><span class="ncard">Anne Carson</span><span class="ncard">Tanner Greer</span><span class="ncard">David Butterfield</span></div></div>
       <div class="fblock" data-rid="field-letters"><div class="f-label">Letters</div><div class="namecards" data-rid="names-letters"><span class="ncard">Scott Alexander</span><span class="ncard">Sam Kriss</span><span class="ncard">Helen Andrews</span><span class="ncard">Simon Sarris</span><span class="ncard">Kelsey Piper</span><span class="ncard">Gwern Branwen</span></div></div>
       <div class="fblock" data-rid="field-the-sciences"><div class="f-label">The Sciences</div><div class="namecards" data-rid="names-the-sciences"><span class="ncard">David Reich</span><span class="ncard">Iain McGilchrist</span><span class="ncard">Joseph Henrich</span><span class="ncard">Stephen Porges</span><span class="ncard">Erik Hoel</span><span class="ncard">Dimitris Xygalatas</span><span class="ncard">Thomas Csordas</span><span class="ncard">Lambros Malafouris</span><span class="ncard">Michael Edward Johnson</span><span class="ncard confirmed">Keoni Gandall</span></div></div>
@@ -362,8 +364,7 @@
 <section id="institute" data-rid="institute" data-rsection="The Institute">
   <div class="section-head" data-rid="institute-label"><span class="line"></span><span class="label">What is the Avalon Institute?</span><span class="line"></span></div>
   <div class="measure">
-    <p class="lede" data-rid="institute-lede-1">The Avalon Institute is building infrastructure to help the life of the mind flourish outside of Academia. We have been building a home for cultural ambition in San Francisco through residencies, seminars, reading groups, staged ancient Greek plays, music and poetry nights and much more.</p>
-    <p class="lede" data-rid="institute-lede-2">We want to perfect the skills necessary to organize productive intellectual and artistic infrastructure at any scale and in any field. Beyond San Francisco, we are building an alliance of groups who want the fundamental logistical, financial, and narrative foundations of the life of the mind to change. <a href="https://avalon.institute">avalon.institute</a></p>
+    <p class="lede" data-rid="institute-lede-1">The Avalon Institute is building infrastructure to help the life of the mind flourish outside of Academia. We have been building a home for cultural ambition in San Francisco through residencies, seminars, reading groups, staged ancient Greek plays, music and poetry nights and much more. We want to perfect the skills necessary to organize productive intellectual and artistic infrastructure at any scale and in any field. Beyond San Francisco, we are building an alliance of groups who want the fundamental logistical, financial, and narrative foundations of the life of the mind to change. <a href="https://avalon.institute">avalon.institute</a></p>
   </div>
 </section>
 
@@ -414,6 +415,10 @@
         <h4>What if I need financial assistance to attend?</h4>
         <p>A limited number of volunteer and discounted tickets are available. Please contact <a href="mailto:zenon@avalon.institute">zenon@avalon.institute</a> to apply for either one.</p>
       </div>
+      <div class="faq-item" data-rid="faq-10">
+        <h4>What is your refund policy?</h4>
+        <p>Full refunds are available up to 7 days before the event.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -421,7 +426,6 @@
 <section id="tickets" data-rid="register" data-rsection="Tickets" style="padding-left:0;padding-right:0;">
   <div class="register-band" data-rid="register-band">
     <span class="label">Tickets</span>
-    <p data-rid="register-copy">Early bird tickets are $350 — three days of the exposition, dinner Friday and Saturday, lunch Saturday and Sunday, and a complimentary ticket to the Halloween Gala. Prices rise to $500 after three weeks, and again closer to the event.</p>
     <a class="btn btn-primary" data-rid="register-cta" href="https://buy.stripe.com/7sY4gz0fl27F6RO9DN3gk07">Get Tickets</a>
   </div>
 </section>
