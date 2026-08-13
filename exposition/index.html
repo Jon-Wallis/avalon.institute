@@ -303,6 +303,10 @@
   .ticket-option.sponsor .btn-ghost:active { box-shadow: 0 4px 12px color-mix(in srgb, black 22%, transparent); transform: translateY(0); }
   .ticket-option.sponsor:focus-within { box-shadow: inset 0 0 0 2px var(--sponsor-copper); }
   .ticket-option .btn:focus-visible { outline: 2px solid var(--on-ink); outline-offset: 4px; }
+  .ticket-option button.btn { background: transparent; cursor: pointer; }
+  .daypass-choices { display: flex; flex-direction: column; gap: 0.55rem; margin-top: auto; }
+  .daypass-choices .btn { margin-top: 0; }
+  .daypass-choices[hidden] { display: none; }
   .register-band > .label { color: color-mix(in srgb, var(--copper) 60%, var(--on-ink)); font-weight: 500; }
   @media (max-width: 560px) { .ticket-grid { grid-template-columns: 1fr; } .ticket-option { min-height: 220px; } }
   footer { text-align: center; padding: 2.6rem 1.5rem; color: var(--ink-faint); font-family: 'Cinzel', serif; font-size: 0.64rem; letter-spacing: 0.3em; text-transform: uppercase; }
@@ -422,7 +426,7 @@
       </div>
       <div class="faq-item" data-rid="faq-7">
         <h3>What does a ticket cost?</h3>
-        <p>Early Bird Tickets are $350, and Student Tickets are $150. Day Passes are $200 for one day and $300 for two. Standard Tickets begin at $500; Founding Sponsor tickets begin at $1,000.</p>
+        <p>Early Bird Tickets are $350, and Student Tickets are $150. Day Passes are $200 for one day and $300 for two. Founding Sponsor tickets begin at $1,000.</p>
       </div>
       <div class="faq-item" data-rid="faq-9">
         <h3>What if I need financial assistance to attend?</h3>
@@ -449,22 +453,15 @@
         <div class="ticket-price">$350</div>
         <a class="btn btn-primary" data-rid="register-cta" href="https://buy.stripe.com/7sY4gz0fl27F6RO9DN3gk07">Buy Early Bird Ticket</a>
       </article>
-      <article class="ticket-option standard" data-rid="ticket-standard">
-        <h3>Standard Ticket</h3>
-        <div class="ticket-price">$500<small>+</small></div>
-        <a class="btn btn-ghost" data-rid="standard-cta" href="https://buy.stripe.com/4gMdR9d2727F0tq9DN3gk0d">Choose Standard Amount</a>
-      </article>
       <article class="ticket-option" data-rid="ticket-daypass">
         <h3>Day Pass</h3>
-        <div class="ticket-price">$200</div>
-        <p class="ticket-note">One day of your choice: Friday, Saturday, or Sunday. Meals included.</p>
-        <a class="btn btn-ghost" data-rid="daypass-cta" href="https://buy.stripe.com/8x26oH1jp7rZfok4jt3gk0e">Buy Day Pass</a>
-      </article>
-      <article class="ticket-option" data-rid="ticket-twodaypass">
-        <h3>Two-Day Pass</h3>
-        <div class="ticket-price">$300</div>
-        <p class="ticket-note">Any two days, chosen at checkout. Meals included.</p>
-        <a class="btn btn-ghost" data-rid="twodaypass-cta" href="https://buy.stripe.com/dRm6oH8LR7rZ0tqaHR3gk0f">Buy Two-Day Pass</a>
+        <div class="ticket-price">$200<small>+</small></div>
+        <p class="ticket-note">Any one day $200; any two days $300. Meals included.</p>
+        <div class="daypass-choices" data-rid="daypass-choices" hidden>
+          <a class="btn btn-ghost" data-rid="daypass-cta" href="https://buy.stripe.com/8x26oH1jp7rZfok4jt3gk0e">One Day · $200</a>
+          <a class="btn btn-ghost" data-rid="twodaypass-cta" href="https://buy.stripe.com/dRm6oH8LR7rZ0tqaHR3gk0f">Two Days · $300</a>
+        </div>
+        <button class="btn btn-ghost" type="button" data-rid="daypass-toggle">Choose Day Pass</button>
       </article>
       <article class="ticket-option" data-rid="ticket-student">
         <h3>Please, Sir, May I Have A Ticket</h3>
@@ -485,5 +482,18 @@
 <footer data-rid="footer"><span class="mark">◇</span> &nbsp; <a href="https://avalon.institute">The Avalon Institute</a> · Berkeley &nbsp; <span class="mark">◇</span></footer>
 
 
+<script>
+  (function () {
+    var toggle = document.querySelector('[data-rid="daypass-toggle"]');
+    var choices = document.querySelector('[data-rid="daypass-choices"]');
+    if (toggle && choices) {
+      toggle.addEventListener('click', function () {
+        toggle.hidden = true;
+        choices.hidden = false;
+        choices.querySelector('a').focus();
+      });
+    }
+  })();
+</script>
 </body>
 </html>
