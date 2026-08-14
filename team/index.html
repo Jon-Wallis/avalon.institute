@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Team — The Avalon Institute</title>
+<link rel="icon" type="image/png" href="../favicon.png"/>
+<meta content="The team of the Avalon Institute." name="description"/>
+<link rel="canonical" href="https://avalon.institute/team/"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Cinzel:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --green-deep: #141c12; --green-mid: #1d281a;
+    --gold: #d89a3a; --gold-dim: #9a6a1f;
+    --cream: #f0e8d6; --text: #e8dfc8; --text-dim: #a99f8c;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background: var(--green-deep); color: var(--text);
+    font-family: 'EB Garamond', Georgia, serif; min-height:100vh; position:relative;
+    overflow-x:hidden; }
+  body::before { content:''; position:fixed; inset:0; opacity:.5; pointer-events:none; z-index:0;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"); }
+  body::after { content:''; position:fixed; bottom:.7rem; right:.7rem; width:22px; height:22px;
+    border-bottom:1px solid var(--gold-dim); border-right:1px solid var(--gold-dim); z-index:1; }
+  nav { padding:1.5rem 2.5rem .5rem; display:flex; justify-content:space-between; align-items:center;
+    font-family:Cinzel, serif; font-size:.72rem; letter-spacing:.24em; text-transform:uppercase;
+    position:relative; z-index:2; }
+  nav::before { content:''; position:absolute; top:.7rem; left:.7rem; width:22px; height:22px;
+    border-top:1px solid var(--gold-dim); border-left:1px solid var(--gold-dim); }
+  nav a { color:var(--gold-dim); text-decoration:none; transition:color .2s; }
+  nav a:hover { color:var(--cream); }
+  nav .pg { color:var(--gold-dim); opacity:.82; }
+  .masthead { text-align:center; margin:2.2rem auto 0; position:relative; z-index:2; }
+  .masthead h1 { font-family:Cinzel, serif; font-weight:500; letter-spacing:.14em;
+    font-size:clamp(1.6rem, 4vw, 2.6rem); color:var(--cream); text-transform:uppercase; }
+  .rule { display:flex; align-items:center; gap:.8rem; width:min(520px, 72%);
+    margin:1.1rem auto 0; }
+  .rule::before, .rule::after { content:''; flex:1; height:1px;
+    background:linear-gradient(to right, transparent, rgba(154,106,31,.7), var(--gold),
+    rgba(154,106,31,.7), transparent); }
+  .rule span { color:var(--gold); font-family:Cinzel, serif; font-size:.7rem; }
+
+  /* Desktop chart */
+  .stage-wrap { position:relative; z-index:2; width:min(1400px, 96vw); margin:1rem auto 3rem; }
+  .stage { width:1920px; height:690px; position:relative; transform-origin:top left; }
+  .wires { position:absolute; inset:0; width:100%; height:100%; }
+  .wires path { fill:none; stroke:var(--gold); stroke-width:1; opacity:.42; }
+  .ctitle { position:absolute; transform:translateX(-50%); font-family:Cinzel, serif;
+    font-size:14px; letter-spacing:.3em; text-transform:uppercase; color:var(--gold);
+    white-space:nowrap; text-align:center; }
+  .ctitle::after { content:''; display:block; height:1px; margin-top:7px;
+    background:linear-gradient(to right, transparent, var(--gold-dim), transparent); }
+  .pcard { position:absolute; transform:translateX(-50%); text-align:center; width:140px; }
+  .frame { border:1px solid var(--gold-dim); padding:3px; display:inline-block;
+    background:rgba(0,0,0,.18); }
+  .pcard .frame img { display:block; width:100px; height:100px; object-fit:cover; }
+  .pcard.big .frame { border-color:var(--gold); }
+  .pcard.big .frame img { width:124px; height:124px; }
+  .pcard.big { width:220px; }
+  .nm { font-family:Cinzel, serif; color:var(--cream); font-size:12.5px; letter-spacing:.04em;
+    margin-top:6px; line-height:1.35; }
+  .pcard.big .nm { font-size:15px; }
+  .pcard.nabove .nm { margin:0 0 6px; white-space:nowrap; }
+  .apex-nm { position:absolute; transform:translateX(-50%); font-size:15px; white-space:nowrap; }
+
+  /* Mobile masthead */
+  .roster { display:none; }
+
+  @media (max-width: 759px) {
+    .stage-wrap { display:none; }
+    .roster { display:block; position:relative; z-index:2;
+      width:min(400px, 88vw); margin:1.6rem auto 3rem; padding-left:26px; }
+    .roster::before { content:''; position:absolute; left:0; top:14px; bottom:8px; width:1px;
+      background:linear-gradient(to bottom, var(--gold-dim), rgba(154,106,31,.25)); }
+    .roster section { position:relative; margin-bottom:2.4rem; }
+    .mlabel { font-family:Cinzel, serif; font-weight:400; font-size:.78rem; letter-spacing:.28em;
+      text-transform:uppercase; color:var(--gold); margin-bottom:1.1rem; }
+    .mlabel::before { content:''; position:absolute; left:-29.5px; top:4px; width:7px; height:7px;
+      border:1px solid var(--gold); background:var(--green-deep); }
+    .mrow { display:flex; gap:14px; margin-bottom:1.1rem; flex-wrap:wrap; justify-content:center; }
+    .mcard { width:96px; text-align:center; }
+    .mcard .frame img { display:block; width:88px; height:88px; object-fit:cover; }
+    .mcard.mbig { width:128px; }
+    .mcard.mbig .frame { border-color:var(--gold); }
+    .mcard.mbig .frame img { width:120px; height:120px; }
+    .mcard .nm { font-size:.68rem; }
+    .mcard.mbig .nm { font-size:.78rem; }
+  }
+
+  footer { text-align:center; padding:2rem 0 2.6rem; position:relative; z-index:2;
+    color:var(--text-dim); font-size:.9rem; }
+  footer .rule { margin-bottom:1.2rem; }
+  footer a { color:var(--gold-dim); text-decoration:none; }
+  footer a:hover { color:var(--cream); }
+</style></head><body>
+<nav><a href="../">The Avalon Institute</a><span class="pg">Team · MMXXVI</span></nav>
+<div class="masthead">
+  <h1>Team</h1>
+  <div class="rule"><span>◇</span></div>
+</div>
+
+<div class="stage-wrap"><div class="stage">
+  <svg class="wires" viewBox="0 0 1920 690" preserveAspectRatio="none">
+    <path d="M 698 238 L 300 238 L 300 296"/>
+    <path d="M 862 238 L 1538 238 L 1538 274"/>
+    <path d="M 1334 274 L 1742 274"/>
+    <path d="M 1334 274 L 1334 296"/>
+    <path d="M 1742 274 L 1742 296"/>
+  </svg>
+  <div class="ctitle" style="left:780px; top:110px;">Leadership</div>
+  <div class="nm apex-nm" style="left:780px; top:146px;">Jonathan Wallis</div>
+  <div class="pcard big" style="left:780px; top:172px;"><div class="frame"><img src="photos/jonathan-wallis.jpg" alt="Jonathan Wallis"></div></div>
+  <div class="pcard nabove" style="left:702px; top:312px;"><div class="nm">Duncan Umphrey</div><div class="frame"><img src="photos/duncan-umphrey.jpg" alt="Duncan Umphrey"></div></div>
+  <div class="pcard nabove" style="left:858px; top:312px;"><div class="nm">Zénon MacKinnon</div><div class="frame"><img src="photos/zenon-mackinnon.jpg" alt="Zénon MacKinnon"></div></div>
+
+  <div class="ctitle" style="left:300px; top:308px;">Fellows</div>
+  <div class="pcard" style="left:156px; top:360px;"><div class="frame"><img src="photos/stephen-pimentel.jpg" alt="Stephen Pimentel"></div><div class="nm">Stephen Pimentel</div></div><div class="pcard" style="left:300px; top:360px;"><div class="frame"><img src="photos/brian-pines.jpg" alt="Brian Pines"></div><div class="nm">Brian Pines</div></div><div class="pcard" style="left:444px; top:360px;"><div class="frame"><img src="photos/logan-graves.jpg" alt="Logan Graves"></div><div class="nm">Logan Graves</div></div>
+  <div class="pcard" style="left:156px; top:520px;"><div class="frame"><img src="photos/adam-feng.jpg" alt="Adam Feng"></div><div class="nm">Adam Feng</div></div><div class="pcard" style="left:300px; top:520px;"><div class="frame"><img src="photos/joshua-jayaprakash.jpg" alt="Joshua Jayaprakash"></div><div class="nm">Joshua Jayaprakash</div></div><div class="pcard" style="left:444px; top:520px;"><div class="frame"><img src="photos/alex-oaten.jpg" alt="Alex Oaten"></div><div class="nm">Alex Oaten</div></div>
+
+  <div class="ctitle" style="left:1334px; top:308px;">Departments in Formation</div>
+  <div class="ctitle" style="left:1742px; top:308px;">Avalon Arts</div>
+  <div class="pcard" style="left:1190px; top:360px;"><div class="frame"><img src="photos/michael-edward-johnson.jpg" alt="Michael Edward Johnson"></div><div class="nm">Michael Edward Johnson</div></div><div class="pcard" style="left:1334px; top:360px;"><div class="frame"><img src="photos/keoni-gandall.jpg" alt="Keoni Gandall"></div><div class="nm">Keoni Gandall</div></div><div class="pcard" style="left:1478px; top:360px;"><div class="frame"><img src="photos/york-westenhaver.jpg" alt="York Westenhaver"></div><div class="nm">York Westenhaver</div></div>
+  <div class="pcard" style="left:1670px; top:360px;"><div class="frame"><img src="photos/michael-curzi.jpg" alt="Michael Curzi"></div><div class="nm">Michael Curzi</div></div><div class="pcard" style="left:1814px; top:360px;"><div class="frame"><img src="photos/lola-guthrie.jpg" alt="Lola Guthrie"></div><div class="nm">Lola Guthrie</div></div>
+</div></div>
+
+<div class="roster">
+  <section>
+    <h2 class="mlabel">Leadership</h2>
+    <div class="mrow"><div class="mcard mbig">
+      <div class="frame"><img src="photos/jonathan-wallis.jpg" alt="Jonathan Wallis" loading="lazy"></div>
+      <div class="nm">Jonathan Wallis</div></div></div>
+    <div class="mrow"><div class="mcard">
+      <div class="frame"><img src="photos/duncan-umphrey.jpg" alt="Duncan Umphrey" loading="lazy"></div>
+      <div class="nm">Duncan Umphrey</div></div><div class="mcard">
+      <div class="frame"><img src="photos/zenon-mackinnon.jpg" alt="Zénon MacKinnon" loading="lazy"></div>
+      <div class="nm">Zénon MacKinnon</div></div></div>
+  </section>
+  <section>
+    <h2 class="mlabel">Fellows</h2>
+    <div class="mrow"><div class="mcard">
+      <div class="frame"><img src="photos/stephen-pimentel.jpg" alt="Stephen Pimentel" loading="lazy"></div>
+      <div class="nm">Stephen Pimentel</div></div><div class="mcard">
+      <div class="frame"><img src="photos/brian-pines.jpg" alt="Brian Pines" loading="lazy"></div>
+      <div class="nm">Brian Pines</div></div><div class="mcard">
+      <div class="frame"><img src="photos/logan-graves.jpg" alt="Logan Graves" loading="lazy"></div>
+      <div class="nm">Logan Graves</div></div></div>
+    <div class="mrow"><div class="mcard">
+      <div class="frame"><img src="photos/adam-feng.jpg" alt="Adam Feng" loading="lazy"></div>
+      <div class="nm">Adam Feng</div></div><div class="mcard">
+      <div class="frame"><img src="photos/joshua-jayaprakash.jpg" alt="Joshua Jayaprakash" loading="lazy"></div>
+      <div class="nm">Joshua Jayaprakash</div></div><div class="mcard">
+      <div class="frame"><img src="photos/alex-oaten.jpg" alt="Alex Oaten" loading="lazy"></div>
+      <div class="nm">Alex Oaten</div></div></div>
+  </section>
+  <section>
+    <h2 class="mlabel">Departments in Formation</h2>
+    <div class="mrow"><div class="mcard">
+      <div class="frame"><img src="photos/michael-edward-johnson.jpg" alt="Michael Edward Johnson" loading="lazy"></div>
+      <div class="nm">Michael Edward Johnson</div></div><div class="mcard">
+      <div class="frame"><img src="photos/keoni-gandall.jpg" alt="Keoni Gandall" loading="lazy"></div>
+      <div class="nm">Keoni Gandall</div></div><div class="mcard">
+      <div class="frame"><img src="photos/york-westenhaver.jpg" alt="York Westenhaver" loading="lazy"></div>
+      <div class="nm">York Westenhaver</div></div></div>
+  </section>
+  <section>
+    <h2 class="mlabel">Avalon Arts</h2>
+    <div class="mrow"><div class="mcard">
+      <div class="frame"><img src="photos/michael-curzi.jpg" alt="Michael Curzi" loading="lazy"></div>
+      <div class="nm">Michael Curzi</div></div><div class="mcard">
+      <div class="frame"><img src="photos/lola-guthrie.jpg" alt="Lola Guthrie" loading="lazy"></div>
+      <div class="nm">Lola Guthrie</div></div></div>
+  </section>
+</div>
+<footer>
+  <div class="rule"><span>◇</span></div>
+  <a href="../">The Avalon Institute</a> · San Francisco
+</footer>
+<script>
+  const wrap = document.querySelector('.stage-wrap'), st = document.querySelector('.stage');
+  function fit() {
+    const w = wrap.clientWidth, s = w / 1920;
+    st.style.transform = `scale(${s})`;
+    wrap.style.height = (690 * s) + 'px';
+  }
+  addEventListener('resize', fit); fit();
+</script>
+</body></html>
