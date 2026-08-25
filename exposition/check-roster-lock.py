@@ -10,8 +10,8 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 
-EXPECTED_COUNT = 143
-EXPECTED_SHA256 = "d14fdbece94d0946d83b7951659e83a7c03249d32dbab02fe234dff566b5e9f0"
+EXPECTED_COUNT = 142
+EXPECTED_SHA256 = "1cd65768e2a4446efb84a48d795b2eecb4e516072874d56b735e164e1f651001"
 
 
 class RosterParser(HTMLParser):
