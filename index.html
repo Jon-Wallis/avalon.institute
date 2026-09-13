@@ -199,15 +199,6 @@
   .btn-primary:hover { background: var(--gold-dim); border-color: var(--gold-dim); }
   .btn-group { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-top: 1.75rem; }
   .action-cluster { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin: 1.35rem 0 3.3rem; align-items: center; }
-  .visit-stack { position: relative; display: inline-flex; flex-direction: column; align-items: center; }
-  .visit-caption { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); width: min(360px, calc(100vw - 2.5rem)); padding-top: 0.55rem; color: var(--text-dim); font-size: 0.9rem; font-style: italic; text-align: center; line-height: 1.45; margin: 0; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; z-index: 2; }
-  .visit-stack:hover .visit-caption,
-  .visit-stack:focus-within .visit-caption { opacity: 1; pointer-events: auto; }
-  .visit-caption a { color: var(--gold-dim); text-decoration: none; }
-  .visit-caption a:hover { color: var(--gold); }
-  @media (max-width: 640px) {
-    .visit-caption { left: 50%; right: auto; transform: translateX(-78%); width: min(320px, calc(100vw - 2.5rem)); }
-  }
 
   /* Hover/focus tooltip — wrapper preserves .btn's ::after corner-bracket */
   .tooltip-wrap { position: relative; display: inline-block; }
@@ -290,7 +281,6 @@
 <a class="nav-brand" href="/" aria-label="The Avalon Institute home">The Avalon Institute</a>
 <div class="nav-links">
 <a href="#about">About</a>
-<a href="#house">Avalon House</a>
 <a href="#programs">Programming</a>
 <a href="press/">Press</a>
 <a href="#support">Support</a>
@@ -329,10 +319,7 @@
 </section>
 <div class="action-cluster fade-in">
 <a class="btn btn-primary" href="https://buy.stripe.com/14A9AT5zFdQnfok2bl3gk00">Donate</a>
-<div class="visit-stack">
-<a class="btn" href="mailto:wallis@avalon.institute?subject=Avalon%20Open%20House">Visit</a>
-<p class="visit-caption" data-edit-id="visit-caption">Avalon has an open house on the <a href="mailto:wallis@avalon.institute?subject=Avalon%20Open%20House">first Saturday of every month</a>.</p>
-</div>
+<a class="btn" href="mailto:wallis@avalon.institute">Visit</a>
 </div>
 <section class="fade-in" id="programs">
 <div class="section-header" style="display:flex;align-items:baseline;gap:0.55em"><span aria-hidden="true" style="color:var(--gold);font-family:'Cinzel',serif;font-size:0.85rem">◇</span><span class="section-title" data-edit-id="programs-label-programming" style="margin-bottom:0">Programming</span></div>
@@ -346,16 +333,21 @@
 </div>
 <div style="margin-bottom:2rem">
 <h3 data-edit-id="programs-h3-lectures">Lectures</h3>
-<p data-edit-id="programs-p-lectures">Children of Monsters &amp; Elves — Razib Khan · NP and Complexity — Charles Rosenbauer <br>· The Law of Terminal Distortion — Louis Sagnières · Conditions for Intellectual Culture — Geoff Anders</p>
+<p data-edit-id="programs-p-lectures">Children of Monsters &amp; Elves — Razib Khan · NP and Complexity — Charles Rosenbauer · The Law of Terminal Distortion — Louis Sagnières · Conditions for Intellectual Culture — Geoff Anders · Civilization Is Older Than We Thought — Samo Burja · The Only Reason to Explore Space — Marko Jukic · The Rise and Fall of the Dutch Republic — Jonathan Wallis · Human Cognition in the AI Era — Anders Sandberg · The Future of Hampshire College — Ethan Ludwin-Peery with Jonathan Wallis</p>
 </div>
 <div style="margin-bottom:2rem">
-<h3 data-edit-id="programs-h3-2">Seminars &amp; Reading Groups</h3>
+<h3 data-edit-id="programs-h3-seminars">Seminars</h3>
+<p data-edit-id="programs-p-seminars">Marie de France · Sino-Parnassus</p>
+</div>
+<div style="margin-bottom:2rem">
+<h3 data-edit-id="programs-h3-2">Reading Groups</h3>
 <p data-edit-id="programs-p-2">La Rochefoucauld · Early Psychoanalysis ·&nbsp;Antony and Cleopatra ·&nbsp;Konrad Lorenz · Nietzsche and Zhuangzi ·<br>Neural Annealing · Post-War Film</p>
 </div>
 <div>
 <h3 data-edit-id="programs-h3-3">Symposia</h3>
-<p data-edit-id="programs-p-3">Hildegard Von Bingen ·&nbsp;Nietzsche ·&nbsp;Napoleon · Shakespeare</p>
+<p data-edit-id="programs-p-3">Hildegard Von Bingen ·&nbsp;Nietzsche ·&nbsp;Napoleon · Shakespeare · Vasocomputation · Michael Edward Johnson</p>
 </div>
+<div hidden data-section="upcoming-programming">
 <div style="display:flex;align-items:center;gap:1.25rem;margin:3rem 0 1.5rem">
 <span class="section-label" data-edit-id="programs-label-upcoming" style="margin:0;flex-shrink:0;font-size:0.95rem;letter-spacing:0.22em">Upcoming</span>
 <span class="rule-gold" style="flex:1"></span>
@@ -373,6 +365,7 @@
 <div><h3 data-edit-id="programs-series-economics" style="font-family:'Cinzel',serif;font-size:clamp(1.05rem,2vw,1.3rem);font-weight:500;color:var(--gold);text-transform:none;letter-spacing:0.06em">Avalon Economics Series</h3></div>
 </div>
 <p class="series-more" data-edit-id="programs-series-more">More to come.</p>
+</div>
 </div>
 <div style="margin-top:2.5rem;text-align:center">
 <a class="press-link" href="press/"><h3 data-edit-id="programs-h3-press">Avalon Press</h3><span class="press-arrow" aria-hidden="true">→</span></a>
