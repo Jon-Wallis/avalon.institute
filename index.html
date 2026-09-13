@@ -269,6 +269,27 @@
   .footer-links a:hover { color: var(--cream); }
   @media (max-width: 640px) { .footer-links { gap: 1.5rem; } .footer-links a { font-size: 0.72rem; } }
 
+  /* Exposition announcement: in-flow block under the masthead, with the first locked talks */
+  .expo-note { max-width: 640px; margin: 2.4rem auto 0; text-align: center; }
+  .expo-note-date { font-family: 'Cinzel', serif; font-size: 0.64rem; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 0.55rem; }
+  .expo-note-text { color: var(--cream); font-size: 1.08rem; line-height: 1.55; margin: 0; }
+  .expo-note-text a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+  .expo-note-text a:hover { color: var(--cream); }
+  .expo-bill { list-style: none; margin: 1.6rem auto 0; padding: 0; text-align: left; }
+  .expo-bill li { display: flex; justify-content: space-between; gap: 1.5rem; align-items: baseline;
+    padding: 0.7rem 0; border-bottom: 1px solid var(--green-muted); }
+  .expo-bill li:first-child { border-top: 1px solid var(--green-muted); }
+  .expo-bill .event-title { font-size: 1.02rem; }
+  .expo-bill .event-date { width: auto; text-align: right; color: var(--gold); font-size: 0.7rem; }
+  .expo-bill-actions { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  @media (max-width: 640px) {
+    .expo-bill li { flex-direction: column; gap: 0.2rem; align-items: flex-start; }
+    .expo-bill .event-date { text-align: left; }
+    .expo-note-venue { display: block; margin-top: 0.3rem; }
+    .expo-note-sep { display: none; }
+  }
+
   .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .fade-in.visible { opacity: 1; transform: none; }
 
@@ -280,6 +301,7 @@
 <nav>
 <a class="nav-brand" href="/" aria-label="The Avalon Institute home">The Avalon Institute</a>
 <div class="nav-links">
+<a href="#exposition">Exposition</a>
 <a href="#about">About</a>
 <a href="#programs">Programming</a>
 <a href="press/">Press</a>
@@ -293,6 +315,23 @@
 <p class="masthead-sub" data-edit-id="masthead-sub">Avalon is dedicated to creating the intimacy necessary for the collective pursuit of truth.</p>
 </header>
 <div class="rule-echelon fade-in"><span class="rule-gold"></span><span class="rule-echelon-mark">◇</span><span class="rule-gold"></span></div>
+
+<div class="expo-note fade-in" id="exposition">
+<p class="expo-note-date" data-edit-id="expo-note-date">October 30 – November 1 <span class="expo-note-venue"><span class="expo-note-sep">· </span>Lighthaven · Berkeley</span></p>
+<p class="expo-note-text" data-edit-id="expo-note-text">This autumn Avalon convenes <a href="exposition/">The Avalon Exposition</a>, a festival dedicated to the study of mankind.</p>
+<ul class="expo-bill">
+<li><span class="event-title" data-edit-id="expo-bill-1-title">Post-Apocalyptic Cybernetics</span><span class="event-date" data-edit-id="expo-bill-1-who">James Poulos</span></li>
+<li><span class="event-title" data-edit-id="expo-bill-2-title">Pindar in the Modern World</span><span class="event-date" data-edit-id="expo-bill-2-who">Gwern Branwen</span></li>
+<li><span class="event-title" data-edit-id="expo-bill-3-title">Genetic Sequencing Lottery &amp; Demo</span><span class="event-date" data-edit-id="expo-bill-3-who">Keoni Gandall</span></li>
+<li><span class="event-title" data-edit-id="expo-bill-4-title">How Fast Should We Go</span><span class="event-date" data-edit-id="expo-bill-4-who">Zoe Curzi</span></li>
+<li><span class="event-title" data-edit-id="expo-bill-5-title">Hallsong Media Screening</span><span class="event-date" data-edit-id="expo-bill-5-who">Michael Curzi</span></li>
+<li><span class="event-title" data-edit-id="expo-bill-6-title">On the Concepts of Enthusiasm and Epiphany</span><span class="event-date" data-edit-id="expo-bill-6-who">Brian Pines</span></li>
+</ul>
+<div class="expo-bill-actions">
+<a class="btn btn-primary" href="exposition/#tickets">Get Tickets</a>
+<a class="btn" href="exposition/">The Exposition</a>
+</div>
+</div>
 
 <div class="intro-frame fade-in">
 <p data-edit-id="splash-p2">Avalon continuously experiments with formats that cultivate and communicate passion, building the network and infrastructure needed to found a new home for the revival of art and thought.</p>
