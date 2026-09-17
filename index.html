@@ -304,6 +304,15 @@ nav .nav-exposition { color: var(--cream); border-bottom: 1px solid var(--gold);
 }
 @media (prefers-reduced-motion:reduce) { html {scroll-behavior:auto} .fade-in {opacity:1;transform:none;transition:none} }
 
+
+/* Lecture listings */
+.lecture-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem 2rem; list-style:none; padding:0; margin:0; }
+.lecture-list li { display:flex; flex-direction:column; gap:.15rem; padding:0 0 .65rem; border-bottom:1px solid rgba(154,106,31,.22); }
+.lecture-title { color:var(--cream); line-height:1.4; }
+.lecture-speaker { color:var(--cream-dim); font-size:1rem; line-height:1.45; }
+@media (max-width:640px) {
+  .lecture-list { grid-template-columns:1fr; }
+}
 </style>
 </head>
 <body>
@@ -368,11 +377,23 @@ nav .nav-exposition { color: var(--cream); border-bottom: 1px solid var(--gold);
 </div>
 <div style="margin-bottom:2rem">
 <h3 data-edit-id="programs-h3-lectures">Lectures</h3>
-<p data-edit-id="programs-p-lectures">Children of Monsters &amp; Elves — Razib Khan · NP and Complexity — Charles Rosenbauer · The Law of Terminal Distortion — Louis Sagnières · Conditions for Intellectual Culture — Geoff Anders · Civilization Is Older Than We Thought — Samo Burja · The Only Reason to Explore Space — Marko Jukic · The Rise and Fall of the Dutch Republic — Jonathan Wallis · Human Cognition in the AI Era — Anders Sandberg · The Future of Hampshire College — Ethan Ludwin-Peery with Jonathan Wallis</p>
+<div data-edit-id="programs-p-lectures">
+<ul class="lecture-list">
+  <li><span class="lecture-title">Children of Monsters &amp; Elves</span><span class="lecture-speaker">Razib Khan</span></li>
+  <li><span class="lecture-title">NP and Complexity</span><span class="lecture-speaker">Charles Rosenbauer</span></li>
+  <li><span class="lecture-title">The Law of Terminal Distortion</span><span class="lecture-speaker">Louis Sagnières</span></li>
+  <li><span class="lecture-title">Conditions for Intellectual Culture</span><span class="lecture-speaker">Geoff Anders</span></li>
+  <li><span class="lecture-title">Civilization Is Older Than We Thought</span><span class="lecture-speaker">Samo Burja</span></li>
+  <li><span class="lecture-title">The Only Reason to Explore Space</span><span class="lecture-speaker">Marko Jukic</span></li>
+  <li><span class="lecture-title">The Rise and Fall of the Dutch Republic</span><span class="lecture-speaker">Jonathan Wallis</span></li>
+  <li><span class="lecture-title">Human Cognition in the AI Era</span><span class="lecture-speaker">Anders Sandberg</span></li>
+  <li><span class="lecture-title">The Future of Hampshire College</span><span class="lecture-speaker">Ethan Ludwin-Peery with Jonathan Wallis</span></li>
+</ul>
+</div>
 </div>
 <div style="margin-bottom:2rem">
 <h3 data-edit-id="programs-h3-seminars">Seminars</h3>
-<p data-edit-id="programs-p-seminars">Marie de France · Sino-Parnassus</p>
+<p data-edit-id="programs-p-seminars">Marie de France · Sino-Parnassus · The Summer of Love (Medieval Lays and Romances)</p>
 </div>
 <div style="margin-bottom:2rem">
 <h3 data-edit-id="programs-h3-2">Reading Groups</h3>
