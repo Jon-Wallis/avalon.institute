@@ -1,78 +1,11 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>The Programme — The Avalon Exposition</title><link rel="canonical" href="https://avalon.institute/exposition/programme/"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Cinzel:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet"/>
-<style>
-  :root {
-    --parchment: #EEE6D5; --ink: #10253F; --copper: #B26E45; --content: 1400px;
-    --parchment-card: color-mix(in srgb, var(--parchment) 72%, white);
-    --ink-soft: color-mix(in srgb, var(--ink) 84%, var(--parchment));
-    --ink-dim: color-mix(in srgb, var(--ink) 72%, var(--parchment));
-    --ink-faint: color-mix(in srgb, var(--ink) 68%, var(--parchment));
-    --ink-hair: color-mix(in srgb, var(--ink) 28%, var(--parchment));
-    --copper-deep: color-mix(in srgb, var(--copper) 74%, black);
-    --serif: 'EB Garamond', Georgia, serif; --caps: 'Cinzel', Georgia, serif; --display: 'Playfair Display', Georgia, serif;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--parchment); color: var(--ink); font-family: var(--serif); font-size: 17px; line-height: 1.45; -webkit-font-smoothing: antialiased; }
-  .toprail { height: 10px; background: var(--ink); } .toprail-tick { height: 3px; background: var(--copper); width: 120px; }
-  .mast { max-width: var(--content); margin: 0 auto; padding: 1.1rem 1.5rem 0.95rem; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.5rem; }
-  .mast-brand { font-family: var(--caps); font-size: 0.66rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--copper-deep); text-decoration: none; }
-  .mast-title { text-align: center; } .mast-title h1 { font-family: var(--display); font-size: 1.5rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.1; }
-  .mast-meta { margin-top: 0.3rem; font-family: var(--caps); font-size: 0.6rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-faint); }
-  .mast-meta .sep { color: var(--copper); margin: 0 0.45em; } .mast-cta { text-align: right; }
-  .btn { display: inline-block; font-family: var(--caps); font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; padding: 0.62rem 1.25rem; text-decoration: none; color: var(--parchment); background: var(--ink); border: 1px solid var(--ink); }
-  .prog-head { max-width: var(--content); margin: 0 auto; padding: 1.1rem 1.5rem 0.6rem; border-top: 3px solid var(--ink); display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; }
-  .prog-head h2 { font-family: var(--display); font-size: 1.55rem; font-weight: 700; line-height: 1; }
-  .prog-meta { font-family: var(--caps); font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--copper-deep); }
-  .wrap { max-width: var(--content); margin: 0 auto; padding: 0.35rem 1.5rem 3.5rem; }
-  .notice { position: relative; padding: 0.42rem 0.5rem 0.42rem 0.7rem; border-bottom: 1px solid var(--ink-hair); }
-  .notice h3 { font-family: var(--serif); font-size: 1rem; font-weight: 600; line-height: 1.18; min-height: 1.18em; }
-  .t-line { margin-top: 0.1rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.7rem; line-height: 1.35; }
-  .t-speaker { font-style: italic; font-size: 0.86rem; color: var(--ink-soft); }
-  .t-form { font-family: var(--caps); font-size: 0.56rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--copper-deep); }
-  .t-subj { font-family: var(--caps); font-size: 0.56rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); display: inline-flex; align-items: center; gap: 0.5em; }
-  .t-subj .mk { width: 0.7em; height: 0.7em; border: 1px solid currentColor; }
-  .note { max-width: var(--content); margin: 0 auto; padding: 0 1.5rem 2rem; font-size: 0.8rem; font-style: italic; color: var(--ink-faint); }
-  .foot { text-align: center; font-family: var(--caps); font-size: 0.6rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--ink-faint); padding: 1.5rem 0 3rem; border-top: 1px solid var(--ink-hair); }
-  .tr-phil { --tc: #6E2A2A; }
-  .tr-hist { --tc: #84512F; }
-  .tr-sci { --tc: #3A5A6E; }
-  .tr-arts { --tc: #4E5E34; }
-  .tr-inst { --tc: #10253F; }
-
-  .tracks { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0 1.5rem; }
-  .track-head { font-family: var(--caps); font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--tc); padding: 0.5rem 0 0.45rem; border-bottom: 3px solid var(--tc); margin-bottom: 0.2rem; display: flex; justify-content: space-between; align-items: baseline; }
-  .track-head .n { font-size: 0.56rem; color: var(--ink-faint); letter-spacing: 0.16em; }
-  .notice::before { content: ""; position: absolute; left: 0; top: 0.4rem; bottom: 0.4rem; width: 3px; background: var(--tc); }
-  .t-subj { color: var(--ink-dim); }
-
-  .mast-title a { color: inherit; text-decoration: none; }
-  .mast-title a:hover { color: var(--copper-deep); }
-  .foot a { color: inherit; text-decoration: none; }
-  .track { min-width: 0; }
-  .notice-spacer { height: 1.18rem; }
-  a:focus-visible { outline: 2px solid var(--copper-deep); outline-offset: 4px; }
-  @media (max-width: 1000px) {
-    .tracks { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
-  }
-  @media (max-width: 740px) {
-    .mast { grid-template-columns: 1fr; gap: 0.8rem; text-align: center; }
-    .mast-cta { text-align: center; }
-    .tracks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .prog-head { flex-wrap: wrap; gap: 0.65rem; }
-  }
-  @media (max-width: 500px) {
-    .tracks { grid-template-columns: minmax(0, 1fr); gap: 1.4rem; }
-    .mast, .prog-head { padding-left: 1.15rem; padding-right: 1.15rem; }
-    .wrap { padding-left: 1.15rem; padding-right: 1.15rem; }
-    .mast-title h1 { font-size: 1.35rem; }
-    .mast-meta { line-height: 1.8; letter-spacing: 0.15em; }
-  }
-</style></head><body>
-<div class="toprail"><div class="toprail-tick"></div></div>
-<header class="mast"><a class="mast-brand" href="/">The Avalon Institute</a><div class="mast-title"><h1><a href="/exposition/">The Avalon Exposition</a></h1>
-<div class="mast-meta">October 30 – November 1, 2026<span class="sep">·</span>Lighthaven, Berkeley</div></div><div class="mast-cta"><a class="btn" href="/exposition/#tickets">Get Tickets</a></div></header>
-<main>
-<div class="prog-head"><h2>The Programme</h2><div class="prog-meta">18 talks<span class="sep" style="color:var(--copper);margin:0 .45em">·</span>Friday to Sunday</div></div>
-<div class="wrap tracks"><section class="track tr-phil"><h3 class="track-head"><span>Philosophy &amp; Religion</span><span class="n">4</span></h3><article class="notice tr-phil"><h3>On the Concepts of Enthusiasm and Epiphany</h3><div class="t-line"><span class="t-speaker">Brian Pines</span><span class="t-subj"><span class="mk"></span>Philosophy</span></div></article><article class="notice tr-phil"><div class="notice-spacer" aria-hidden="true"></div><div class="t-line"><span class="t-speaker">Jonathan Anomaly</span><span class="t-subj"><span class="mk"></span>Philosophy</span><span class="t-subj"><span class="mk"></span>Bioethics</span></div></article><article class="notice tr-phil"><h3>The City and Man</h3><div class="t-line"><span class="t-speaker">Stephanie Wakefield</span><span class="t-subj"><span class="mk"></span>Urbanism</span></div></article><article class="notice tr-phil"><h3>Generative Anthropology</h3><div class="t-line"><span class="t-speaker">Zach Baker</span><span class="t-subj"><span class="mk"></span>Anthropology</span></div></article></section><section class="track tr-hist"><h3 class="track-head"><span>History &amp; Letters</span><span class="n">2</span></h3><article class="notice tr-hist"><h3>Pindar in the Modern World</h3><div class="t-line"><span class="t-speaker">Gwern Branwen</span><span class="t-subj"><span class="mk"></span>Classics</span><span class="t-subj"><span class="mk"></span>Poetry</span></div></article><article class="notice tr-hist"><h3>The Battle of El Alamein</h3><div class="t-line"><span class="t-speaker">Adam Jarvis</span><span class="t-subj"><span class="mk"></span>History</span></div></article></section><section class="track tr-sci"><h3 class="track-head"><span>The Sciences</span><span class="n">4</span></h3><article class="notice tr-sci"><h3>Genetic Sequencing Lottery &amp; Demo</h3><div class="t-line"><span class="t-speaker">Keoni Gandall</span><span class="t-form">Demonstration</span><span class="t-subj"><span class="mk"></span>Genetics</span></div></article><article class="notice tr-sci"><div class="notice-spacer" aria-hidden="true"></div><div class="t-line"><span class="t-speaker">Jordan Lasker</span><span class="t-subj"><span class="mk"></span>Psychometrics</span></div></article><article class="notice tr-sci"><div class="notice-spacer" aria-hidden="true"></div><div class="t-line"><span class="t-speaker">Razib Khan</span><span class="t-subj"><span class="mk"></span>Genetics</span><span class="t-subj"><span class="mk"></span>History</span></div></article><article class="notice tr-sci"><h3>The Training Instinct: Behaviorism and Countercontrol</h3><div class="t-line"><span class="t-speaker">Diana Fleischman</span><span class="t-subj"><span class="mk"></span>Psychology</span></div></article></section><section class="track tr-arts"><h3 class="track-head"><span>The Arts</span><span class="n">4</span></h3><article class="notice tr-arts"><h3>How Fast Should We Go</h3><div class="t-line"><span class="t-speaker">Zoe Curzi</span><span class="t-form">Performance</span><span class="t-subj"><span class="mk"></span>Theater</span></div></article><article class="notice tr-arts"><h3>Hallsong Media Screening</h3><div class="t-line"><span class="t-speaker">Michael Curzi</span><span class="t-form">Screening</span><span class="t-subj"><span class="mk"></span>Film</span></div></article><article class="notice tr-arts"><div class="notice-spacer" aria-hidden="true"></div><div class="t-line"><span class="t-speaker">Lola Guthrie</span><span class="t-form">Performance</span><span class="t-subj"><span class="mk"></span>Music</span></div></article><article class="notice tr-arts"><div class="notice-spacer" aria-hidden="true"></div><div class="t-line"><span class="t-speaker">Nihal Singh</span><span class="t-form">Performance</span><span class="t-subj"><span class="mk"></span>Music</span></div></article></section><section class="track tr-inst"><h3 class="track-head"><span>Institutions &amp; Society</span><span class="n">4</span></h3><article class="notice tr-inst"><h3>Post-Apocalyptic Cybernetics</h3><div class="t-line"><span class="t-speaker">James Poulos</span><span class="t-subj"><span class="mk"></span>Technology</span><span class="t-subj"><span class="mk"></span>Politics</span></div></article><article class="notice tr-inst"><h3>Neoliberalism’s Shadow: Examining Post-Reform Infrastructure Delivery and Process Creep</h3><div class="t-line"><span class="t-speaker">Adam Jarvis</span><span class="t-subj"><span class="mk"></span>Institutions</span></div></article><article class="notice tr-inst"><div class="notice-spacer" aria-hidden="true"></div><div class="t-line"><span class="t-speaker">Samo Burja</span><span class="t-subj"><span class="mk"></span>History</span><span class="t-subj"><span class="mk"></span>Strategy</span></div></article><article class="notice tr-inst"><h3>Looking Beyond the Veil: Insight and Dilution</h3><div class="t-line"><span class="t-speaker">Ben Landau-Taylor</span><span class="t-subj"><span class="mk"></span>Institutions</span></div></article></section></div></main><footer class="foot">◇ &nbsp; <a href="/">The Avalon Institute</a> · Berkeley &nbsp; ◇</footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Programme — The Avalon Exposition</title>
+  <link rel="canonical" href="https://avalon.institute/exposition/">
+  <meta http-equiv="refresh" content="0; url=/exposition/#programme">
+</head>
+<body></body>
+</html>
