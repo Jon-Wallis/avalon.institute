@@ -296,6 +296,13 @@
   .daypass-choices[hidden] { display: none; }
   .register-band > .label { color: color-mix(in srgb, var(--copper) 60%, var(--on-ink)); font-weight: 500; }
   @media (max-width: 560px) { .ticket-grid { grid-template-columns: 1fr; } .ticket-option { min-height: 220px; } }
+  /* lodging strip below the ticket grid */
+  .lodging-strip { max-width: var(--content); margin: 2.4rem auto 0; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 1rem 2rem; padding: 1.35rem 1.6rem; border: 1px solid color-mix(in srgb, var(--on-ink) 32%, transparent); text-align: left; }
+  .lodging-strip .k { font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--copper); display: block; margin-bottom: 0.45rem; }
+  .lodging-strip h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; line-height: 1.15; color: var(--on-ink); margin: 0 0 0.35rem; }
+  .register-band .lodging-strip p { max-width: none; margin: 0; font-size: 1.02rem; line-height: 1.4; color: color-mix(in srgb, var(--on-ink) 82%, transparent); }
+  .lodging-strip .btn { white-space: nowrap; }
+  @media (max-width: 640px) { .lodging-strip { grid-template-columns: 1fr; text-align: center; padding: 1.3rem 1rem; } .lodging-strip > * { min-width: 0; } .lodging-strip .btn { display: block; white-space: normal; padding: 0.9rem 1rem; letter-spacing: 0.2em; } }
   footer { text-align: center; padding: 2.6rem 1.5rem; color: var(--ink-faint); font-family: 'Cinzel', serif; font-size: 0.64rem; letter-spacing: 0.3em; text-transform: uppercase; }
   footer .mark { color: var(--copper-deep); }
   footer a, a.nav-brand { color: inherit; text-decoration: none; transition: color 0.3s; }
@@ -457,6 +464,14 @@
         <a class="btn btn-ghost" data-rid="sponsor-cta" href="https://buy.stripe.com/6oUeVd4vB9A7cc8eY73gk0a">Choose Sponsor Amount</a>
       </article>
     </div>
+    <div class="lodging-strip" id="lodging" data-rid="lodging-strip">
+      <div>
+        <span class="k">Lodging</span>
+        <h3>Stay at Lighthaven</h3>
+        <p>Rooms on and near the campus, from $126 a night.</p>
+      </div>
+      <a class="btn btn-primary" data-rid="lodging-cta" href="https://www.havenbookings.space/events/avalon-exposition">Book a Room at Lighthaven</a>
+    </div>
   </div>
 </section>
 
@@ -470,7 +485,7 @@
       </div>
       <div class="faq-item" data-rid="faq-8">
         <h3>Where do I stay?</h3>
-        <p>You can arrange lodging with <a href="https://www.havenbookings.space/events/avalon-exposition">Lighthaven booking</a> or at hotels nearby.</p>
+        <p>Book a room at <a href="#lodging">Lighthaven</a> or stay at a hotel nearby.</p>
       </div>
       <div class="faq-item" data-rid="faq-2">
         <h3>When does it start and end?</h3>
