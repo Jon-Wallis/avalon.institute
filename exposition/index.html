@@ -544,6 +544,20 @@
         choices.querySelector('a').focus();
       });
     }
+    // Early Bird ends at midnight Pacific on October 5; from then the card sells the Standard ticket.
+    if (Date.now() >= Date.UTC(2026, 9, 6, 7)) {
+      var card = document.querySelector('[data-rid="ticket-opening"]');
+      if (card) {
+        card.querySelector('h3').textContent = 'Standard Ticket';
+        card.querySelector('.ticket-price').innerHTML = '$500<small>+</small>';
+        card.querySelector('.ticket-note').textContent = 'All three days, meals and the Halloween Gala.';
+        var cta = card.querySelector('[data-rid="register-cta"]');
+        cta.href = 'https://buy.stripe.com/4gMdR9d2727F0tq9DN3gk0d';
+        cta.textContent = 'Choose Standard Amount';
+      }
+      var cost = document.querySelector('[data-rid="faq-7"] p');
+      if (cost) cost.textContent = cost.textContent.replace('Early Bird Tickets are $350 until October 5', 'Standard Tickets begin at $500');
+    }
   })();
 </script>
 </body>
