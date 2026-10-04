@@ -275,6 +275,7 @@
   .ticket-price { font-family: 'Playfair Display', serif; font-size: 2.15rem; line-height: 1; color: var(--parchment); margin: 0.8rem 0 1rem; }
   .ticket-price small { font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--copper); }
   .ticket-option .ticket-note { max-width: none; margin: -0.1rem 0 1rem; font-size: 0.95rem; line-height: 1.35; color: color-mix(in srgb, var(--on-ink) 82%, transparent); }
+  .ticket-option .ticket-deadline { margin-top: -0.55rem; font-weight: 500; color: color-mix(in srgb, var(--copper) 60%, var(--on-ink)); }
   .ticket-option .btn { width: 100%; min-height: 44px; margin-top: auto; padding: 0.78rem 0.7rem; text-align: center; letter-spacing: 0.18em; }
   .ticket-option .btn-ghost { color: var(--parchment); border-color: color-mix(in srgb, var(--on-ink) 55%, transparent); }
   .ticket-option .btn-ghost:hover { color: var(--on-ink); background: var(--copper-deep); border-color: var(--copper-deep); }
@@ -439,7 +440,8 @@
       <article class="ticket-option opening" data-rid="ticket-opening">
         <h3>Early Bird Ticket</h3>
         <div class="ticket-price">$350</div>
-        <p class="ticket-note">All three days, meals and the Halloween Gala. Ends October 5.</p>
+        <p class="ticket-note">All three days, meals and the Halloween Gala.</p>
+        <p class="ticket-note ticket-deadline">Price rises to $500 after Sunday, October 11.</p>
         <a class="btn btn-primary" data-rid="register-cta" href="https://buy.stripe.com/7sY4gz0fl27F6RO9DN3gk07">Buy Early Bird Ticket</a>
       </article>
       <article class="ticket-option" data-rid="ticket-daypass">
@@ -510,7 +512,7 @@
       </div>
       <div class="faq-item" data-rid="faq-7">
         <h3>What does a ticket cost?</h3>
-        <p>Early Bird Tickets are $350 until October 5, and Student Tickets are $150. Day Passes are $200 for one day and $300 for two. Founding Sponsor tickets begin at $1,000.</p>
+        <p>Early Bird Tickets are $350 until October 11, and Student Tickets are $150. Day Passes are $200 for one day and $300 for two. Founding Sponsor tickets begin at $1,000.</p>
       </div>
       <div class="faq-item" data-rid="faq-9">
         <h3>What if I need financial assistance to attend?</h3>
@@ -544,19 +546,20 @@
         choices.querySelector('a').focus();
       });
     }
-    // Early Bird ends at midnight Pacific on October 5; from then the card sells the Standard ticket.
-    if (Date.now() >= Date.UTC(2026, 9, 6, 7)) {
+    // Early Bird ends at midnight Pacific on October 11; from then the card sells the Standard ticket.
+    if (Date.now() >= Date.UTC(2026, 9, 12, 7)) {
       var card = document.querySelector('[data-rid="ticket-opening"]');
       if (card) {
         card.querySelector('h3').textContent = 'Standard Ticket';
         card.querySelector('.ticket-price').innerHTML = '$500<small>+</small>';
-        card.querySelector('.ticket-note').textContent = 'All three days, meals and the Halloween Gala.';
+        var deadline = card.querySelector('.ticket-deadline');
+        if (deadline) deadline.remove();
         var cta = card.querySelector('[data-rid="register-cta"]');
         cta.href = 'https://buy.stripe.com/4gMdR9d2727F0tq9DN3gk0d';
         cta.textContent = 'Choose Standard Amount';
       }
       var cost = document.querySelector('[data-rid="faq-7"] p');
-      if (cost) cost.textContent = cost.textContent.replace('Early Bird Tickets are $350 until October 5', 'Standard Tickets begin at $500');
+      if (cost) cost.textContent = cost.textContent.replace('Early Bird Tickets are $350 until October 11', 'Standard Tickets begin at $500');
     }
   })();
 </script>
