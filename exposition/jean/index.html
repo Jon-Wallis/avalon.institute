@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Avalon Exposition · Guests of Jean</title>
+<meta name="robots" content="noindex, nofollow"/>
+<link rel="icon" type="image/png" href="/favicon.png"/>
+<meta name="theme-color" content="#EEE6D5"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="The Avalon Institute"/>
+<meta property="og:title" content="The Avalon Exposition"/>
+<meta property="og:description" content="Guests of Jean."/>
+<meta property="og:url" content="https://avalon.institute/exposition/jean/"/>
+<meta property="og:image" content="https://avalon.institute/photos/exposition-og.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://avalon.institute/photos/exposition-og.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&amp;family=Cinzel:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* ============ DESIGN: Option D · Exposition Broadsheet (tokenized) ============ */
+  :root {
+    --parchment: #EEE6D5;
+    --ink: #10253F;
+    --copper: #B26E45;
+    --body-size: 18px;
+    --mast-scale: 1;
+    --label-track: 0.32em;
+    --content: 1020px;
+    --sect-pad: 1;
+    --toprail-h: 10px;
+
+    --parchment-card: color-mix(in srgb, var(--parchment) 82%, white);
+    --parchment-deep: color-mix(in srgb, var(--parchment) 94%, black);
+    --ink-soft: color-mix(in srgb, var(--ink) 84%, var(--parchment));
+    --ink-faint: color-mix(in srgb, var(--ink) 66%, var(--parchment));
+    --ink-hair: color-mix(in srgb, var(--ink) 28%, var(--parchment));
+    --copper-deep: color-mix(in srgb, var(--copper) 74%, black);
+    --copper-faint: color-mix(in srgb, var(--copper) 50%, var(--parchment));
+    --on-ink: color-mix(in srgb, var(--parchment) 92%, white);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: var(--body-size);
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  .skip-link {
+    position: absolute; left: 1rem; top: -5rem; z-index: 10; padding: 0.65rem 0.85rem;
+    background: var(--ink); color: var(--parchment); font-family: 'Cinzel', serif; font-size: 0.7rem;
+    letter-spacing: 0.16em; text-transform: uppercase;
+  }
+  .skip-link:focus { top: 1rem; }
+  a:focus-visible { outline: 2px solid var(--copper-deep); outline-offset: 4px; }
+  .toprail { height: var(--toprail-h); background: var(--ink); }
+  .toprail-tick { height: 3px; background: var(--copper); width: 120px; }
+  nav {
+    padding: 1.4rem 2.5rem 0.6rem; display: flex; align-items: baseline; justify-content: space-between; gap: 2rem;
+    font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+  }
+  .nav-brand { color: var(--copper-deep); letter-spacing: 0.28em; white-space: nowrap; }
+  .nav-links { display: flex; gap: 1.8rem; flex-wrap: wrap; }
+  .nav-links a { color: var(--ink-faint); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--copper-deep); }
+  @media (max-width: 700px) {
+    nav { flex-direction: column; align-items: center; gap: 0.8rem; padding: 1.2rem 1rem 0.4rem; }
+    .nav-links { justify-content: center; gap: 0.7rem 1.3rem; }
+  }
+  .masthead { text-align: center; padding: 4.2rem 1.5rem 0; }
+  .mast-seal { display: block; margin: 0 auto 1.35rem; border-radius: 50%; }
+  .eyebrow { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.34em; text-transform: uppercase; color: var(--copper-deep); }
+  .masthead h1 {
+    font-family: 'Playfair Display', serif; font-size: calc(clamp(2.8rem, 8vw, 5.4rem) * var(--mast-scale)); font-weight: 700;
+    letter-spacing: 0.01em; color: var(--ink); line-height: 1.04; margin: 1.1rem 0 0; text-transform: uppercase;
+  }
+  body[data-mastcase="title"] .masthead h1 { text-transform: none; letter-spacing: 0; }
+  .masthead-sub { font-style: italic; font-size: clamp(1.08rem, 2.3vw, 1.36rem); color: var(--ink-soft); margin-top: 1.2rem; }
+  .mast-rules { max-width: 860px; margin: 2.2rem auto 0; border-top: 3px solid var(--ink); border-bottom: 1px solid var(--ink); height: 7px; }
+  .mast-meta {
+    max-width: 860px; margin: 0.9rem auto 0; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    font-family: 'Cinzel', serif; font-size: 0.66rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--ink-faint);
+    padding: 0 0.2rem;
+  }
+  .cta-row { margin: 2.6rem 0 0; display: flex; gap: 1.1rem; justify-content: center; flex-wrap: wrap; padding-bottom: 2rem; }
+  .btn { font-family: 'Cinzel', serif; font-size: 0.74rem; letter-spacing: 0.26em; text-transform: uppercase; padding: 0.9rem 2rem; text-decoration: none; transition: all 0.3s; }
+  .btn-primary { color: var(--parchment); background: var(--ink); border: 1px solid var(--ink); }
+  .btn-primary:hover { background: var(--copper-deep); border-color: var(--copper-deep); }
+  .btn-ghost { color: var(--ink); border: 1px solid var(--ink-hair); }
+  .btn-ghost:hover { border-color: var(--copper-deep); color: var(--copper-deep); }
+  section { padding: calc(3.2rem * var(--sect-pad)) 1.5rem; }
+  #occasion { padding-bottom: 1.3rem; }
+  #expect { padding-top: 1.3rem; padding-bottom: 1.7rem; }
+  .measure { max-width: 640px; margin: 0 auto; }
+  .wide { max-width: var(--content); margin: 0 auto; }
+  .section-head { display: flex; align-items: center; gap: 1.2rem; max-width: var(--content); margin: 0 auto 2rem; }
+  .section-head .line { flex: 1; height: 1px; background: var(--ink-hair); }
+  .section-head .label { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: var(--label-track); text-transform: uppercase; color: var(--copper-deep); text-align: center; }
+  .lede { font-size: 1.18rem; text-align: center; color: var(--ink-soft); }
+  .lede + .lede { margin-top: 1.1rem; }
+  .lede .lead-in { font-variant: small-caps; letter-spacing: 0.05em; font-weight: 600; color: var(--copper-deep); }
+  .lede a { color: var(--copper-deep); text-decoration: none; border-bottom: 1px solid var(--copper-faint); transition: border-color 0.3s; }
+  .lede a:hover { border-bottom-color: var(--copper-deep); }
+  .days { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--ink); background: var(--parchment-card); }
+  @media (max-width: 780px) { .days { grid-template-columns: 1fr; } }
+  .day { padding: 2rem 1.7rem 1.9rem; border-right: 1px solid var(--ink-hair); }
+  .day:last-child { border-right: none; }
+  @media (max-width: 780px) { .day { border-right: none; border-bottom: 1px solid var(--ink-hair); } .day:last-child { border-bottom: none; } }
+  .day-no { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--copper); line-height: 1; }
+  .day-date { font-family: 'Cinzel', serif; font-size: 0.64rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-faint); margin-top: 0.7rem; }
+  .day h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; color: var(--ink); margin: 0.55rem 0 0.5rem; }
+  .day p { font-size: 0.98rem; color: var(--ink-soft); }
+  .mast-evening { font-style: italic; font-size: 1.02rem; color: var(--ink-faint); margin-top: -2.4rem; padding-bottom: 3.6rem; }
+  .mast-evening a { color: var(--copper-deep); text-decoration: none; border-bottom: 1px solid var(--copper-faint); transition: all 0.3s; }
+  .mast-evening a:hover { border-bottom-color: var(--copper-deep); }
+  .themes {
+    margin-top: 2rem; text-align: center;
+    font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--ink); line-height: 2.1;
+  }
+  .themes .sep { color: var(--copper); margin: 0 0.55rem; }
+  .evening-link {
+    display: inline-block; margin-top: 1.1rem;
+    font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--copper-deep); text-decoration: none; border-bottom: 1px solid var(--copper-faint); padding-bottom: 0.15rem; transition: all 0.3s;
+  }
+  .evening-link:hover { color: var(--ink); border-bottom-color: var(--ink); }
+  .evening-sub { font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-faint); margin-top: 0.55rem; }
+  .track-head { display: flex; align-items: baseline; gap: 1.1rem; margin: 2.4rem 0 1.5rem; }
+  .track-head:first-of-type { margin-top: 0; }
+  .track-head .t-label { font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--ink); white-space: nowrap; }
+  .track-head .t-count { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--copper-deep); }
+  .track-head .line { flex: 1; height: 1px; background: var(--ink-hair); transform: translateY(-0.2em); }
+  .bill-intro { max-width: 620px; margin: 0 auto 2.2rem; text-align: center; font-size: 1.12rem; color: var(--ink-soft); }
+  .board { display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 1.1rem; }
+  .card { border: 1px solid var(--ink); background: var(--parchment-card); padding: 1.4rem 1.3rem 1.3rem; }
+  .card .k { font-family: 'Cinzel', serif; font-size: 0.56rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--copper-deep); display: block; margin-bottom: 0.6rem; }
+  .card h3 { font-family: 'Playfair Display', serif; font-size: 1.14rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
+  .card p { font-size: 0.94rem; color: var(--ink-soft); }
+  .card.open { border: 1.5px dashed color-mix(in srgb, var(--ink) 38%, var(--parchment)); background: transparent; }
+  .card.open h3 { color: var(--ink-faint); }
+  .card.open p { font-style: italic; color: var(--ink-faint); }
+  .cols3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.6rem 2.4rem; }
+  @media (max-width: 780px) { .cols3 { grid-template-columns: 1fr; } }
+  .col { border-top: 1px solid var(--ink); padding-top: 1.1rem; }
+  .col h3 { font-family: 'Cinzel', serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.5rem; }
+  .col p { font-size: 0.98rem; color: var(--ink-soft); }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.8rem; }
+  @media (max-width: 780px) { .faq-grid { grid-template-columns: 1fr; } }
+  .faq-item { border-top: 1px solid var(--ink-hair); padding: 1.05rem 0 1.15rem; }
+  .faq-item h3 { font-family: 'EB Garamond', serif; font-weight: 600; font-size: 1.06rem; color: var(--ink); margin-bottom: 0.25rem; }
+  .faq-item p { font-size: 0.97rem; color: var(--ink-soft); }
+  .faq-item p a { color: var(--copper-deep); text-decoration: none; border-bottom: 1px solid var(--copper-faint); }
+  .faq-item p a:hover { border-bottom-color: var(--copper-deep); }
+  .bill { list-style: none; margin: 0 auto; padding: 0; }
+  .bill li { display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem;
+    padding: 0.8rem 0; border-bottom: 1px solid var(--ink-hair); }
+  .bill li:first-child { border-top: 1px solid var(--ink-hair); }
+  .bill-title { font-size: 1.18rem; font-style: italic; color: var(--ink); }
+  .bill-who { font-family: 'Cinzel', serif; font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--copper-deep); white-space: nowrap; flex-shrink: 0; }
+  .bill-inquiries { margin-top: 0.6rem; }
+  .bill-inquiries a { color: var(--copper-deep); text-decoration: none; border-bottom: 1px solid var(--copper-faint); }
+  .bill-sub { text-align: center; font-style: italic; color: var(--ink-faint); margin: 1.6rem auto 0; }
+  @media (max-width: 640px) {
+    .bill li { flex-direction: column; gap: 0.2rem; align-items: flex-start; }
+  }
+  .wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1.9rem 1.2rem; }
+  .guest { text-align: center; }
+  .guest .portrait {
+    width: 98px; height: 98px; border-radius: 50%; margin: 0 auto 0.8rem;
+    background: var(--parchment-card); border: 1px solid var(--ink);
+    display: flex; align-items: center; justify-content: center; position: relative;
+    font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 600; color: var(--ink);
+  }
+  .guest .portrait::after { content: ''; position: absolute; inset: 4px; border-radius: 50%; border: 1px solid var(--ink-hair); }
+  body[data-portrait="square"] .guest .portrait,
+  body[data-portrait="square"] .guest .portrait::after { border-radius: 0; }
+  .guest.dim .portrait { border-color: var(--ink-hair); color: var(--ink-faint); }
+  .guest .name { font-weight: 600; font-size: 1.03rem; color: var(--ink); line-height: 1.3; }
+  .guest .role { font-style: italic; font-size: 0.9rem; color: var(--ink-faint); line-height: 1.35; }
+  .guest .status { display: inline-block; margin-top: 0.5rem; font-family: 'Cinzel', serif; font-size: 0.54rem; letter-spacing: 0.22em; text-transform: uppercase; padding: 0.26rem 0.6rem; border: 1px solid transparent; }
+  .status.confirmed { color: var(--parchment); background: var(--ink); }
+  .status.invited { color: var(--copper-deep); border-color: var(--copper-faint); }
+  .status.conversation { color: var(--ink-faint); border-color: var(--ink-hair); }
+  .strands { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--ink); }
+  @media (max-width: 780px) { .strands { grid-template-columns: 1fr; } }
+  .strand { padding: 1.6rem 1.8rem 1.7rem 0; border-bottom: 1px solid var(--ink-hair); }
+  .strand:nth-child(odd) { border-right: 1px solid var(--ink-hair); }
+  .strand:nth-child(even) { padding-left: 1.8rem; padding-right: 0; }
+  @media (max-width: 780px) { .strand:nth-child(odd) { border-right: none; } .strand:nth-child(even) { padding-left: 0; } }
+  .strand h3 { font-family: 'Playfair Display', serif; font-size: 1.22rem; font-weight: 600; color: var(--ink); margin-bottom: 0.5rem; }
+  .strand h3 .no { font-family: 'Cinzel', serif; font-size: 0.72rem; color: var(--copper-deep); letter-spacing: 0.18em; margin-right: 0.55rem; vertical-align: 0.16em; }
+  .strand p { font-size: 1rem; color: var(--ink-soft); }
+  .register-band { background: var(--ink); color: var(--on-ink); padding: 3.4rem 1.5rem 3.6rem; text-align: center; }
+  .register-band .label { font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.34em; text-transform: uppercase; color: var(--copper); display: block; margin-bottom: 1.3rem; }
+  .register-band p { max-width: 540px; margin: 0 auto 1.9rem; font-size: 1.1rem; color: color-mix(in srgb, var(--on-ink) 85%, transparent); }
+  .register-band .btn-primary { color: var(--ink); background: var(--parchment); border-color: var(--parchment); }
+  .register-band .btn-primary:hover { background: var(--copper); border-color: var(--copper); color: var(--parchment); }
+  .ticket-grid {
+    max-width: var(--content); margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid color-mix(in srgb, var(--on-ink) 42%, transparent);
+    border-left: 1px solid color-mix(in srgb, var(--on-ink) 42%, transparent); text-align: left;
+  }
+  .ticket-option {
+    min-height: 220px; min-width: 0; padding: 1.55rem 1.55rem 1.4rem; display: flex; flex-direction: column;
+    border-right: 1px solid color-mix(in srgb, var(--on-ink) 42%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--on-ink) 42%, transparent);
+  }
+  .ticket-option.sponsor {
+    --sponsor-copper: #C47D50;
+    --sponsor-blue: #091A2E;
+    min-height: 220px;
+    background: var(--sponsor-blue);
+    box-shadow: inset 0 0 0 1px var(--sponsor-copper);
+  }
+  .ticket-option.sponsor h3,
+  .ticket-option.sponsor .ticket-price,
+  .ticket-option.sponsor .ticket-price small { color: var(--sponsor-copper); }
+  .ticket-option.sponsor .ticket-note { color: color-mix(in srgb, var(--parchment) 85%, transparent); }
+  .ticket-option.sponsor .ticket-note a { color: var(--sponsor-copper); text-decoration-color: color-mix(in srgb, var(--sponsor-copper) 55%, transparent); }
+  .ticket-option.standard { filter: grayscale(0.55) opacity(0.72); transition: filter 0.3s; }
+  .ticket-option.standard:hover, .ticket-option.standard:focus-within { filter: none; }
+  .ticket-option h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; line-height: 1.15; color: var(--on-ink); }
+  .ticket-price { font-family: 'Playfair Display', serif; font-size: 2.15rem; line-height: 1; color: var(--parchment); margin: 0.8rem 0 1rem; }
+  .ticket-price small { font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--copper); }
+  .ticket-option .ticket-note { max-width: none; margin: -0.1rem 0 1rem; font-size: 0.95rem; line-height: 1.35; color: color-mix(in srgb, var(--on-ink) 82%, transparent); }
+  .ticket-option .ticket-deadline { margin-top: -0.55rem; font-weight: 500; color: color-mix(in srgb, var(--copper) 60%, var(--on-ink)); }
+  .ticket-option .btn { width: 100%; min-height: 44px; margin-top: auto; padding: 0.78rem 0.7rem; text-align: center; letter-spacing: 0.18em; }
+  .ticket-option .btn-ghost { color: var(--parchment); border-color: color-mix(in srgb, var(--on-ink) 55%, transparent); }
+  .ticket-option .btn-ghost:hover { color: var(--on-ink); background: var(--copper-deep); border-color: var(--copper-deep); }
+  .ticket-option.sponsor .btn-ghost {
+    color: var(--sponsor-blue); background: var(--sponsor-copper); border-color: var(--sponsor-copper); font-weight: 600;
+    box-shadow: 0 7px 18px color-mix(in srgb, black 24%, transparent);
+  }
+  .ticket-option.sponsor .btn-ghost:hover {
+    color: var(--sponsor-blue); background: color-mix(in srgb, var(--sponsor-copper) 72%, var(--parchment));
+    border-color: color-mix(in srgb, var(--sponsor-copper) 72%, var(--parchment));
+    box-shadow: 0 9px 22px color-mix(in srgb, black 30%, transparent); transform: translateY(-1px);
+  }
+  .ticket-option.sponsor .btn-ghost:active { box-shadow: 0 4px 12px color-mix(in srgb, black 22%, transparent); transform: translateY(0); }
+  .ticket-option.sponsor:focus-within { box-shadow: inset 0 0 0 2px var(--sponsor-copper); }
+  .ticket-option .btn:focus-visible { outline: 2px solid var(--on-ink); outline-offset: 4px; }
+  .ticket-option button.btn { background: transparent; cursor: pointer; }
+  .daypass-choices { display: flex; flex-direction: column; gap: 0.55rem; margin-top: auto; }
+  .daypass-choices .btn { margin-top: 0; }
+  .daypass-choices[hidden] { display: none; }
+  .register-band > .label { color: color-mix(in srgb, var(--copper) 60%, var(--on-ink)); font-weight: 500; }
+  @media (max-width: 560px) { .ticket-grid { grid-template-columns: 1fr; } .ticket-option { min-height: 220px; } }
+  /* lodging strip below the ticket grid */
+  .lodging-strip { max-width: var(--content); margin: 2.4rem auto 0; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 1rem 2rem; padding: 1.35rem 1.6rem; border: 1px solid color-mix(in srgb, var(--on-ink) 32%, transparent); text-align: left; }
+  .lodging-strip .k { font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--copper); display: block; margin-bottom: 0.45rem; }
+  .lodging-strip h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; line-height: 1.15; color: var(--on-ink); margin: 0 0 0.35rem; }
+  .register-band .lodging-strip p { max-width: none; margin: 0; font-size: 1.02rem; line-height: 1.4; color: color-mix(in srgb, var(--on-ink) 82%, transparent); }
+  .lodging-strip .btn { white-space: nowrap; }
+  @media (max-width: 640px) { .lodging-strip { grid-template-columns: 1fr; text-align: center; padding: 1.3rem 1rem; } .lodging-strip > * { min-width: 0; } .lodging-strip .btn { display: block; white-space: normal; padding: 0.9rem 1rem; letter-spacing: 0.2em; } }
+  footer { text-align: center; padding: 2.6rem 1.5rem; color: var(--ink-faint); font-family: 'Cinzel', serif; font-size: 0.64rem; letter-spacing: 0.3em; text-transform: uppercase; }
+  footer .mark { color: var(--copper-deep); }
+  footer a, a.nav-brand { color: inherit; text-decoration: none; transition: color 0.3s; }
+  footer a:hover, a.nav-brand:hover { color: var(--copper-deep); }
+
+</style>
+<style id="exposition-programme-styles">
+  .expo-programme .prog-head { max-width: var(--content); margin: 0 auto; padding: 1.1rem 1.5rem 0.6rem; border-top: 3px solid var(--ink); display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; }
+  .expo-programme .prog-head h2 { font-family: var(--display); font-size: 1.55rem; font-weight: 700; line-height: 1; }
+  .expo-programme .prog-meta { font-family: var(--caps); font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--copper-deep); }
+  .expo-programme .wrap { max-width: var(--content); margin: 0 auto; padding: 0.35rem 1.5rem 3.5rem; }
+  .expo-programme .notice { position: relative; padding: 0.42rem 0.5rem 0.42rem 0.7rem; border-bottom: 1px solid var(--ink-hair); }
+  .expo-programme .notice h3 { font-family: var(--serif); font-size: 1rem; font-weight: 600; line-height: 1.18; min-height: 1.18em; }
+  .expo-programme .t-line { margin-top: 0.1rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.7rem; line-height: 1.35; }
+  .expo-programme .t-speaker { font-style: italic; font-size: 0.86rem; color: var(--ink-soft); }
+  .expo-programme .t-form { font-family: var(--caps); font-size: 0.56rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--copper-deep); }
+  .expo-programme .t-subj { font-family: var(--caps); font-size: 0.56rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); display: inline-flex; align-items: center; gap: 0.5em; }
+  .expo-programme .t-subj .mk { width: 0.7em; height: 0.7em; border: 1px solid currentColor; }
+  .expo-programme .tr-phil { --tc: #6E2A2A; }
+  .expo-programme .tr-hist { --tc: #84512F; }
+  .expo-programme .tr-sci { --tc: #3A5A6E; }
+  .expo-programme .tr-arts { --tc: #4E5E34; }
+  .expo-programme .tr-inst { --tc: #10253F; }
+  .expo-programme .tracks { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0 1.5rem; }
+  .expo-programme .track-head { font-family: var(--caps); font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--tc); padding: 0.5rem 0 0.45rem; border-bottom: 3px solid var(--tc); margin-bottom: 0.2rem; display: flex; justify-content: space-between; align-items: baseline; }
+  .expo-programme .track-head .n { font-size: 0.56rem; color: var(--ink-faint); letter-spacing: 0.16em; }
+  .expo-programme .notice::before { content: ""; position: absolute; left: 0; top: 0.4rem; bottom: 0.4rem; width: 3px; background: var(--tc); }
+  .expo-programme .t-subj { color: var(--ink-dim); }
+  .expo-programme {
+    --content: 1400px;
+    --serif: 'EB Garamond', Georgia, serif;
+    --caps: 'Cinzel', Georgia, serif;
+    --display: 'Playfair Display', Georgia, serif;
+    --ink-dim: color-mix(in srgb, var(--ink) 72%, var(--parchment));
+    --ink-faint: color-mix(in srgb, var(--ink) 68%, var(--parchment));
+    padding-left: 0; padding-right: 0;
+    font-size: 17px; line-height: 1.45;
+  }
+  .expo-programme .track { padding: 0; min-width: 0; }
+  .expo-programme .track-head { margin: 0 0 0.2rem; gap: 0; }
+  .expo-programme .notice-spacer { height: 1.18rem; }
+  .expo-programme .wrap { padding-bottom: 0; }
+  @media (max-width: 1000px) {
+    .expo-programme .tracks { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+  }
+  @media (max-width: 740px) {
+    .expo-programme .tracks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .expo-programme .prog-head { flex-wrap: wrap; gap: 0.65rem; }
+  }
+  @media (max-width: 500px) {
+    .expo-programme .tracks { grid-template-columns: minmax(0, 1fr); gap: 1.4rem; }
+    .expo-programme .prog-head, .expo-programme .wrap { padding-left: 1.15rem; padding-right: 1.15rem; }
+  }
+</style>
+<style id="friends-page-styles">
+  .friends-mast { text-align: center; padding: 2.4rem 1.5rem 0; }
+  .friends-mast .mast-seal { width: 72px; height: 72px; margin-bottom: 0.9rem; }
+  .friends-mast h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4.6vw, 3.1rem); font-weight: 700; line-height: 1.04; text-transform: uppercase; letter-spacing: 0.01em; }
+  .friends-mast .mast-rules { max-width: 1352px; margin-top: 1.5rem; }
+  .friends-mast .mast-meta { max-width: 1352px; }
+  .prog-col .expo-programme { padding: 0; }
+  .prog-col .expo-programme .prog-head,
+  .prog-col .expo-programme .wrap { max-width: none; padding-left: 0; padding-right: 0; }
+  .ticket { background: var(--ink); color: var(--on-ink); }
+  .ticket .k { display: block; font-family: 'Cinzel', serif; letter-spacing: 0.26em; text-transform: uppercase; color: color-mix(in srgb, var(--copper) 62%, var(--on-ink)); font-weight: 500; }
+  .ticket h2 { font-family: 'Playfair Display', serif; font-weight: 600; line-height: 1.1; color: var(--on-ink); }
+  .ticket .price { font-family: 'Playfair Display', serif; line-height: 1; color: var(--parchment); display: flex; align-items: baseline; gap: 0.18em; }
+  .ticket .price s { font-size: 0.48em; color: color-mix(in srgb, var(--on-ink) 52%, transparent); text-decoration-color: color-mix(in srgb, var(--copper) 85%, var(--on-ink)); text-decoration-thickness: 0.06em; margin-right: 0.25em; }
+  .ticket .note { line-height: 1.4; color: color-mix(in srgb, var(--on-ink) 84%, transparent); }
+  .ticket .btn { display: flex; align-items: center; justify-content: center; text-align: center; color: var(--ink); background: var(--parchment); border: 1px solid var(--parchment); font-weight: 600; box-shadow: 0 8px 22px color-mix(in srgb, black 28%, transparent); }
+  .ticket .btn:hover { background: var(--copper); border-color: var(--copper); color: var(--parchment); }
+  .ticket .btn:focus-visible { outline: 2px solid var(--on-ink); outline-offset: 4px; }
+  .buy-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: none; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.85rem 1.25rem calc(0.85rem + env(safe-area-inset-bottom)); background: var(--ink); color: var(--on-ink); box-shadow: 0 -8px 22px color-mix(in srgb, black 22%, transparent); }
+  .buy-bar.show { display: flex; }
+  .buy-bar .price { font-family: 'Playfair Display', serif; font-size: 1.7rem; line-height: 1; display: flex; align-items: baseline; gap: 0.5rem; color: var(--parchment); }
+  .buy-bar .price s { font-size: 1.05rem; color: color-mix(in srgb, var(--on-ink) 55%, transparent); text-decoration-color: var(--copper); }
+  .buy-bar .btn { min-height: 52px; display: flex; align-items: center; padding: 0 1.6rem; font-size: 0.82rem; letter-spacing: 0.2em; color: var(--ink); background: var(--parchment); border: 1px solid var(--parchment); font-weight: 600; white-space: nowrap; }
+  @media (max-width: 500px) { .friends-mast .mast-meta { justify-content: center; } }
+
+  .layout { max-width: 1400px; margin: 0 auto; padding: 2.4rem 1.5rem 13rem; }
+  .ticket { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; box-shadow: 0 -10px 30px color-mix(in srgb, black 26%, transparent); border-top: 3px solid var(--copper); }
+  .ticket .dock { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem calc(1.5rem + env(safe-area-inset-bottom)); display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(260px, 360px); align-items: center; gap: 2.4rem; }
+  .ticket .k { font-size: 0.72rem; }
+  .ticket h2 { font-size: 1.9rem; margin-top: 0.5rem; }
+  .ticket .note { font-size: 1.08rem; margin-top: 0.3rem; }
+  .ticket .price { font-size: 3.1rem; }
+  .ticket .price s { font-size: 1em; }
+  .ticket .btn { width: 100%; min-height: 74px; font-size: 1rem; letter-spacing: 0.24em; }
+  @media (max-width: 900px) {
+    .ticket .dock { grid-template-columns: auto minmax(0, 1fr); gap: 0.6rem 1.2rem; padding-top: 1rem; }
+    .ticket .dock > div:first-child { grid-column: 1 / -1; }
+    .ticket h2, .ticket .note { display: none; }
+    .ticket .price { font-size: 2.3rem; }
+    .ticket .btn { min-height: 58px; padding: 0 1.1rem; font-size: 0.86rem; letter-spacing: 0.16em; white-space: nowrap; }
+    .layout { padding-bottom: 10rem; }
+  }
+  @media (max-width: 500px) { .layout { padding-left: 1.15rem; padding-right: 1.15rem; } .ticket .price { font-size: 1.9rem; } }
+</style>
+</head>
+<body data-portrait="circle" data-mastcase="upper" data-layout="d">
+
+<div class="toprail"><div class="toprail-tick"></div></div>
+
+<nav aria-label="Conference navigation">
+  <a class="nav-brand" href="https://avalon.institute">The Avalon Institute</a>
+  <div class="nav-links">
+    <a href="/exposition/">The Exposition</a>
+  </div>
+</nav>
+<header class="friends-mast">
+  <img class="mast-seal" src="../seal.png" alt="" width="72" height="72"/>
+  <h1>The Avalon Exposition</h1>
+  <div class="mast-rules"></div>
+  <div class="mast-meta">
+    <span>October 30 – November 1, 2026</span>
+    <span>Lighthaven · Berkeley</span>
+  </div>
+</header>
+<main class="layout" id="main-content">
+<div class="prog-col">
+<section id="programme" class="expo-programme" data-rid="bill" data-rsection="Programme" aria-labelledby="programme-heading">
+  <div class="prog-head"><h2 id="programme-heading">The Programme</h2><div class="prog-meta">33 talks<span class="sep" style="color:var(--copper);margin:0 .45em">·</span>Friday to Sunday</div></div>
+<div class="wrap tracks">
+<section class="track tr-phil"><h3 class="track-head"><span>Philosophy &amp; Religion</span><span class="n">7</span></h3><article class="notice tr-phil"><h3>On the Concepts of Enthusiasm and Epiphany</h3><div class="t-line"><span class="t-speaker">Brian Pines</span></div></article><article class="notice tr-phil"><h3>The City and Man</h3><div class="t-line"><span class="t-speaker">Stephanie Wakefield</span></div></article><article class="notice tr-phil"><h3>Introduction to Generative Anthropology</h3><div class="t-line"><span class="t-speaker">Zach Baker</span><span class="t-subj"><span class="mk"></span>Anthropology</span></div></article><article class="notice tr-phil"><h3>The Will to Power Reappraised</h3><div class="t-line"><span class="t-speaker">Jonathan Wallis</span></div></article><article class="notice tr-phil"><h3>The History, Theory, and Practice of Yoga Asana: A Hands-On Workshop</h3><div class="t-line"><span class="t-speaker">Ana Brooks</span><span class="t-form">Workshop</span></div></article><article class="notice tr-phil"><h3>Painting Enlightenment: Healing Visions of the Heart Sutra</h3><div class="t-line"><span class="t-speaker">Paula Arai</span></div></article><article class="notice tr-phil"><h3>Tracing the Lineage of the Sublime</h3><div class="t-line"><span class="t-speaker">Adam Feng</span></div></article></section>
+<section class="track tr-hist"><h3 class="track-head"><span>History &amp; Letters</span><span class="n">8</span></h3><article class="notice tr-hist"><h3>Pindar in the Modern World</h3><div class="t-line"><span class="t-speaker">Gwern Branwen</span><span class="t-subj"><span class="mk"></span>Classics</span></div></article><article class="notice tr-hist"><h3>Reaching for Consilience: Genomics and the Two Cultures</h3><div class="t-line"><span class="t-speaker">Razib Khan</span><span class="t-subj"><span class="mk"></span>Genetics</span></div></article><article class="notice tr-hist"><h3>Desert Operations at El Alamein</h3><div class="t-line"><span class="t-speaker">Adam Jarvis</span></div></article><article class="notice tr-hist"><h3>The Origins of Modernity in the Dutch Republic</h3><div class="t-line"><span class="t-speaker">Jonathan Wallis</span></div></article><article class="notice tr-hist"><h3>Why Alexandria Was Steampunk</h3><div class="t-line"><span class="t-speaker">Samo Burja</span></div></article><article class="notice tr-hist"><h3>Ernst Jünger at 100: Post-History and the Return of Myth</h3><div class="t-line"><span class="t-speaker">Elliot Neaman</span></div></article><article class="notice tr-hist"><h3>Jezebel Agonistes: The Glass House and the Philosopher’s Stone</h3><div class="t-line"><span class="t-speaker">Michael Shindler</span></div></article><article class="notice tr-hist"><h3>Uncovering Napoleon’s Heart</h3><div class="t-line"><span class="t-speaker">Alex Oaten</span></div></article></section>
+<section class="track tr-sci"><h3 class="track-head"><span>The Sciences</span><span class="n">6</span></h3><article class="notice tr-sci"><h3>Genetic Sequencing Lottery &amp; Demo</h3><div class="t-line"><span class="t-speaker">Keoni Gandall</span><span class="t-form">Demonstration</span></div></article><article class="notice tr-sci"><h3>Gathering Cognitive Ability Data from Medical Practices</h3><div class="t-line"><span class="t-speaker">Jordan Lasker</span></div></article><article class="notice tr-sci"><h3>The Training Instinct: Behaviorism and Countercontrol</h3><div class="t-line"><span class="t-speaker">Diana Fleischman</span></div></article><article class="notice tr-sci"><h3>How the Microbiome Is Redefining ‘Human’</h3><div class="t-line"><span class="t-speaker">Stephen Skolnick</span></div></article><article class="notice tr-sci"><h3>Give Us Your Hand: A Demo of Electrical Muscle Stimulation</h3><div class="t-line"><span class="t-speaker">Abhishek Dev</span><span class="t-form">Demonstration</span></div></article><article class="notice tr-sci"><h3>Sensitivity and the Nature of Outlier Cognition</h3><div class="t-line"><span class="t-speaker">Lauren Qin</span></div></article></section>
+<section class="track tr-arts"><h3 class="track-head"><span>The Arts</span><span class="n">5</span></h3><article class="notice tr-arts"><h3>How Fast Should We Go</h3><div class="t-line"><span class="t-speaker">Zoe Curzi</span><span class="t-form">Performance</span><span class="t-subj"><span class="mk"></span>Theater</span></div></article><article class="notice tr-arts"><h3>An Untitled Film from Hallsong Media</h3><div class="t-line"><span class="t-speaker">Michael Curzi</span><span class="t-form">Screening</span></div></article><article class="notice tr-arts"><h3>Conjured from This Dust</h3><div class="t-line"><span class="t-speaker">Lola Guthrie</span><span class="t-form">Performance</span></div></article><article class="notice tr-arts"><h3>What Human Hands Can Do: Language, Creativity, and Tradition in North Indian Classical Drumming</h3><div class="t-line"><span class="t-speaker">Nihal Singh</span><span class="t-form">Performance</span></div></article><article class="notice tr-arts"><h3>Singing the Odyssey</h3><div class="t-line"><span class="t-speaker">Christopher Colby</span><span class="t-form">Performance</span></div></article></section>
+<section class="track tr-inst"><h3 class="track-head"><span>Institutions &amp; Society</span><span class="n">7</span></h3><article class="notice tr-inst"><h3>Post-Apocalyptic Cybernetics</h3><div class="t-line"><span class="t-speaker">James Poulos</span></div></article><article class="notice tr-inst"><h3>Neoliberalism’s Shadow: Infrastructure and Process Creep</h3><div class="t-line"><span class="t-speaker">Adam Jarvis</span></div></article><article class="notice tr-inst"><h3>The Social Consequences of the Polygenic Revolution</h3><div class="t-line"><span class="t-speaker">Jonathan Anomaly</span></div></article><article class="notice tr-inst"><h3>The Future of Martian Society</h3><div class="t-line"><span class="t-speaker">Samo Burja</span><span class="t-subj"><span class="mk"></span>Anthropology</span></div></article><article class="notice tr-inst"><h3>Why the Best Scientists Are Mystics</h3><div class="t-line"><span class="t-speaker">Ben Landau-Taylor</span></div></article><article class="notice tr-inst"><h3>Taste in the Use of AI</h3><div class="t-line"><span class="t-speaker">Jacob Falkovich</span></div></article><article class="notice tr-inst"><h3>Building Affordability: New Zealand’s Reforms and the Path to Housing Abundance</h3><div class="t-line"><span class="t-speaker">Eric Crampton</span></div></article></section>
+</div>
+</section>
+</div>
+</main>
+<aside class="ticket" aria-label="Ticket">
+  <div class="dock">
+    <div>
+      <span class="k">Guests of Jean</span>
+    <h2>Full Pass</h2>
+      <p class="note">All three days, meals and the Halloween Gala.</p>
+    </div>
+    <div class="price"><s>$350</s><span>$250</span></div>
+    <a class="btn" href="https://buy.stripe.com/dRm6oH0fl13Ba40eY73gk0h?prefilled_promo_code=JEAN">Buy Ticket</a>
+  </div>
+</aside>
+
+<script>
+  (function () {
+    var box = document.querySelector('.ticket[data-watch]');
+    var bar = document.querySelector('.buy-bar');
+    if (!box || !bar || !('IntersectionObserver' in window)) return;
+    new IntersectionObserver(function (entries) {
+      var e = entries[0];
+      bar.classList.toggle('show', !e.isIntersecting && e.boundingClientRect.top < 0);
+    }).observe(box);
+  })();
+</script>
+</body>
+</html>
