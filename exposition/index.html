@@ -563,5 +563,40 @@
     }
   })();
 </script>
+<script>
+  // Ad attribution. A visit that lands with utm_source keeps its tag in this browser for 30 days;
+  // ticket links then carry it to Stripe as client_reference_id (stored on the Checkout Session)
+  // plus the utm_* codes, so each sale records which ad sent it. Visitors without a tag are untouched.
+  (function () {
+    var KEY = 'expoAdRef', DAYS = 30, UTM = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+    var clean = function (v) { return String(v || '').replace(/[^A-Za-z0-9_-]/g, '_').slice(0, 120); };
+    var tag = null;
+    try {
+      var q = new URLSearchParams(location.search);
+      if (q.get('utm_source')) {
+        tag = { t: Date.now(), utm: {} };
+        UTM.forEach(function (k) { if (q.get(k)) tag.utm[k] = clean(q.get(k)); });
+        tag.ref = [tag.utm.utm_source, tag.utm.utm_campaign, tag.utm.utm_content].filter(Boolean).join('-');
+        if (q.get('rdt_cid')) tag.ref += '__' + clean(q.get('rdt_cid'));
+        tag.ref = tag.ref.slice(0, 200);
+        localStorage.setItem(KEY, JSON.stringify(tag));
+      } else {
+        tag = JSON.parse(localStorage.getItem(KEY) || 'null');
+        if (tag && Date.now() - tag.t > DAYS * 864e5) tag = null;
+      }
+    } catch (e) { tag = null; }
+    if (!tag || !tag.ref) return;
+    var carry = function (ev) {
+      var a = ev.target && ev.target.closest && ev.target.closest('a[href^="https://buy.stripe.com/"]');
+      if (!a) return;
+      var u = new URL(a.href);
+      u.searchParams.set('client_reference_id', tag.ref);
+      Object.keys(tag.utm).forEach(function (k) { u.searchParams.set(k, tag.utm[k]); });
+      a.href = u.toString();
+    };
+    document.addEventListener('click', carry, true);
+    document.addEventListener('auxclick', carry, true);
+  })();
+</script>
 </body>
 </html>
