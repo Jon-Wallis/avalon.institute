@@ -342,47 +342,74 @@
   .buy-bar .btn { min-height: 52px; display: flex; align-items: center; padding: 0 1.6rem; font-size: 0.82rem; letter-spacing: 0.2em; color: var(--ink); background: var(--parchment); border: 1px solid var(--parchment); font-weight: 600; white-space: nowrap; }
   @media (max-width: 500px) { .friends-mast .mast-meta { justify-content: center; } }
 
-  .layout { max-width: 1400px; margin: 0 auto; padding: 2.4rem 1.5rem 13rem; }
-  .ticket { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; box-shadow: 0 -10px 30px color-mix(in srgb, black 26%, transparent); border-top: 3px solid var(--copper); }
-  .ticket .dock { max-width: 1400px; margin: 0 auto; padding: 1.5rem 1.5rem calc(1.5rem + env(safe-area-inset-bottom)); display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(260px, 360px); align-items: center; gap: 2.4rem; }
-  .ticket .k { font-size: 0.72rem; }
-  .ticket h2 { font-size: 1.9rem; margin-top: 0.5rem; }
-  .ticket .note { font-size: 1.08rem; margin-top: 0.3rem; }
-  .ticket .price { font-size: 3.1rem; }
-  .ticket .price s { font-size: 1em; }
-  .ticket .btn { width: 100%; min-height: 74px; font-size: 1rem; letter-spacing: 0.24em; }
-  @media (max-width: 900px) {
-    .ticket .dock { grid-template-columns: auto minmax(0, 1fr); gap: 0.6rem 1.2rem; padding-top: 1rem; }
-    .ticket .dock > div:first-child { grid-column: 1 / -1; }
-    .ticket h2, .ticket .note { display: none; }
-    .ticket .price { font-size: 2.3rem; }
-    .ticket .btn { min-height: 58px; padding: 0 1.1rem; font-size: 0.86rem; letter-spacing: 0.16em; white-space: nowrap; }
-    .layout { padding-bottom: 10rem; }
-  }
-  @media (max-width: 500px) { .layout { padding-left: 1.15rem; padding-right: 1.15rem; } .ticket .price { font-size: 1.9rem; } }
+  .facts { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+  .facts > div { padding: 1.2rem 1.1rem 1.3rem; border-left: 1px solid color-mix(in srgb, var(--ink) 22%, transparent); }
+  .facts > div:first-child { border-left: 0; }
+  .facts dt { font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--copper-deep); margin-bottom: 0.5rem; }
+  .facts dd { font-size: 1.05rem; line-height: 1.4; }
+  .facts a { color: var(--ink); text-decoration-color: var(--copper); }
+  @media (max-width: 900px) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } .facts > div { border-left: 0; border-top: 1px solid color-mix(in srgb, var(--ink) 22%, transparent); } .facts > div:nth-child(-n+2) { border-top: 0; } }
+  @media (max-width: 500px) { .facts { grid-template-columns: minmax(0, 1fr); } .facts > div:nth-child(2) { border-top: 1px solid color-mix(in srgb, var(--ink) 22%, transparent); } }
+
+  .facts.stacked { grid-template-columns: minmax(0, 1fr); border-bottom: 0; }
+  .facts.stacked > div { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 1rem; border-left: 0; border-top: 1px solid color-mix(in srgb, var(--ink) 22%, transparent); padding: 0.9rem 0; }
+  .facts.stacked > div:first-child { border-top: 0; }
+  .facts.stacked dt { margin: 0.2rem 0 0; }
+  @media (max-width: 500px) { .facts.stacked > div { grid-template-columns: minmax(0, 1fr); gap: 0.2rem; } .facts.stacked > div:nth-child(2) { border-top: 1px solid color-mix(in srgb, var(--ink) 22%, transparent); } }
+
+  .invite-line { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--copper-deep); margin-top: 2rem; }
+  .friend-card { max-width: 560px; margin: 0 auto; padding: 2.4rem 2rem 2.2rem; border: 1px solid color-mix(in srgb, var(--copper) 70%, transparent); }
+  .friend-card .k { display: block; font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--copper); }
+  .friend-card h3 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 600; color: var(--on-ink); margin-top: 0.8rem; }
+  .friend-card .price { font-family: 'Playfair Display', serif; font-size: 3.4rem; line-height: 1; color: var(--parchment); display: flex; justify-content: center; align-items: baseline; gap: 0.45em; margin: 1.1rem 0 1rem; }
+  .friend-card .price s { color: color-mix(in srgb, var(--on-ink) 52%, transparent); text-decoration-color: var(--copper); text-decoration-thickness: 0.06em; }
+  .register-band .friend-card p.note { margin: 0 auto 1.6rem; }
+  .friend-card .btn { display: block; min-height: 64px; line-height: 64px; padding: 0; font-size: 0.95rem; letter-spacing: 0.24em; }
+  .buy-bar .line { font-family: 'Cinzel', serif; font-size: 0.66rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--copper); }
+  .buy-bar .left { display: flex; align-items: baseline; gap: 1.2rem; flex-wrap: wrap; }
+  @media (max-width: 600px) { .buy-bar .line { display: none; } .friend-card .price { font-size: 2.8rem; } }
 </style>
 </head>
-<body data-portrait="circle" data-mastcase="upper" data-layout="d">
+<body data-portrait="circle" data-mastcase="upper" data-layout="e">
 
 <div class="toprail"><div class="toprail-tick"></div></div>
 
 <nav aria-label="Conference navigation">
   <a class="nav-brand" href="https://avalon.institute">The Avalon Institute</a>
   <div class="nav-links">
-    <a href="/exposition/">The Exposition</a>
+    <a href="#programme">Programme</a>
+    <a href="#faq">Q&amp;A</a>
+    <a href="#tickets">Your Ticket</a>
   </div>
 </nav>
-<header class="friends-mast">
-  <img class="mast-seal" src="../seal.png" alt="" width="72" height="72"/>
-  <h1>The Avalon Exposition</h1>
+<header class="masthead">
+  <img class="mast-seal" src="../seal.png" alt="" width="128" height="128"/>
+  <h1>The Avalon<br/>Exposition</h1>
+  <p class="masthead-sub" data-rid="mast-sub">A festival dedicated to the study of mankind</p>
   <div class="mast-rules"></div>
   <div class="mast-meta">
     <span>October 30 – November 1, 2026</span>
     <span>Lighthaven · Berkeley</span>
   </div>
+  <p class="invite-line">For our friends at Palladium</p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="#tickets">Get Your Ticket</a>
+    <a class="btn btn-ghost" href="#programme">See the Programme</a>
+  </div>
 </header>
-<main class="layout" id="main-content">
-<div class="prog-col">
+<main id="main-content">
+<section id="occasion" data-rid="occasion" data-rsection="About">
+  <div class="section-head" data-rid="occasion-label"><span class="line" aria-hidden="true"></span><h2 class="label">What is the Avalon Exposition?</h2><span class="line" aria-hidden="true"></span></div>
+  <div class="measure">
+    <p class="lede" data-rid="lede-1">Avalon wants you to help us radically restructure the study of mankind. In order to do this, we’re uniting a variety of forms of humanistic study and human expression in one place. There will be lectures, performances, roundtables, seminars, debates, love affairs, and, God willing, you.</p>
+  </div>
+</section>
+<section id="expect" data-rid="expect" data-rsection="Expect">
+  <div class="section-head" data-rid="expect-label"><span class="line" aria-hidden="true"></span><h2 class="label">What should I expect at the Avalon Exposition?</h2><span class="line" aria-hidden="true"></span></div>
+  <div class="measure">
+    <p class="lede" data-rid="expect-lede-1">The Avalon Exposition aims to gather the greatest concentration of perspectives, tools, and works which shed light on the human condition in the world today. We are working to assemble speakers, known and unknown, alongside music, theater, DNA sequencers, neural imaging machines, and every other scientific, intellectual and artistic tradition useful for understanding the human condition. Our venue supports many simultaneous sessions, allowing participants to attend and organize whatever will be of value to them.</p>
+  </div>
+</section>
 <section id="programme" class="expo-programme" data-rid="bill" data-rsection="Programme" aria-labelledby="programme-heading">
   <div class="prog-head"><h2 id="programme-heading">The Programme</h2><div class="prog-meta">33 talks<span class="sep" style="color:var(--copper);margin:0 .45em">·</span>Friday to Sunday</div></div>
 <div class="wrap tracks">
@@ -393,29 +420,92 @@
 <section class="track tr-inst"><h3 class="track-head"><span>Institutions &amp; Society</span><span class="n">7</span></h3><article class="notice tr-inst"><h3>Post-Apocalyptic Cybernetics</h3><div class="t-line"><span class="t-speaker">James Poulos</span></div></article><article class="notice tr-inst"><h3>Neoliberalism’s Shadow: Infrastructure and Process Creep</h3><div class="t-line"><span class="t-speaker">Adam Jarvis</span></div></article><article class="notice tr-inst"><h3>The Social Consequences of the Polygenic Revolution</h3><div class="t-line"><span class="t-speaker">Jonathan Anomaly</span></div></article><article class="notice tr-inst"><h3>The Future of Martian Society</h3><div class="t-line"><span class="t-speaker">Samo Burja</span><span class="t-subj"><span class="mk"></span>Anthropology</span></div></article><article class="notice tr-inst"><h3>Why the Best Scientists Are Mystics</h3><div class="t-line"><span class="t-speaker">Ben Landau-Taylor</span></div></article><article class="notice tr-inst"><h3>Taste in the Use of AI</h3><div class="t-line"><span class="t-speaker">Jacob Falkovich</span></div></article><article class="notice tr-inst"><h3>Building Affordability: New Zealand’s Reforms and the Path to Housing Abundance</h3><div class="t-line"><span class="t-speaker">Eric Crampton</span></div></article></section>
 </div>
 </section>
-</div>
-</main>
-<aside class="ticket" aria-label="Ticket">
-  <div class="dock">
-    <div>
-      <span class="k">For our friends at Palladium</span>
-    <h2>Full Pass</h2>
-      <p class="note">All three days, meals and the Halloween Gala.</p>
-    </div>
-    <div class="price"><s>$350</s><span>$297.50</span></div>
-    <a class="btn" href="https://buy.stripe.com/dRm6oH0fl13Ba40eY73gk0h?prefilled_promo_code=PALLADIUM">Buy Ticket</a>
+<section id="institute" data-rid="institute" data-rsection="The Institute">
+  <div class="section-head" data-rid="institute-label"><span class="line" aria-hidden="true"></span><h2 class="label">What is the Avalon Institute?</h2><span class="line" aria-hidden="true"></span></div>
+  <div class="measure">
+    <p class="lede" data-rid="institute-lede-1">The Avalon Institute is building infrastructure to help the life of the mind flourish outside of Academia. We have been building a home for cultural ambition in San Francisco through residencies, seminars, reading groups, staged ancient Greek plays, music and poetry nights and much more. We want to perfect the skills necessary to organize productive intellectual and artistic infrastructure at any scale and in any field. Beyond San Francisco, we are building an alliance of groups who want the fundamental logistical, financial, and narrative foundations of the life of the mind to change. <a href="https://avalon.institute">avalon.institute</a></p>
   </div>
-</aside>
+</section>
+<section id="grounds" data-rid="grounds" data-rsection="Where">
+  <div class="section-head" data-rid="grounds-label"><span class="line" aria-hidden="true"></span><h2 class="label">Where is the Avalon Exposition?</h2><span class="line" aria-hidden="true"></span></div>
+  <div class="measure">
+    <p class="lede" data-rid="grounds-lede-1">Lighthaven, a 30,000 square foot campus at 2740 Telegraph Avenue.</p>
+  </div>
+</section>
+<section id="tickets" style="padding-left:0;padding-right:0;">
+  <div class="register-band">
+    <h2 class="label">Your Ticket</h2>
+    <article class="friend-card">
+      <span class="k">For our friends at Palladium</span>
+      <h3>Full Pass</h3>
+      <div class="price"><s>$350</s><span>$297.50</span></div>
+      <p class="note">All three days, meals and the Halloween Gala.</p>
+      <a class="btn btn-primary" href="https://buy.stripe.com/dRm6oH0fl13Ba40eY73gk0h?prefilled_promo_code=PALLADIUM">Buy Ticket</a>
+    </article>
+    <div class="lodging-strip" id="lodging" data-rid="lodging-strip">
+      <div>
+        <span class="k">Lodging</span>
+        <h3>Stay at Lighthaven</h3>
+        <p>Rooms on and near the campus, from $126 a night.</p>
+      </div>
+      <a class="btn btn-primary" data-rid="lodging-cta" href="https://www.havenbookings.space/events/avalon-exposition">Book a Room at Lighthaven</a>
+    </div>
+  </div>
+</section>
+<section id="faq" data-rid="faq" data-rsection="FAQ">
+  <div class="section-head" data-rid="faq-label"><span class="line" aria-hidden="true"></span><h2 class="label">Q&amp;A</h2><span class="line" aria-hidden="true"></span></div>
+  <div class="wide">
+    <div class="faq-grid" data-sortable="faq">
+      <div class="faq-item" data-rid="faq-1">
+        <h3>Where is it happening?</h3>
+        <p>Lighthaven, 2740 Telegraph Avenue, Berkeley.</p>
+      </div>
+      <div class="faq-item" data-rid="faq-8">
+        <h3>Where do I stay?</h3>
+        <p>Book a room at <a href="#lodging">Lighthaven</a> or stay at a hotel nearby.</p>
+      </div>
+      <div class="faq-item" data-rid="faq-2">
+        <h3>When does it start and end?</h3>
+        <p>The Exposition starts on Friday at 2:00 pm and ends Sunday night.</p>
+      </div>
+      <div class="faq-item" data-rid="faq-3">
+        <h3>How many people will be there?</h3>
+        <p>We estimate the Exposition will have around three hundred and fifty attendees.</p>
+      </div>
+      <div class="faq-item" data-rid="faq-4">
+        <h3>What does my ticket include?</h3>
+        <p>Three days, two lunches, three dinners. The Halloween Gala is included.</p>
+      </div>
+      <div class="faq-item" data-rid="faq-5">
+        <h3>How do I get on the schedule?</h3>
+        <p>There will be a scheduling app which allows you to book your own sessions. Those interested in headline slots should email <a href="mailto:wallis@avalon.institute">wallis@avalon.institute</a>.</p>
+      </div>
+      <div class="faq-item" data-rid="faq-6">
+        <h3>Who should come?</h3>
+        <p>If you want to find new ways of studying humanity, you should come. If you want to find new mentors, collaborators or patrons in your own pursuits, you should come. If you are excited by and want to support a true reorganization of the humanities, you should come.</p>
+      </div>
+      <div class="faq-item" data-rid="faq-10">
+        <h3>What is your refund policy?</h3>
+        <p>Full refunds are available up to 7 days before the event. Contact <a href="mailto:wallis@avalon.institute">wallis@avalon.institute</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer data-rid="footer"><span class="mark">◇</span> &nbsp; <a href="https://avalon.institute">The Avalon Institute</a> · Berkeley &nbsp; <span class="mark">◇</span></footer>
+<div class="buy-bar" aria-hidden="true">
+  <div class="left"><span class="line">For our friends at Palladium</span><div class="price"><s>$350</s><span>$297.50</span></div></div>
+  <a class="btn" href="https://buy.stripe.com/dRm6oH0fl13Ba40eY73gk0h?prefilled_promo_code=PALLADIUM" tabindex="-1">Buy Ticket</a>
+</div>
 
 <script>
   (function () {
-    var box = document.querySelector('.ticket[data-watch]');
-    var bar = document.querySelector('.buy-bar');
-    if (!box || !bar || !('IntersectionObserver' in window)) return;
-    new IntersectionObserver(function (entries) {
-      var e = entries[0];
-      bar.classList.toggle('show', !e.isIntersecting && e.boundingClientRect.top < 0);
-    }).observe(box);
+    var cta = document.querySelector('.cta-row'), band = document.querySelector('#tickets'), bar = document.querySelector('.buy-bar');
+    if (!cta || !band || !bar || !('IntersectionObserver' in window)) return;
+    var past = false, atBand = false;
+    var sync = function () { bar.classList.toggle('show', past && !atBand); };
+    new IntersectionObserver(function (e) { past = !e[0].isIntersecting && e[0].boundingClientRect.top < 0; sync(); }).observe(cta);
+    new IntersectionObserver(function (e) { atBand = e[0].isIntersecting; sync(); }).observe(band);
   })();
 </script>
 </body>
