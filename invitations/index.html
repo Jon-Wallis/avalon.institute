@@ -368,6 +368,8 @@
   .buy-bar .line { font-family: 'Cinzel', serif; font-size: 0.66rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--copper); }
   .buy-bar .left { display: flex; align-items: baseline; gap: 1.2rem; flex-wrap: wrap; }
   @media (max-width: 600px) { .buy-bar .line { display: none; } .friend-card .price { font-size: 2.8rem; } }
+
+  .buy-bar { display: flex; }
 </style>
 </head>
 <body data-portrait="circle" data-mastcase="upper" data-layout="e">
@@ -438,9 +440,9 @@
     <article class="friend-card">
       <span class="k">By invitation</span>
       <h3>Full Pass</h3>
-      <div class="price"><s>$350</s><span>$200</span></div>
+      <div class="price"><s>$500</s><span>$350</span></div>
       <p class="note">All three days, meals and the Halloween Gala.</p>
-      <a class="btn btn-primary" href="https://buy.stripe.com/dRm6oH0fl13Ba40eY73gk0h?prefilled_promo_code=INVITATIONS">Buy Ticket</a>
+      <a class="btn btn-primary" href="https://buy.stripe.com/dRm6oH0fl13Ba40eY73gk0h">Buy Ticket</a>
     </article>
     <div class="lodging-strip" id="lodging" data-rid="lodging-strip">
       <div>
@@ -494,19 +496,8 @@
 </main>
 <footer data-rid="footer"><span class="mark">◇</span> &nbsp; <a href="https://avalon.institute">The Avalon Institute</a> · Berkeley &nbsp; <span class="mark">◇</span></footer>
 <div class="buy-bar" aria-hidden="true">
-  <div class="left"><span class="line">By invitation</span><div class="price"><s>$350</s><span>$200</span></div></div>
-  <a class="btn" href="https://buy.stripe.com/dRm6oH0fl13Ba40eY73gk0h?prefilled_promo_code=INVITATIONS" tabindex="-1">Buy Ticket</a>
+  <div class="left"><span class="line">By invitation</span><div class="price"><s>$500</s><span>$350</span></div></div>
+  <a class="btn" href="https://buy.stripe.com/dRm6oH0fl13Ba40eY73gk0h" tabindex="-1">Buy Ticket</a>
 </div>
-
-<script>
-  (function () {
-    var cta = document.querySelector('.cta-row'), band = document.querySelector('#tickets'), bar = document.querySelector('.buy-bar');
-    if (!cta || !band || !bar || !('IntersectionObserver' in window)) return;
-    var past = false, atBand = false;
-    var sync = function () { bar.classList.toggle('show', past && !atBand); };
-    new IntersectionObserver(function (e) { past = !e[0].isIntersecting && e[0].boundingClientRect.top < 0; sync(); }).observe(cta);
-    new IntersectionObserver(function (e) { atBand = e[0].isIntersecting; sync(); }).observe(band);
-  })();
-</script>
 </body>
 </html>
