@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>The Avalon Exposition · By invitation</title>
+<title>The Avalon Exposition | October 30–November 1, 2026</title>
 <meta name="robots" content="noindex, nofollow"/>
 <link rel="icon" type="image/png" href="/favicon.png"/>
 <meta name="theme-color" content="#EEE6D5"/>
@@ -11,7 +11,7 @@
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="The Avalon Institute"/>
 <meta property="og:title" content="The Avalon Exposition"/>
-<meta property="og:description" content="By invitation."/>
+<meta property="og:description" content="A festival dedicated to the study of mankind."/>
 <meta property="og:url" content="https://avalon.institute/invitations/"/>
 <meta property="og:image" content="https://avalon.institute/photos/exposition-og.jpg"/>
 <meta property="og:image:width" content="1200"/>
@@ -342,32 +342,12 @@
   .buy-bar .btn { min-height: 52px; display: flex; align-items: center; padding: 0 1.6rem; font-size: 0.82rem; letter-spacing: 0.2em; color: var(--ink); background: var(--parchment); border: 1px solid var(--parchment); font-weight: 600; white-space: nowrap; }
   @media (max-width: 500px) { .friends-mast .mast-meta { justify-content: center; } }
 
-  .facts { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
-  .facts > div { padding: 1.2rem 1.1rem 1.3rem; border-left: 1px solid color-mix(in srgb, var(--ink) 22%, transparent); }
-  .facts > div:first-child { border-left: 0; }
-  .facts dt { font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--copper-deep); margin-bottom: 0.5rem; }
-  .facts dd { font-size: 1.05rem; line-height: 1.4; }
-  .facts a { color: var(--ink); text-decoration-color: var(--copper); }
-  @media (max-width: 900px) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } .facts > div { border-left: 0; border-top: 1px solid color-mix(in srgb, var(--ink) 22%, transparent); } .facts > div:nth-child(-n+2) { border-top: 0; } }
-  @media (max-width: 500px) { .facts { grid-template-columns: minmax(0, 1fr); } .facts > div:nth-child(2) { border-top: 1px solid color-mix(in srgb, var(--ink) 22%, transparent); } }
-
-  .facts.stacked { grid-template-columns: minmax(0, 1fr); border-bottom: 0; }
-  .facts.stacked > div { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 1rem; border-left: 0; border-top: 1px solid color-mix(in srgb, var(--ink) 22%, transparent); padding: 0.9rem 0; }
-  .facts.stacked > div:first-child { border-top: 0; }
-  .facts.stacked dt { margin: 0.2rem 0 0; }
-  @media (max-width: 500px) { .facts.stacked > div { grid-template-columns: minmax(0, 1fr); gap: 0.2rem; } .facts.stacked > div:nth-child(2) { border-top: 1px solid color-mix(in srgb, var(--ink) 22%, transparent); } }
-
-  .invite-line { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--copper-deep); margin-top: 2rem; }
-  .friend-card { max-width: 560px; margin: 0 auto; padding: 2.4rem 2rem 2.2rem; border: 1px solid color-mix(in srgb, var(--copper) 70%, transparent); }
-  .friend-card .k { display: block; font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--copper); }
-  .friend-card h3 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 600; color: var(--on-ink); margin-top: 0.8rem; }
-  .friend-card .price { font-family: 'Playfair Display', serif; font-size: 3.4rem; line-height: 1; color: var(--parchment); display: flex; justify-content: center; align-items: baseline; gap: 0.45em; margin: 1.1rem 0 1rem; }
-  .friend-card .price s { color: color-mix(in srgb, var(--on-ink) 52%, transparent); text-decoration-color: var(--copper); text-decoration-thickness: 0.06em; }
-  .register-band .friend-card p.note { margin: 0 auto 1.6rem; }
-  .friend-card .btn { display: block; min-height: 64px; line-height: 64px; padding: 0; font-size: 0.95rem; letter-spacing: 0.24em; }
+  .ticket-option.opening .ticket-price { display: flex; align-items: baseline; gap: 0.4em; }
+  .ticket-option.opening .ticket-price s { color: color-mix(in srgb, var(--on-ink) 52%, transparent); text-decoration-color: var(--copper); text-decoration-thickness: 0.06em; }
   .buy-bar .line { font-family: 'Cinzel', serif; font-size: 0.66rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--copper); }
   .buy-bar .left { display: flex; align-items: baseline; gap: 1.2rem; flex-wrap: wrap; }
-  @media (max-width: 600px) { .buy-bar .line { display: none; } .friend-card .price { font-size: 2.8rem; } }
+  footer { padding-bottom: 7rem; }
+  @media (max-width: 600px) { .buy-bar .line { display: none; } }
 
   .buy-bar { display: flex; }
 </style>
@@ -376,29 +356,30 @@
 
 <div class="toprail"><div class="toprail-tick"></div></div>
 
-<nav aria-label="Conference navigation">
+<nav data-rid="nav" aria-label="Conference navigation">
   <a class="nav-brand" href="https://avalon.institute">The Avalon Institute</a>
   <div class="nav-links">
     <a href="#programme">Programme</a>
-    <a href="#faq">Q&amp;A</a>
-    <a href="#tickets">Your Ticket</a>
+    <a href="/exposition/halloween/">Halloween Gala</a>
+    <a href="#tickets">Tickets</a>
   </div>
 </nav>
-<header class="masthead">
+
+<header class="masthead" data-rid="masthead" data-rsection="Masthead">
   <img class="mast-seal" src="/exposition/seal.png" alt="" width="128" height="128"/>
-  <h1>The Avalon<br/>Exposition</h1>
+  <h1 data-rid="mast-title">The Avalon<br/>Exposition</h1>
   <p class="masthead-sub" data-rid="mast-sub">A festival dedicated to the study of mankind</p>
-  <div class="mast-rules"></div>
-  <div class="mast-meta">
+  <div class="mast-rules" data-rid="mast-rules"></div>
+  <div class="mast-meta" data-rid="mast-meta">
     <span>October 30 – November 1, 2026</span>
     <span>Lighthaven · Berkeley</span>
   </div>
-  <p class="invite-line">By invitation</p>
-  <div class="cta-row">
-    <a class="btn btn-primary" href="#tickets">Get Your Ticket</a>
-    <a class="btn btn-ghost" href="#programme">See the Programme</a>
+  <div class="cta-row" data-rid="cta-row">
+    <a class="btn btn-primary" data-rid="btn-tickets" href="#tickets">Get Tickets</a>
+    <a class="btn btn-ghost" data-rid="btn-institute" href="https://avalon.institute">The Avalon Institute</a>
   </div>
 </header>
+
 <main id="main-content">
 <section id="occasion" data-rid="occasion" data-rsection="About">
   <div class="section-head" data-rid="occasion-label"><span class="line" aria-hidden="true"></span><h2 class="label">What is the Avalon Exposition?</h2><span class="line" aria-hidden="true"></span></div>
@@ -434,16 +415,39 @@
     <p class="lede" data-rid="grounds-lede-1">Lighthaven, a 30,000 square foot campus at 2740 Telegraph Avenue.</p>
   </div>
 </section>
-<section id="tickets" style="padding-left:0;padding-right:0;">
-  <div class="register-band">
-    <h2 class="label">Your Ticket</h2>
-    <article class="friend-card">
-      <span class="k">By invitation</span>
-      <h3>Full Pass</h3>
-      <div class="price"><s>$350</s><span>$250</span></div>
-      <p class="note">All three days, meals and the Halloween Gala.</p>
-      <a class="btn btn-primary" href="https://buy.stripe.com/dRm6oH0fl13Ba40eY73gk0h?prefilled_promo_code=INVITATIONS">Buy Ticket</a>
-    </article>
+<section id="tickets" data-rid="register" data-rsection="Tickets" style="padding-left:0;padding-right:0;">
+  <div class="register-band" data-rid="register-band">
+    <h2 class="label">Tickets</h2>
+    <div class="ticket-grid">
+      <article class="ticket-option opening">
+        <h3>Full Pass</h3>
+        <div class="ticket-price"><s>$350</s><span>$250</span></div>
+        <p class="ticket-note">All three days, meals and the Halloween Gala.</p>
+        <a class="btn btn-primary" href="https://buy.stripe.com/dRm6oH0fl13Ba40eY73gk0h?prefilled_promo_code=INVITATIONS">Buy Ticket</a>
+      </article>
+      <article class="ticket-option" data-rid="ticket-daypass">
+        <h3>Day Pass</h3>
+        <div class="ticket-price">$200<small>+</small></div>
+        <p class="ticket-note">Any one day $200; any two days $300. Meals included.</p>
+        <div class="daypass-choices" data-rid="daypass-choices" hidden>
+          <a class="btn btn-ghost" data-rid="daypass-cta" href="https://buy.stripe.com/8x26oH1jp7rZfok4jt3gk0e">One Day · $200</a>
+          <a class="btn btn-ghost" data-rid="twodaypass-cta" href="https://buy.stripe.com/dRm6oH8LR7rZ0tqaHR3gk0f">Two Days · $300</a>
+        </div>
+        <button class="btn btn-ghost" type="button" data-rid="daypass-toggle">Choose Day Pass</button>
+      </article>
+      <article class="ticket-option" data-rid="ticket-student">
+        <h3>Reduced Ticket</h3>
+        <div class="ticket-price">$150</div>
+        <p class="ticket-note">Apply for financial aid if necessary.</p>
+        <a class="btn btn-ghost" data-rid="student-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSe-Of3GX-9nYa17nIKfsYlrh2UtMUYZT3VEKrAmqbqto4B9ew/viewform">Apply Here</a>
+      </article>
+      <article class="ticket-option sponsor" data-rid="ticket-sponsor">
+        <h3>Founding Sponsor</h3>
+        <div class="ticket-price">$1,000<small>+</small></div>
+        <p class="ticket-note">Ticket for individual sponsorship. Potential corporate sponsors, contact <a href="mailto:wallis@avalon.institute?subject=Avalon%20Exposition%20Sponsorship">wallis@avalon.institute</a>.</p>
+        <a class="btn btn-ghost" data-rid="sponsor-cta" href="https://buy.stripe.com/6oUeVd4vB9A7cc8eY73gk0a">Choose Sponsor Amount</a>
+      </article>
+    </div>
     <div class="lodging-strip" id="lodging" data-rid="lodging-strip">
       <div>
         <span class="k">Lodging</span>
@@ -486,9 +490,17 @@
         <h3>Who should come?</h3>
         <p>If you want to find new ways of studying humanity, you should come. If you want to find new mentors, collaborators or patrons in your own pursuits, you should come. If you are excited by and want to support a true reorganization of the humanities, you should come.</p>
       </div>
+      <div class="faq-item" data-rid="faq-9">
+        <h3>What if I need financial assistance to attend?</h3>
+        <p>A limited number of volunteer and discounted tickets are available. Please fill out the <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-Of3GX-9nYa17nIKfsYlrh2UtMUYZT3VEKrAmqbqto4B9ew/viewform">financial assistance form</a>.</p>
+      </div>
       <div class="faq-item" data-rid="faq-10">
         <h3>What is your refund policy?</h3>
         <p>Full refunds are available up to 7 days before the event. Contact <a href="mailto:wallis@avalon.institute">wallis@avalon.institute</a>.</p>
+      </div>
+      <div class="faq-item" data-rid="faq-11">
+        <h3>Can I sponsor the Exposition?</h3>
+        <p>Individuals can purchase a Founding Sponsor ticket for $1,000, and will be thanked on the Exposition website and in gold lettering on red bricks which will be set up at Avalon and incorporated into any future campus we create. For institutional sponsorships or larger partnerships, email <a href="mailto:wallis@avalon.institute?subject=Avalon%20Exposition%20Sponsorship">wallis@avalon.institute</a>.</p>
       </div>
     </div>
   </div>
@@ -499,5 +511,19 @@
   <div class="left"><span class="line">By invitation</span><div class="price"><s>$350</s><span>$250</span></div></div>
   <a class="btn" href="https://buy.stripe.com/dRm6oH0fl13Ba40eY73gk0h?prefilled_promo_code=INVITATIONS" tabindex="-1">Buy Ticket</a>
 </div>
+
+<script>
+  (function () {
+    var toggle = document.querySelector('[data-rid="daypass-toggle"]');
+    var choices = document.querySelector('[data-rid="daypass-choices"]');
+    if (toggle && choices) {
+      toggle.addEventListener('click', function () {
+        toggle.hidden = true;
+        choices.hidden = false;
+        choices.querySelector('a').focus();
+      });
+    }
+  })();
+</script>
 </body>
 </html>
