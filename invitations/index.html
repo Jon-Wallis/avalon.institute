@@ -249,6 +249,12 @@
   }
   .ticket-option.sponsor .btn-ghost:active { box-shadow: 0 4px 12px color-mix(in srgb, black 22%, transparent); transform: translateY(0); }
   .ticket-option.sponsor:focus-within { box-shadow: inset 0 0 0 2px var(--sponsor-copper); }
+  .ticket-option.gala { position: relative; }
+  .ticket-option.gala h3, .ticket-option.gala .ticket-price { padding-right: 76px; }
+  .gala-seal {
+    position: absolute; top: 1.3rem; right: 1.3rem; width: 64px; height: 64px; border-radius: 50%;
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--on-ink) 30%, transparent);
+  }
   .ticket-option .btn:focus-visible { outline: 2px solid var(--on-ink); outline-offset: 4px; }
   .ticket-option button.btn { background: transparent; cursor: pointer; }
   .daypass-choices { display: flex; flex-direction: column; gap: 0.55rem; margin-top: auto; }
@@ -435,11 +441,12 @@
         </div>
         <button class="btn btn-ghost" type="button" data-rid="daypass-toggle">Choose Day Pass</button>
       </article>
-      <article class="ticket-option" data-rid="ticket-student">
-        <h3>Reduced Ticket</h3>
-        <div class="ticket-price">$150</div>
-        <p class="ticket-note">Apply for financial aid if necessary.</p>
-        <a class="btn btn-ghost" data-rid="student-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSe-Of3GX-9nYa17nIKfsYlrh2UtMUYZT3VEKrAmqbqto4B9ew/viewform">Apply Here</a>
+      <article class="ticket-option gala" data-rid="ticket-gala">
+        <img class="gala-seal" src="/exposition/halloween/gala-seal-sm.jpg" alt="" width="64" height="64">
+        <h3>Halloween Gala</h3>
+        <div class="ticket-price">$50</div>
+        <p class="ticket-note">The Gala alone, Saturday evening, October 31.</p>
+        <a class="btn btn-ghost" data-rid="gala-cta" href="https://buy.stripe.com/14A8wP2ntaEb8ZWcPZ3gk0j">Buy Gala Ticket</a>
       </article>
       <article class="ticket-option sponsor" data-rid="ticket-sponsor">
         <h3>Founding Sponsor</h3>

@@ -15,7 +15,9 @@
 <meta property="og:title" content="The Halloween Gala — The Avalon Exposition"/>
 <meta property="og:description" content="Details forthcoming."/>
 <meta property="og:url" content="https://avalon.institute/exposition/halloween/"/>
-<meta property="og:image" content="https://avalon.institute/photos/og-banner.jpg"/>
+<meta property="og:image" content="https://avalon.institute/exposition/halloween/og-gala.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,6 +63,19 @@
     display: inline-block; margin-top: 1.8rem; font-family: 'Cinzel', serif; font-size: 0.62rem;
     letter-spacing: 0.26em; text-transform: uppercase; color: var(--ink); background: var(--copper); padding: 0.4rem 0.9rem;
   }
+  .seal {
+    display: block; width: 168px; height: 168px; margin: 0 auto 1.8rem; border-radius: 50%;
+    box-shadow: 0 0 0 1px var(--parchment-faint), 0 10px 30px rgba(0,0,0,0.35);
+  }
+  @media (max-width: 480px) { .seal { width: 132px; height: 132px; margin-bottom: 1.4rem; } .card-inner { padding-top: 2.6rem; } }
+  .buy {
+    display: inline-block; margin-top: 1.6rem; min-height: 44px; padding: 0.85rem 1.6rem;
+    font-family: 'Cinzel', serif; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink); background: var(--parchment); border: 1px solid var(--parchment); text-decoration: none;
+    transition: background 0.3s, border-color 0.3s, color 0.3s;
+  }
+  .buy:hover { background: var(--copper); border-color: var(--copper); color: var(--parchment); }
+  .buy:focus-visible { outline: 2px solid var(--copper-bright); outline-offset: 4px; }
   .back { margin-top: 2.4rem; }
   .back a {
     font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.24em; text-transform: uppercase;
@@ -81,11 +96,13 @@
 <main>
   <div class="card">
     <div class="card-inner">
+      <img class="seal" src="gala-seal.jpg" alt="The Avalon seal, the raven and book set into a Doré engraving of a moonlit graveyard" width="168" height="168">
       <div class="eyebrow">The Avalon Exposition Presents</div>
       <h1>The Halloween Gala</h1>
       <div class="date">Saturday · October 31, 2026 · Lighthaven, Berkeley</div>
       <div class="rule"></div>
       <span class="tag">Included with Your Exposition Ticket</span>
+      <div><a class="buy" data-rid="gala-cta" href="https://buy.stripe.com/14A8wP2ntaEb8ZWcPZ3gk0j">Buy Gala Ticket · $50</a></div>
       <p class="lede" style="margin-top:1.8rem; font-size:0.98rem;">Details forthcoming.</p>
       <div class="back"><a href="../">← The Avalon Exposition</a></div>
     </div>

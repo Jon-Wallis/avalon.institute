@@ -249,6 +249,12 @@
   }
   .ticket-option.sponsor .btn-ghost:active { box-shadow: 0 4px 12px color-mix(in srgb, black 22%, transparent); transform: translateY(0); }
   .ticket-option.sponsor:focus-within { box-shadow: inset 0 0 0 2px var(--sponsor-copper); }
+  .ticket-option.gala { position: relative; }
+  .ticket-option.gala h3, .ticket-option.gala .ticket-price { padding-right: 76px; }
+  .gala-seal {
+    position: absolute; top: 1.3rem; right: 1.3rem; width: 64px; height: 64px; border-radius: 50%;
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--on-ink) 30%, transparent);
+  }
   .ticket-option .btn:focus-visible { outline: 2px solid var(--on-ink); outline-offset: 4px; }
   .ticket-option button.btn { background: transparent; cursor: pointer; }
   .daypass-choices { display: flex; flex-direction: column; gap: 0.55rem; margin-top: auto; }
