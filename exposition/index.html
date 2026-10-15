@@ -364,6 +364,14 @@
     .expo-programme .prog-head, .expo-programme .wrap { padding-left: 1.15rem; padding-right: 1.15rem; }
   }
 </style>
+<!-- X conversion tracking base code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+twq('config','rg7dl');
+</script>
+<!-- End X conversion tracking base code -->
 </head>
 <body data-portrait="circle" data-mastcase="upper">
 
@@ -574,18 +582,21 @@
   // Ad attribution. A visit that lands with utm_source keeps its tag in this browser for 30 days;
   // ticket links then carry it to Stripe as client_reference_id (stored on the Checkout Session)
   // plus the utm_* codes, so each sale records which ad sent it. Visitors without a tag are untouched.
+  // An X ad click's twclid rides along as "__twclid-<id>" for the server's X conversion report.
   (function () {
     var KEY = 'expoAdRef', DAYS = 30, UTM = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
     var clean = function (v) { return String(v || '').replace(/[^A-Za-z0-9_-]/g, '_').slice(0, 120); };
     var tag = null;
     try {
       var q = new URLSearchParams(location.search);
-      if (q.get('utm_source')) {
+      var twclid = String(q.get('twclid') || '').replace(/[^A-Za-z0-9]/g, '').slice(0, 100);
+      if (q.get('utm_source') || twclid) {
         tag = { t: Date.now(), utm: {} };
         UTM.forEach(function (k) { if (q.get(k)) tag.utm[k] = clean(q.get(k)); });
-        tag.ref = [tag.utm.utm_source, tag.utm.utm_campaign, tag.utm.utm_content].filter(Boolean).join('-');
+        tag.ref = [tag.utm.utm_source, tag.utm.utm_campaign, tag.utm.utm_content].filter(Boolean).join('-') || 'x';
         if (q.get('rdt_cid')) tag.ref += '__' + clean(q.get('rdt_cid'));
-        tag.ref = tag.ref.slice(0, 200);
+        tag.ref = tag.ref.slice(0, twclid ? 191 - twclid.length : 200);
+        if (twclid) tag.ref += '__twclid-' + twclid;
         localStorage.setItem(KEY, JSON.stringify(tag));
       } else {
         tag = JSON.parse(localStorage.getItem(KEY) || 'null');
