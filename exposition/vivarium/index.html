@@ -370,6 +370,7 @@
   .friend-card .price { font-family: 'Playfair Display', serif; font-size: 3.4rem; line-height: 1; color: var(--parchment); display: flex; justify-content: center; align-items: baseline; gap: 0.45em; margin: 1.1rem 0 1rem; }
   .friend-card .price s { color: color-mix(in srgb, var(--on-ink) 52%, transparent); text-decoration-color: var(--copper); text-decoration-thickness: 0.06em; }
   .register-band .friend-card p.note { margin: 0 auto 1.6rem; }
+  .register-band .friend-card p.offer { margin: -0.2rem auto 0.7rem; font-size: 1.05rem; font-weight: 500; color: color-mix(in srgb, var(--copper) 60%, var(--on-ink)); }
   .friend-card .btn { display: block; min-height: 64px; line-height: 64px; padding: 0; font-size: 0.95rem; letter-spacing: 0.24em; }
   .buy-bar .line { font-family: 'Cinzel', serif; font-size: 0.66rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--copper); }
   .buy-bar .left { display: flex; align-items: baseline; gap: 1.2rem; flex-wrap: wrap; }
@@ -452,9 +453,10 @@ twq('config','rg7dl');
     <article class="friend-card">
       <span class="k">For our friends at Vivarium</span>
       <h3>Full Pass</h3>
-      <div class="price"><s>$350</s><span>$250</span></div>
+      <div class="price"><s>$500</s><span>$350</span></div>
+      <p class="offer">$150 off the Standard price.</p>
       <p class="note">All three days, meals and the Halloween Gala.</p>
-      <a class="btn btn-primary" href="https://buy.stripe.com/dRm6oH0fl13Ba40eY73gk0h?prefilled_promo_code=VIVARIUM">Buy Ticket</a>
+      <a class="btn btn-primary" href="https://buy.stripe.com/dRm6oH0fl13Ba40eY73gk0h?client_reference_id=vivarium">Buy Ticket</a>
     </article>
     <div class="lodging-strip" id="lodging" data-rid="lodging-strip">
       <div>
@@ -508,8 +510,8 @@ twq('config','rg7dl');
 </main>
 <footer data-rid="footer"><span class="mark">◇</span> &nbsp; <a href="https://avalon.institute">The Avalon Institute</a> · Berkeley &nbsp; <span class="mark">◇</span></footer>
 <div class="buy-bar" aria-hidden="true">
-  <div class="left"><span class="line">For our friends at Vivarium</span><div class="price"><s>$350</s><span>$250</span></div></div>
-  <a class="btn" href="https://buy.stripe.com/dRm6oH0fl13Ba40eY73gk0h?prefilled_promo_code=VIVARIUM" tabindex="-1">Buy Ticket</a>
+  <div class="left"><span class="line">For our friends at Vivarium</span><div class="price"><s>$500</s><span>$350</span></div></div>
+  <a class="btn" href="https://buy.stripe.com/dRm6oH0fl13Ba40eY73gk0h?client_reference_id=vivarium" tabindex="-1">Buy Ticket</a>
 </div>
 
 <script>

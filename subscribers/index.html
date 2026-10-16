@@ -434,11 +434,11 @@ twq('config','rg7dl');
     <h2 class="label">Tickets</h2>
     <div class="ticket-grid">
       <article class="ticket-option opening">
-        <h3>Early Bird Ticket</h3>
-        <div class="ticket-price"><span>$350</span></div>
+        <h3>Full Pass</h3>
+        <div class="ticket-price"><s>$500</s><span>$350</span></div>
         <p class="ticket-note">All three days, meals and the Halloween Gala.</p>
-        <p class="ticket-note ticket-deadline">Price rises to $500 after Friday, October 16, Eastern time.</p>
-        <a class="btn btn-primary" href="https://buy.stripe.com/dRm6oH0fl13Ba40eY73gk0h?client_reference_id=subscribers">Buy Early Bird Ticket</a>
+        <p class="ticket-note ticket-deadline">On sale: $150 off the Standard price.</p>
+        <a class="btn btn-primary" href="https://buy.stripe.com/dRm6oH0fl13Ba40eY73gk0h?client_reference_id=subscribers">Buy Ticket</a>
       </article>
       <article class="ticket-option" data-rid="ticket-daypass">
         <h3>Day Pass</h3>
@@ -524,7 +524,7 @@ twq('config','rg7dl');
 </main>
 <footer data-rid="footer"><span class="mark">◇</span> &nbsp; <a href="https://avalon.institute">The Avalon Institute</a> · Berkeley &nbsp; <span class="mark">◇</span></footer>
 <div class="buy-bar" aria-hidden="true">
-  <div class="left"><span class="line">For our subscribers</span><div class="price"><span>$350</span></div></div>
+  <div class="left"><span class="line">For our subscribers</span><div class="price"><s>$500</s><span>$350</span></div></div>
   <a class="btn" href="https://buy.stripe.com/dRm6oH0fl13Ba40eY73gk0h?client_reference_id=subscribers" tabindex="-1">Buy Ticket</a>
 </div>
 
@@ -539,24 +539,6 @@ twq('config','rg7dl');
         choices.querySelector('a').focus();
       });
     }
-  })();
-</script>
-
-<script>
-  (function () {
-    if (Date.now() < Date.UTC(2026, 9, 17, 4)) return;
-    var card = document.querySelector('.ticket-option.opening');
-    if (card) {
-      card.querySelector('h3').textContent = 'Standard Ticket';
-      card.querySelector('.ticket-price').innerHTML = '$500<small>+</small>';
-      var deadline = card.querySelector('.ticket-deadline');
-      if (deadline) deadline.remove();
-      var cta = card.querySelector('.btn');
-      cta.href = 'https://buy.stripe.com/4gMdR9d2727F0tq9DN3gk0d';
-      cta.textContent = 'Choose Standard Amount';
-    }
-    var bar = document.querySelector('.buy-bar');
-    if (bar) bar.remove();
   })();
 </script>
 </body>
