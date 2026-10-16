@@ -235,6 +235,8 @@
   .ticket-price small { font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--copper); }
   .ticket-option .ticket-note { max-width: none; margin: -0.1rem 0 1rem; font-size: 0.95rem; line-height: 1.35; color: color-mix(in srgb, var(--on-ink) 82%, transparent); }
   .ticket-option .ticket-deadline { margin-top: -0.55rem; font-weight: 500; color: color-mix(in srgb, var(--copper) 60%, var(--on-ink)); }
+  .ticket-option .aid-under { margin: 0.75rem 0 0; font-size: 0.95rem; }
+  .aid-link { color: color-mix(in srgb, var(--copper) 60%, var(--on-ink)); text-decoration: underline; text-decoration-color: var(--copper); text-underline-offset: 0.2em; font-weight: 500; }
   .ticket-option .btn { width: 100%; min-height: 44px; margin-top: auto; padding: 0.78rem 0.7rem; text-align: center; letter-spacing: 0.18em; }
   .ticket-option .btn-ghost { color: var(--parchment); border-color: color-mix(in srgb, var(--on-ink) 55%, transparent); }
   .ticket-option .btn-ghost:hover { color: var(--on-ink); background: var(--copper-deep); border-color: var(--copper-deep); }
@@ -439,6 +441,7 @@ twq('config','rg7dl');
         <p class="ticket-note">All three days, meals and the Halloween Gala.</p>
         <p class="ticket-note ticket-deadline">$150 off the Standard price.</p>
         <a class="btn btn-primary" href="https://buy.stripe.com/dRm6oH0fl13Ba40eY73gk0h?client_reference_id=ticketsb">Buy Ticket</a>
+        <p class="ticket-note aid-under" data-rid="ticket-aid"><a class="aid-link" href="https://docs.google.com/forms/d/e/1FAIpQLSe-Of3GX-9nYa17nIKfsYlrh2UtMUYZT3VEKrAmqbqto4B9ew/viewform">Apply for financial aid</a></p>
       </article>
       <article class="ticket-option" data-rid="ticket-daypass">
         <h3>Day Pass</h3>
