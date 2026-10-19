@@ -305,12 +305,11 @@
   .daypass-choices[hidden] { display: none; }
   .register-band > .label { color: color-mix(in srgb, var(--copper) 60%, var(--on-ink)); font-weight: 500; }
   @media (max-width: 560px) { .ticket-grid { grid-template-columns: 1fr; } .ticket-option { min-height: 220px; } }
-  /* founding sponsor names: full-width row closing the ticket grid, in the sponsor card's colours */
+  /* founding sponsor names: full-width row closing the ticket grid, copper label on the band's ink */
   .ticket-sponsors {
     --sponsor-copper: #C47D50;
-    --sponsor-blue: #091A2E;
     grid-column: 1 / -1; display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.5rem 1.6rem;
-    padding: 1.15rem 1.55rem 1.2rem; background: var(--sponsor-blue); box-shadow: inset 0 0 0 1px var(--sponsor-copper);
+    padding: 1.15rem 1.55rem 1.2rem;
     border-right: 1px solid color-mix(in srgb, var(--on-ink) 42%, transparent);
     border-bottom: 1px solid color-mix(in srgb, var(--on-ink) 42%, transparent);
   }
