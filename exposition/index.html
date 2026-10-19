@@ -625,8 +625,14 @@ twq('config','rg7dl');
     } catch (e) { tag = null; }
     if (!tag || !tag.ref) return;
     // Visitors from the Reddit ad see the Full Pass on sale, $150 off the $500 Standard price,
-    // sold on the unlisted $350 Full Pass link (plink_1UNKyh).
-    if (tag.utm && tag.utm.utm_source === 'reddit') {
+    // sold on the unlisted $350 Full Pass link (plink_1UNKyh). Visitors from the Cuties classified
+    // get the same price until midnight Pacific at the end of Tuesday, October 27.
+    var SALES = {
+      reddit: { line: 'On sale: $150 off the Standard price.' },
+      cuties: { line: '$350 for Cuties until October 27.', until: Date.UTC(2026, 9, 28, 7) }
+    };
+    var deal = tag.utm && SALES.hasOwnProperty(tag.utm.utm_source) && SALES[tag.utm.utm_source];
+    if (deal && !(deal.until && Date.now() >= deal.until)) {
       var sale = document.querySelector('[data-rid="ticket-opening"]');
       if (sale) {
         sale.querySelector('h3').textContent = 'Full Pass';
@@ -639,7 +645,7 @@ twq('config','rg7dl');
           line.className = 'ticket-note ticket-deadline';
           sale.querySelector('[data-rid="register-cta"]').before(line);
         }
-        line.textContent = 'On sale: $150 off the Standard price.';
+        line.textContent = deal.line;
         var buy = sale.querySelector('[data-rid="register-cta"]');
         buy.href = 'https://buy.stripe.com/dRm6oH0fl13Ba40eY73gk0h';
         buy.textContent = 'Buy Full Pass';
