@@ -306,20 +306,17 @@
   .daypass-choices[hidden] { display: none; }
   .register-band > .label { color: color-mix(in srgb, var(--copper) 60%, var(--on-ink)); font-weight: 500; }
   @media (max-width: 560px) { .ticket-grid { grid-template-columns: 1fr; } .ticket-option { min-height: 220px; } }
-  /* founding sponsor names: full-width row closing the ticket grid, copper label on the band's ink */
+  /* founding sponsor names: an unboxed credit line just under the ticket grid */
   .ticket-sponsors {
     --sponsor-copper: #C47D50;
-    grid-column: 1 / -1; display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.5rem 1.6rem;
-    padding: 1.15rem 1.55rem 1.2rem;
-    border-right: 1px solid color-mix(in srgb, var(--on-ink) 42%, transparent);
-    border-bottom: 1px solid color-mix(in srgb, var(--on-ink) 42%, transparent);
+    max-width: var(--content); margin: 1.5rem auto 0; display: flex; align-items: baseline; justify-content: center; flex-wrap: wrap; gap: 0.5rem 1.6rem;
   }
   .ticket-sponsors h3 { font-family: 'Cinzel', serif; font-size: 0.6rem; font-weight: 400; letter-spacing: 0.3em; text-transform: uppercase; color: var(--sponsor-copper); white-space: nowrap; }
   .ticket-sponsors ul { list-style: none; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0; }
   .ticket-sponsors li { font-family: 'Playfair Display', serif; font-size: 1.22rem; line-height: 1.25; color: var(--on-ink); white-space: nowrap; }
   .ticket-sponsors li + li::before { content: '\25C7'; display: inline-block; margin: 0 0.9em; font-size: 0.5em; color: var(--sponsor-copper); vertical-align: 0.3em; }
   @media (max-width: 560px) {
-    .ticket-sponsors { flex-direction: column; align-items: center; gap: 0.3rem; padding: 0.8rem 1rem 0.85rem; text-align: center; }
+    .ticket-sponsors { flex-direction: column; align-items: center; gap: 0.3rem; margin-top: 1.1rem; text-align: center; }
     .ticket-sponsors ul { justify-content: center; gap: 0 0.3em; }
     .ticket-sponsors li { font-size: 0.95rem; }
     .ticket-sponsors li + li::before { content: none; }
@@ -505,8 +502,8 @@ twq('config','rg7dl');
         <p class="ticket-note">Ticket for individual sponsorship. Potential corporate sponsors, contact <a href="mailto:wallis@avalon.institute?subject=Avalon%20Exposition%20Sponsorship">wallis@avalon.institute</a>.</p>
         <a class="btn btn-ghost" data-rid="sponsor-cta" href="https://buy.stripe.com/6oUeVd4vB9A7cc8eY73gk0a">Choose Sponsor Amount</a>
       </article>
-      <div class="ticket-sponsors" data-rid="ticket-sponsors"><h3>Founding Sponsors</h3><ul><li>Constellation Bio</li><li>Zygimantas Straznickas</li><li>Eric Urban</li></ul></div>
     </div>
+    <div class="ticket-sponsors" data-rid="ticket-sponsors"><h3>Founding Sponsors</h3><ul><li>Constellation Bio</li><li>Zygimantas Straznickas</li><li>Eric Urban</li></ul></div>
     <div class="lodging-strip" id="lodging" data-rid="lodging-strip">
       <div>
         <span class="k">Lodging</span>
