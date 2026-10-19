@@ -319,9 +319,11 @@
   .ticket-sponsors li { font-family: 'Playfair Display', serif; font-size: 1.22rem; line-height: 1.25; color: var(--on-ink); white-space: nowrap; }
   .ticket-sponsors li + li::before { content: '\25C7'; display: inline-block; margin: 0 0.9em; font-size: 0.5em; color: var(--sponsor-copper); vertical-align: 0.3em; }
   @media (max-width: 560px) {
-    .ticket-sponsors { flex-direction: column; align-items: center; text-align: center; }
-    .ticket-sponsors ul { flex-direction: column; align-items: center; }
+    .ticket-sponsors { flex-direction: column; align-items: center; gap: 0.3rem; padding: 0.8rem 1rem 0.85rem; text-align: center; }
+    .ticket-sponsors ul { justify-content: center; gap: 0 0.3em; }
+    .ticket-sponsors li { font-size: 0.95rem; }
     .ticket-sponsors li + li::before { content: none; }
+    .ticket-sponsors li:not(:last-child)::after { content: ','; }
   }
   /* lodging strip below the ticket grid */
   .lodging-strip { max-width: var(--content); margin: 2.4rem auto 0; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 1rem 2rem; padding: 1.35rem 1.6rem; border: 1px solid color-mix(in srgb, var(--on-ink) 32%, transparent); text-align: left; }
