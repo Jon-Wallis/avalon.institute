@@ -393,6 +393,14 @@
   .buy-bar .line { font-family: 'Cinzel', serif; font-size: 0.66rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--copper); }
   .buy-bar .left { display: flex; align-items: baseline; gap: 1.2rem; flex-wrap: wrap; }
   @media (max-width: 600px) { .buy-bar .line { display: none; } .friend-card .price { font-size: 2.8rem; } }
+
+  .friend-cards { max-width: var(--content); margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+  .friend-cards .friend-card { max-width: none; margin: 0; min-width: 0; display: flex; flex-direction: column; }
+  .friend-cards .friend-card .btn { margin-top: auto; }
+  .friend-card .btn-ghost { color: var(--parchment); border-color: color-mix(in srgb, var(--on-ink) 55%, transparent); }
+  .friend-card .btn-ghost:hover { color: var(--on-ink); background: var(--copper-deep); border-color: var(--copper-deep); }
+  .friend-card .btn-ghost:focus-visible { outline: 2px solid var(--on-ink); outline-offset: 4px; }
+  @media (max-width: 760px) { .friend-cards { grid-template-columns: minmax(0, 1fr); max-width: 560px; } }
 </style>
 <!-- X conversion tracking base code -->
 <script>
@@ -468,6 +476,7 @@ twq('config','rg7dl');
 <section id="tickets" style="padding-left:0;padding-right:0;">
   <div class="register-band">
     <h2 class="label">Your Ticket</h2>
+    <div class="friend-cards">
     <article class="friend-card">
       <span class="k">Guests of Clara</span>
       <h3>Full Pass</h3>
@@ -476,6 +485,15 @@ twq('config','rg7dl');
       <p class="note">All three days, meals and the Halloween Gala.</p>
       <a class="btn btn-primary" href="https://buy.stripe.com/dRm6oH0fl13Ba40eY73gk0h?prefilled_promo_code=MCMAHAN">Buy Ticket</a>
     </article>
+    <article class="friend-card">
+      <span class="k">Guests of Clara</span>
+      <h3>Day Pass</h3>
+      <div class="price"><s>$200</s><span>$150</span></div>
+      <p class="offer">$50 off one day.</p>
+      <p class="note">Any one day. Meals included.</p>
+      <a class="btn btn-ghost" href="https://buy.stripe.com/8x26oH1jp7rZfok4jt3gk0e?prefilled_promo_code=MCMAHAN">One Day · $150</a>
+    </article>
+    </div>
     <div class="lodging-strip" id="lodging" data-rid="lodging-strip">
       <div>
         <span class="k">Lodging</span>
