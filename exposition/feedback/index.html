@@ -617,7 +617,7 @@
     
     <textarea name="comments" rows="6" maxlength="6000" aria-labelledby="fb-comments-q"></textarea>
   </div>
-</section><div class="fb-hp" aria-hidden="true"><label>Leave this field empty <input type="text" name="website" tabindex="-1" autocomplete="off"/></label></div>
+</section><div class="fb-hp" aria-hidden="true"><label>Leave this field empty <input type="text" name="leave_empty" tabindex="-1" autocomplete="off"/></label></div>
 <div class="fb-send">
   <button class="btn btn-primary" type="submit" data-label="Send" data-sending="Sending…">Send</button>
   <p class="fb-error fb-empty" hidden role="alert">Tick a talk or write something first.</p>
@@ -684,8 +684,9 @@
 
   // Enter in a one-line field would send the whole form; only the button sends.
   // In the search box it puts the phone keyboard away so the talks it found can be seen.
+  // (While a Chinese, Japanese or Korean keyboard is composing, Enter belongs to the keyboard.)
   form.addEventListener('keydown', function(e){
-    if (e.key !== 'Enter' || !e.target || e.target.tagName !== 'INPUT') return;
+    if (e.key !== 'Enter' || e.isComposing || e.keyCode === 229 || !e.target || e.target.tagName !== 'INPUT') return;
     e.preventDefault();
     if (e.target === search) search.blur();
   });
@@ -704,7 +705,7 @@
   }
   function payload(){
     return { sid: sid, name: val('name'), talks: picked(), praise: val('praise'),
-             quote: !!(el('quote') && el('quote').checked), comments: val('comments'), website: val('website') };
+             quote: !!(el('quote') && el('quote').checked), comments: val('comments'), trap: val('leave_empty') };
   }
 
   // What has been typed is kept in this browser until it is sent, so a reload or a closed tab loses nothing.
