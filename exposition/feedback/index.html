@@ -683,8 +683,11 @@
   var val = function(n){ var x = el(n); return x && typeof x.value === 'string' ? x.value.trim() : ''; };
 
   // Enter in a one-line field would send the whole form; only the button sends.
+  // In the search box it puts the phone keyboard away so the talks it found can be seen.
   form.addEventListener('keydown', function(e){
-    if (e.key === 'Enter' && e.target && e.target.tagName === 'INPUT') e.preventDefault();
+    if (e.key !== 'Enter' || !e.target || e.target.tagName !== 'INPUT') return;
+    e.preventDefault();
+    if (e.target === search) search.blur();
   });
 
   function picked(){
