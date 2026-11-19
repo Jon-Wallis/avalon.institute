@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Feedback | The Avalon Exposition</title>
+<meta name="robots" content="noindex, nofollow"/>
+<meta name="theme-color" content="#EEE6D5"/>
+<link rel="icon" type="image/png" href="/favicon.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&amp;family=Cinzel:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* ============ DESIGN: Option D · Exposition Broadsheet (tokenized) ============ */
+  :root {
+    --parchment: #EEE6D5;
+    --ink: #10253F;
+    --copper: #B26E45;
+    --body-size: 18px;
+    --mast-scale: 1;
+    --label-track: 0.32em;
+    --content: 1020px;
+    --sect-pad: 1;
+    --toprail-h: 10px;
+
+    --parchment-card: color-mix(in srgb, var(--parchment) 82%, white);
+    --parchment-deep: color-mix(in srgb, var(--parchment) 94%, black);
+    --ink-soft: color-mix(in srgb, var(--ink) 84%, var(--parchment));
+    --ink-faint: color-mix(in srgb, var(--ink) 66%, var(--parchment));
+    --ink-hair: color-mix(in srgb, var(--ink) 28%, var(--parchment));
+    --copper-deep: color-mix(in srgb, var(--copper) 74%, black);
+    --copper-faint: color-mix(in srgb, var(--copper) 50%, var(--parchment));
+    --on-ink: color-mix(in srgb, var(--parchment) 92%, white);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: var(--body-size);
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  .skip-link {
+    position: absolute; left: 1rem; top: -5rem; z-index: 10; padding: 0.65rem 0.85rem;
+    background: var(--ink); color: var(--parchment); font-family: 'Cinzel', serif; font-size: 0.7rem;
+    letter-spacing: 0.16em; text-transform: uppercase;
+  }
+  .skip-link:focus { top: 1rem; }
+  a:focus-visible { outline: 2px solid var(--copper-deep); outline-offset: 4px; }
+  .toprail { height: var(--toprail-h); background: var(--ink); }
+  .toprail-tick { height: 3px; background: var(--copper); width: 120px; }
+  nav {
+    padding: 1.4rem 2.5rem 0.6rem; display: flex; align-items: baseline; justify-content: space-between; gap: 2rem;
+    font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+  }
+  .nav-brand { color: var(--copper-deep); letter-spacing: 0.28em; white-space: nowrap; }
+  .nav-links { display: flex; gap: 1.8rem; flex-wrap: wrap; }
+  .nav-links a { color: var(--ink-faint); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--copper-deep); }
+  @media (max-width: 700px) {
+    nav { flex-direction: column; align-items: center; gap: 0.8rem; padding: 1.2rem 1rem 0.4rem; }
+    .nav-links { justify-content: center; gap: 0.7rem 1.3rem; }
+  }
+  .masthead { text-align: center; padding: 4.2rem 1.5rem 0; }
+  .mast-seal { display: block; margin: 0 auto 1.35rem; border-radius: 50%; }
+  .eyebrow { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.34em; text-transform: uppercase; color: var(--copper-deep); }
+  .masthead h1 {
+    font-family: 'Playfair Display', serif; font-size: calc(clamp(2.8rem, 8vw, 5.4rem) * var(--mast-scale)); font-weight: 700;
+    letter-spacing: 0.01em; color: var(--ink); line-height: 1.04; margin: 1.1rem 0 0; text-transform: uppercase;
+  }
+  body[data-mastcase="title"] .masthead h1 { text-transform: none; letter-spacing: 0; }
+  .masthead-sub { font-style: italic; font-size: clamp(1.08rem, 2.3vw, 1.36rem); color: var(--ink-soft); margin-top: 1.2rem; }
+  .mast-rules { max-width: 860px; margin: 2.2rem auto 0; border-top: 3px solid var(--ink); border-bottom: 1px solid var(--ink); height: 7px; }
+  .mast-meta {
+    max-width: 860px; margin: 0.9rem auto 0; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    font-family: 'Cinzel', serif; font-size: 0.66rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--ink-faint);
+    padding: 0 0.2rem;
+  }
+  .cta-row { margin: 2.6rem 0 0; display: flex; gap: 1.1rem; justify-content: center; flex-wrap: wrap; padding-bottom: 2rem; }
+  .btn { font-family: 'Cinzel', serif; font-size: 0.74rem; letter-spacing: 0.26em; text-transform: uppercase; padding: 0.9rem 2rem; text-decoration: none; transition: all 0.3s; }
+  .btn-primary { color: var(--parchment); background: var(--ink); border: 1px solid var(--ink); }
+  .btn-primary:hover { background: var(--copper-deep); border-color: var(--copper-deep); }
+  .btn-ghost { color: var(--ink); border: 1px solid var(--ink-hair); }
+  .btn-ghost:hover { border-color: var(--copper-deep); color: var(--copper-deep); }
+  section { padding: calc(3.2rem * var(--sect-pad)) 1.5rem; }
+  #occasion { padding-bottom: 1.3rem; }
+  #expect { padding-top: 1.3rem; padding-bottom: 1.7rem; }
+  .measure { max-width: 640px; margin: 0 auto; }
+  .wide { max-width: var(--content); margin: 0 auto; }
+  .section-head { display: flex; align-items: center; gap: 1.2rem; max-width: var(--content); margin: 0 auto 2rem; }
+  .section-head .line { flex: 1; height: 1px; background: var(--ink-hair); }
+  .section-head .label { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: var(--label-track); text-transform: uppercase; color: var(--copper-deep); text-align: center; }
+  .lede { font-size: 1.18rem; text-align: center; color: var(--ink-soft); }
+  .lede + .lede { margin-top: 1.1rem; }
+  .lede .lead-in { font-variant: small-caps; letter-spacing: 0.05em; font-weight: 600; color: var(--copper-deep); }
+  .lede a { color: var(--copper-deep); text-decoration: none; border-bottom: 1px solid var(--copper-faint); transition: border-color 0.3s; }
+  .lede a:hover { border-bottom-color: var(--copper-deep); }
+  .days { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--ink); background: var(--parchment-card); }
+  @media (max-width: 780px) { .days { grid-template-columns: 1fr; } }
+  .day { padding: 2rem 1.7rem 1.9rem; border-right: 1px solid var(--ink-hair); }
+  .day:last-child { border-right: none; }
+  @media (max-width: 780px) { .day { border-right: none; border-bottom: 1px solid var(--ink-hair); } .day:last-child { border-bottom: none; } }
+  .day-no { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--copper); line-height: 1; }
+  .day-date { font-family: 'Cinzel', serif; font-size: 0.64rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-faint); margin-top: 0.7rem; }
+  .day h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; color: var(--ink); margin: 0.55rem 0 0.5rem; }
+  .day p { font-size: 0.98rem; color: var(--ink-soft); }
+  .mast-evening { font-style: italic; font-size: 1.02rem; color: var(--ink-faint); margin-top: -2.4rem; padding-bottom: 3.6rem; }
+  .mast-evening a { color: var(--copper-deep); text-decoration: none; border-bottom: 1px solid var(--copper-faint); transition: all 0.3s; }
+  .mast-evening a:hover { border-bottom-color: var(--copper-deep); }
+  .themes {
+    margin-top: 2rem; text-align: center;
+    font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--ink); line-height: 2.1;
+  }
+  .themes .sep { color: var(--copper); margin: 0 0.55rem; }
+  .evening-link {
+    display: inline-block; margin-top: 1.1rem;
+    font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--copper-deep); text-decoration: none; border-bottom: 1px solid var(--copper-faint); padding-bottom: 0.15rem; transition: all 0.3s;
+  }
+  .evening-link:hover { color: var(--ink); border-bottom-color: var(--ink); }
+  .evening-sub { font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-faint); margin-top: 0.55rem; }
+  .track-head { display: flex; align-items: baseline; gap: 1.1rem; margin: 2.4rem 0 1.5rem; }
+  .track-head:first-of-type { margin-top: 0; }
+  .track-head .t-label { font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--ink); white-space: nowrap; }
+  .track-head .t-count { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--copper-deep); }
+  .track-head .line { flex: 1; height: 1px; background: var(--ink-hair); transform: translateY(-0.2em); }
+  .bill-intro { max-width: 620px; margin: 0 auto 2.2rem; text-align: center; font-size: 1.12rem; color: var(--ink-soft); }
+  .board { display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 1.1rem; }
+  .card { border: 1px solid var(--ink); background: var(--parchment-card); padding: 1.4rem 1.3rem 1.3rem; }
+  .card .k { font-family: 'Cinzel', serif; font-size: 0.56rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--copper-deep); display: block; margin-bottom: 0.6rem; }
+  .card h3 { font-family: 'Playfair Display', serif; font-size: 1.14rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
+  .card p { font-size: 0.94rem; color: var(--ink-soft); }
+  .card.open { border: 1.5px dashed color-mix(in srgb, var(--ink) 38%, var(--parchment)); background: transparent; }
+  .card.open h3 { color: var(--ink-faint); }
+  .card.open p { font-style: italic; color: var(--ink-faint); }
+  .cols3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.6rem 2.4rem; }
+  @media (max-width: 780px) { .cols3 { grid-template-columns: 1fr; } }
+  .col { border-top: 1px solid var(--ink); padding-top: 1.1rem; }
+  .col h3 { font-family: 'Cinzel', serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.5rem; }
+  .col p { font-size: 0.98rem; color: var(--ink-soft); }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.8rem; }
+  @media (max-width: 780px) { .faq-grid { grid-template-columns: 1fr; } }
+  .faq-item { border-top: 1px solid var(--ink-hair); padding: 1.05rem 0 1.15rem; }
+  .faq-item h3 { font-family: 'EB Garamond', serif; font-weight: 600; font-size: 1.06rem; color: var(--ink); margin-bottom: 0.25rem; }
+  .faq-item p { font-size: 0.97rem; color: var(--ink-soft); }
+  .faq-item p a { color: var(--copper-deep); text-decoration: none; border-bottom: 1px solid var(--copper-faint); }
+  .faq-item p a:hover { border-bottom-color: var(--copper-deep); }
+  .bill { list-style: none; margin: 0 auto; padding: 0; }
+  .bill li { display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem;
+    padding: 0.8rem 0; border-bottom: 1px solid var(--ink-hair); }
+  .bill li:first-child { border-top: 1px solid var(--ink-hair); }
+  .bill-title { font-size: 1.18rem; font-style: italic; color: var(--ink); }
+  .bill-who { font-family: 'Cinzel', serif; font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--copper-deep); white-space: nowrap; flex-shrink: 0; }
+  .bill-inquiries { margin-top: 0.6rem; }
+  .bill-inquiries a { color: var(--copper-deep); text-decoration: none; border-bottom: 1px solid var(--copper-faint); }
+  .bill-sub { text-align: center; font-style: italic; color: var(--ink-faint); margin: 1.6rem auto 0; }
+  @media (max-width: 640px) {
+    .bill li { flex-direction: column; gap: 0.2rem; align-items: flex-start; }
+  }
+  .wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1.9rem 1.2rem; }
+  .guest { text-align: center; }
+  .guest .portrait {
+    width: 98px; height: 98px; border-radius: 50%; margin: 0 auto 0.8rem;
+    background: var(--parchment-card); border: 1px solid var(--ink);
+    display: flex; align-items: center; justify-content: center; position: relative;
+    font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 600; color: var(--ink);
+  }
+  .guest .portrait::after { content: ''; position: absolute; inset: 4px; border-radius: 50%; border: 1px solid var(--ink-hair); }
+  body[data-portrait="square"] .guest .portrait,
+  body[data-portrait="square"] .guest .portrait::after { border-radius: 0; }
+  .guest.dim .portrait { border-color: var(--ink-hair); color: var(--ink-faint); }
+  .guest .name { font-weight: 600; font-size: 1.03rem; color: var(--ink); line-height: 1.3; }
+  .guest .role { font-style: italic; font-size: 0.9rem; color: var(--ink-faint); line-height: 1.35; }
+  .guest .status { display: inline-block; margin-top: 0.5rem; font-family: 'Cinzel', serif; font-size: 0.54rem; letter-spacing: 0.22em; text-transform: uppercase; padding: 0.26rem 0.6rem; border: 1px solid transparent; }
+  .status.confirmed { color: var(--parchment); background: var(--ink); }
+  .status.invited { color: var(--copper-deep); border-color: var(--copper-faint); }
+  .status.conversation { color: var(--ink-faint); border-color: var(--ink-hair); }
+  .strands { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--ink); }
+  @media (max-width: 780px) { .strands { grid-template-columns: 1fr; } }
+  .strand { padding: 1.6rem 1.8rem 1.7rem 0; border-bottom: 1px solid var(--ink-hair); }
+  .strand:nth-child(odd) { border-right: 1px solid var(--ink-hair); }
+  .strand:nth-child(even) { padding-left: 1.8rem; padding-right: 0; }
+  @media (max-width: 780px) { .strand:nth-child(odd) { border-right: none; } .strand:nth-child(even) { padding-left: 0; } }
+  .strand h3 { font-family: 'Playfair Display', serif; font-size: 1.22rem; font-weight: 600; color: var(--ink); margin-bottom: 0.5rem; }
+  .strand h3 .no { font-family: 'Cinzel', serif; font-size: 0.72rem; color: var(--copper-deep); letter-spacing: 0.18em; margin-right: 0.55rem; vertical-align: 0.16em; }
+  .strand p { font-size: 1rem; color: var(--ink-soft); }
+  .register-band { background: var(--ink); color: var(--on-ink); padding: 3.4rem 1.5rem 3.6rem; text-align: center; }
+  .register-band .label { font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.34em; text-transform: uppercase; color: var(--copper); display: block; margin-bottom: 1.3rem; }
+  .register-band p { max-width: 540px; margin: 0 auto 1.9rem; font-size: 1.1rem; color: color-mix(in srgb, var(--on-ink) 85%, transparent); }
+  .register-band .btn-primary { color: var(--ink); background: var(--parchment); border-color: var(--parchment); }
+  .register-band .btn-primary:hover { background: var(--copper); border-color: var(--copper); color: var(--parchment); }
+  .ticket-grid {
+    max-width: var(--content); margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid color-mix(in srgb, var(--on-ink) 42%, transparent);
+    border-left: 1px solid color-mix(in srgb, var(--on-ink) 42%, transparent); text-align: left;
+  }
+  .ticket-option {
+    min-height: 220px; min-width: 0; padding: 1.55rem 1.55rem 1.4rem; display: flex; flex-direction: column;
+    border-right: 1px solid color-mix(in srgb, var(--on-ink) 42%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--on-ink) 42%, transparent);
+  }
+  .ticket-option.sponsor {
+    --sponsor-copper: #C47D50;
+    --sponsor-blue: #091A2E;
+    min-height: 220px;
+    background: var(--sponsor-blue);
+    box-shadow: inset 0 0 0 1px var(--sponsor-copper);
+  }
+  .ticket-option.sponsor h3,
+  .ticket-option.sponsor .ticket-price,
+  .ticket-option.sponsor .ticket-price small { color: var(--sponsor-copper); }
+  .ticket-option.sponsor .ticket-note { color: color-mix(in srgb, var(--parchment) 85%, transparent); }
+  .ticket-option.sponsor .ticket-note a { color: var(--sponsor-copper); text-decoration-color: color-mix(in srgb, var(--sponsor-copper) 55%, transparent); }
+  .ticket-option.standard { filter: grayscale(0.55) opacity(0.72); transition: filter 0.3s; }
+  .ticket-option.standard:hover, .ticket-option.standard:focus-within { filter: none; }
+  .ticket-option h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; line-height: 1.15; color: var(--on-ink); }
+  .ticket-price { font-family: 'Playfair Display', serif; font-size: 2.15rem; line-height: 1; color: var(--parchment); margin: 0.8rem 0 1rem; }
+  .ticket-price small { font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--copper); }
+  .ticket-option .ticket-note { max-width: none; margin: -0.1rem 0 1rem; font-size: 0.95rem; line-height: 1.35; color: color-mix(in srgb, var(--on-ink) 82%, transparent); }
+  .ticket-option .ticket-deadline { margin-top: -0.55rem; font-weight: 500; color: color-mix(in srgb, var(--copper) 60%, var(--on-ink)); }
+  .ticket-option .aid-under { margin: 0.75rem 0 0; font-size: 0.95rem; }
+  .aid-link { color: color-mix(in srgb, var(--copper) 60%, var(--on-ink)); text-decoration: underline; text-decoration-color: var(--copper); text-underline-offset: 0.2em; font-weight: 500; }
+  .ticket-option .btn { width: 100%; min-height: 44px; margin-top: auto; padding: 0.78rem 0.7rem; text-align: center; letter-spacing: 0.18em; }
+  .ticket-option .btn-ghost { color: var(--parchment); border-color: color-mix(in srgb, var(--on-ink) 55%, transparent); }
+  .ticket-option .btn-ghost:hover { color: var(--on-ink); background: var(--copper-deep); border-color: var(--copper-deep); }
+  .ticket-option.sponsor .btn-ghost {
+    color: var(--sponsor-blue); background: var(--sponsor-copper); border-color: var(--sponsor-copper); font-weight: 600;
+    box-shadow: 0 7px 18px color-mix(in srgb, black 24%, transparent);
+  }
+  .ticket-option.sponsor .btn-ghost:hover {
+    color: var(--sponsor-blue); background: color-mix(in srgb, var(--sponsor-copper) 72%, var(--parchment));
+    border-color: color-mix(in srgb, var(--sponsor-copper) 72%, var(--parchment));
+    box-shadow: 0 9px 22px color-mix(in srgb, black 30%, transparent); transform: translateY(-1px);
+  }
+  .ticket-option.sponsor .btn-ghost:active { box-shadow: 0 4px 12px color-mix(in srgb, black 22%, transparent); transform: translateY(0); }
+  .ticket-option.sponsor:focus-within { box-shadow: inset 0 0 0 2px var(--sponsor-copper); }
+  .ticket-option.gala { position: relative; }
+  .ticket-option.gala h3, .ticket-option.gala .ticket-price { padding-right: 76px; }
+  .gala-seal {
+    position: absolute; top: 1.3rem; right: 1.3rem; width: 64px; height: 64px; border-radius: 50%;
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--on-ink) 30%, transparent);
+  }
+  .ticket-option .btn:focus-visible { outline: 2px solid var(--on-ink); outline-offset: 4px; }
+  .ticket-option button.btn { background: transparent; cursor: pointer; }
+  .daypass-choices { display: flex; flex-direction: column; gap: 0.55rem; margin-top: auto; }
+  .daypass-choices .btn { margin-top: 0; }
+  .daypass-choices[hidden] { display: none; }
+  .register-band > .label { color: color-mix(in srgb, var(--copper) 60%, var(--on-ink)); font-weight: 500; }
+  @media (max-width: 560px) { .ticket-grid { grid-template-columns: 1fr; } .ticket-option { min-height: 220px; } }
+  /* founding sponsor names: an unboxed credit line just under the ticket grid */
+  .ticket-sponsors {
+    --sponsor-copper: #C47D50;
+    max-width: var(--content); margin: 1.5rem auto 0; display: flex; align-items: baseline; justify-content: center; flex-wrap: wrap; gap: 0.5rem 1.6rem;
+  }
+  .ticket-sponsors h3 { font-family: 'Cinzel', serif; font-size: 0.6rem; font-weight: 400; letter-spacing: 0.3em; text-transform: uppercase; color: var(--sponsor-copper); white-space: nowrap; }
+  .ticket-sponsors ul { list-style: none; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0; }
+  .ticket-sponsors li { font-family: 'Playfair Display', serif; font-size: 1.22rem; line-height: 1.25; color: var(--on-ink); white-space: nowrap; }
+  .ticket-sponsors li + li::before { content: '\25C7'; display: inline-block; margin: 0 0.9em; font-size: 0.5em; color: var(--sponsor-copper); vertical-align: 0.3em; }
+  @media (max-width: 560px) {
+    .ticket-sponsors { flex-direction: column; align-items: center; gap: 0.3rem; margin-top: 1.1rem; text-align: center; }
+    .ticket-sponsors ul { justify-content: center; gap: 0 0.3em; }
+    .ticket-sponsors li { font-size: 0.95rem; }
+    .ticket-sponsors li + li::before { content: none; }
+    .ticket-sponsors li:not(:last-child)::after { content: ','; }
+  }
+  /* lodging strip below the ticket grid */
+  .lodging-strip { max-width: var(--content); margin: 2.4rem auto 0; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 1rem 2rem; padding: 1.35rem 1.6rem; border: 1px solid color-mix(in srgb, var(--on-ink) 32%, transparent); text-align: left; }
+  .lodging-strip .k { font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--copper); display: block; margin-bottom: 0.45rem; }
+  .lodging-strip h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; line-height: 1.15; color: var(--on-ink); margin: 0 0 0.35rem; }
+  .register-band .lodging-strip p { max-width: none; margin: 0; font-size: 1.02rem; line-height: 1.4; color: color-mix(in srgb, var(--on-ink) 82%, transparent); }
+  .lodging-strip .btn { white-space: nowrap; }
+  @media (max-width: 640px) { .lodging-strip { grid-template-columns: 1fr; text-align: center; padding: 1.3rem 1rem; } .lodging-strip > * { min-width: 0; } .lodging-strip .btn { display: block; white-space: normal; padding: 0.9rem 1rem; letter-spacing: 0.2em; } }
+  footer { text-align: center; padding: 2.6rem 1.5rem; color: var(--ink-faint); font-family: 'Cinzel', serif; font-size: 0.64rem; letter-spacing: 0.3em; text-transform: uppercase; }
+  footer .mark { color: var(--copper-deep); }
+  footer a, a.nav-brand { color: inherit; text-decoration: none; transition: color 0.3s; }
+  footer a:hover, a.nav-brand:hover { color: var(--copper-deep); }
+
+</style>
+<style>
+  body.fb { --fb-hair: color-mix(in srgb, var(--ink) 16%, var(--parchment)); --fb-field: color-mix(in srgb, var(--parchment) 45%, white); }
+  .fb [hidden] { display: none !important; }
+  .fb-mast { text-align: center; padding: 3rem 1.5rem 0; }
+  .fb-mast h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 4vw, 2.1rem); font-weight: 600; line-height: 1.2; color: var(--ink); }
+  .fb-intro { padding: 0.9rem 1.5rem 0; }
+  .fb-intro .lede { font-size: 1.08rem; }
+  .fb-sect { padding: 2.2rem 1.5rem 0.2rem; }
+  .fb-wrap { max-width: 720px; margin: 0 auto; }
+  .fb-q { display: block; font-family: 'Playfair Display', serif; font-size: 1.24rem; font-weight: 600; line-height: 1.25; color: var(--ink); }
+  .fb-help { font-style: italic; font-size: 1rem; color: var(--ink-soft); margin: 0.25rem 0 0; }
+  .fb-wrap > textarea, .fb-wrap > input[type="text"], .fb-picker { margin-top: 0.8rem; }
+  .fb-form textarea, .fb-form input[type="text"], .fb-search {
+    display: block; width: 100%; font-family: 'EB Garamond', Georgia, serif; font-size: 1.06rem; line-height: 1.5; color: var(--ink);
+    background: var(--fb-field); border: 1px solid var(--ink-hair); border-radius: 0; padding: 0.72rem 0.9rem; -webkit-appearance: none; appearance: none;
+  }
+  .fb-form textarea { resize: vertical; min-height: 5.5rem; }
+  .fb-form textarea:focus, .fb-form input[type="text"]:focus, .fb-search:focus { outline: 2px solid var(--copper-deep); outline-offset: 0; border-color: var(--copper-deep); }
+  .fb-form textarea::placeholder, .fb-search::placeholder { color: var(--ink-faint); font-style: italic; opacity: 1; }
+  .fb-form input[type="checkbox"] { accent-color: var(--copper-deep); width: 1.05rem; height: 1.05rem; margin: 0; cursor: pointer; flex: none; }
+  .fb-form input[type="checkbox"]:focus-visible { outline: 2px solid var(--copper-deep); outline-offset: 3px; }
+
+  /* talk picker: a search box, then one fold per day */
+  .fb-search.ce-ghost { color: var(--ink-faint); font-style: italic; }
+  .fb-none { font-style: italic; color: var(--ink-faint); padding: 1rem 0 0.2rem; }
+  .fb-days { margin-top: 0.9rem; border-top: 1px solid var(--fb-hair); }
+  .fb-day { border-bottom: 1px solid var(--fb-hair); }
+  .fb-sum { display: block; list-style: none; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .fb-sum::-webkit-details-marker { display: none; }
+  .fb-sum:focus-visible { outline: 2px solid var(--copper-deep); outline-offset: 2px; }
+  .fb-day-head { display: flex; align-items: baseline; gap: 0.9rem; padding: 1.05rem 0.7rem 0.95rem; }
+  .fb-dn { font-family: 'Cinzel', serif; font-weight: 600; font-size: 0.84rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); transition: color 0.2s; }
+  .fb-dd { font-style: italic; font-size: 0.98rem; color: var(--ink-soft); margin-right: auto; }
+  .fb-sum:hover .fb-dn { color: var(--copper-deep); }
+  .fb-count { font-family: 'Cinzel', serif; font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--copper-deep); white-space: nowrap; }
+  .fb-count b { font-family: 'Playfair Display', serif; font-size: 1.15rem; letter-spacing: 0; font-weight: 600; color: var(--copper); margin-right: 0.1em; }
+  .fb-chev { flex: none; align-self: center; width: 0.5rem; height: 0.5rem; border-right: 1.5px solid var(--copper-deep); border-bottom: 1.5px solid var(--copper-deep);
+    transform: translateY(-0.14rem) rotate(45deg); transition: transform 0.2s; }
+  .fb-day[open] .fb-chev, .fb-day.is-open .fb-chev { transform: translateY(0.14rem) rotate(-135deg); }
+  .fb-list { list-style: none; }
+  .fb-talk { border-top: 1px solid var(--fb-hair); transition: background 0.2s; }
+  .fb-row {
+    display: grid; grid-template-columns: 1.05rem 4.4rem minmax(0, 1fr); grid-template-areas: "box time ti" ". . sp";
+    column-gap: 0.85rem; align-items: baseline; padding: 0.72rem 0.7rem 0.68rem; cursor: pointer;
+  }
+  .fb-row input { grid-area: box; align-self: start; margin-top: 0.32rem !important; }
+  .fb-time { grid-area: time; font-family: 'Cinzel', serif; font-weight: 500; font-size: 0.76rem; letter-spacing: 0.05em; color: var(--copper-deep); white-space: nowrap; }
+  .fb-ti { grid-area: ti; font-weight: 600; font-size: 1.08rem; line-height: 1.3; color: var(--ink); transition: color 0.2s; }
+  .fb-sp { grid-area: sp; font-style: italic; font-size: 1rem; color: var(--ink-soft); line-height: 1.35; }
+  .fb-row:hover .fb-ti { color: var(--copper-deep); }
+  .fb-talk.is-on { background: var(--parchment-card); }
+  .fb-note { display: none; padding: 0 0.7rem 0.9rem calc(0.7rem + 1.05rem + 4.4rem + 1.7rem); }
+  .fb-talk.is-on .fb-note { display: block; }
+  .fb-talk:has(.fb-row input:checked) .fb-note { display: block; }
+  .fb-note textarea { min-height: 4.6rem; font-size: 1rem; }
+  .fb-ghost-ta { min-height: 4.6rem; padding: 0.72rem 0.9rem; border: 1px solid var(--ink-hair); background: var(--fb-field); font-size: 1rem; line-height: 1.5; }
+  .fb-ghost-ta .ce-ghost { color: var(--ink-faint); font-style: italic; }
+
+  /* praise and comments */
+  .fb-quote { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.8rem; cursor: pointer; font-size: 1.02rem; color: var(--ink); }
+  .fb-quote:hover { color: var(--copper-deep); }
+  .fb-quote-help { font-style: italic; font-size: 0.95rem; color: var(--ink-faint); margin: 0.2rem 0 0 calc(1.05rem + 0.6rem); line-height: 1.45; }
+
+  /* send and thanks */
+  .fb-hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  .fb-send { text-align: center; padding: 2.6rem 1.5rem 0.6rem; }
+  .fb-send .btn { cursor: pointer; min-width: 12rem; display: inline-block; }
+  .fb-send .btn:disabled, .fb-send .fb-busy { cursor: default; opacity: 0.7; }
+  .fb-error { color: #8C3B22; font-style: italic; margin-top: 0.9rem; text-align: center; }
+  .fb-state { max-width: 640px; margin-left: auto; margin-right: auto; padding-top: 0.4rem; }
+  .fb-thanks { text-align: center; padding: 3.4rem 1.5rem 3rem; max-width: 640px; margin: 0 auto; outline: none; }
+  .fb-thanks h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 600; color: var(--ink); margin-bottom: 0.6rem; }
+  .fb-thanks .btn { display: inline-block; margin-top: 1.8rem; }
+  .fb-sent .fb-intro { display: none; }
+  footer { margin-top: 2.4rem; }
+
+  @media (max-width: 560px) {
+    .fb-sect, .fb-intro { padding-left: 16px; padding-right: 16px; }
+    .fb-day-head { padding: 1rem 0.4rem 0.9rem; gap: 0.7rem; }
+    .fb-row { grid-template-columns: 1.05rem minmax(0, 1fr); grid-template-areas: "box time" ". ti" ". sp"; column-gap: 0.75rem; padding: 0.7rem 0.4rem; }
+    .fb-time { font-size: 0.7rem; }
+    .fb-note { padding: 0 0.4rem 0.85rem calc(0.4rem + 1.05rem + 0.75rem); }
+    .fb-count { font-size: 0.6rem; letter-spacing: 0.14em; }
+    /* 16px keeps iOS from zooming the page when a field takes focus */
+    .fb-form textarea, .fb-form input[type="text"], .fb-search, .fb-note textarea { font-size: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .fb-chev, .fb-talk, .fb-ti, .fb-dn { transition: none; } }
+
+  /* editor and Try chrome (never in the shipped page) */
+  .fb-preview-flag { position: fixed; right: 12px; bottom: 12px; z-index: 20; font: 12px/1 -apple-system, system-ui, sans-serif; background: var(--ink); color: var(--parchment); padding: 7px 10px; border-radius: 4px; opacity: 0.85; }
+  .fb-tab { background: #d9d4cb; padding: 8px 12px 0; font: 12.5px/1 -apple-system, system-ui, sans-serif; }
+  .fb-tab span { display: inline-block; background: var(--parchment); color: #333; padding: 8px 14px; border-radius: 7px 7px 0 0; max-width: 100%; white-space: nowrap; }
+  .fb-tab ~ .toprail { margin-top: 0; }
+  div.fb-sum { cursor: default; }
+</style>
+</head>
+<body class="fb" data-mastcase="upper">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div>
+<div class="toprail"><div class="toprail-tick"></div></div>
+<nav aria-label="Exposition navigation">
+  <a class="nav-brand" href="https://avalon.institute">The Avalon Institute</a>
+  <div class="nav-links"><a href="/exposition/">The Exposition</a></div>
+</nav>
+<header class="fb-mast"><h1>Avalon Exposition Feedback Form</h1></header>
+<section class="fb-intro"><div class="measure"><p class="lede">Every question is optional.</p></div></section></div>
+<main id="main-content">
+<form id="fb-form" class="fb-form" novalidate data-mode="page" data-endpoint="https://account.avalon.institute/feedback/submit" method="post" action="https://account.avalon.institute/feedback/submit" accept-charset="utf-8"><section class="fb-sect fb-name" id="fb-name">
+  <div class="fb-wrap">
+    <label class="fb-q" for="fb-name-in">Name or pseudonym</label>
+    <input type="text" id="fb-name-in" name="name" maxlength="200" autocomplete="name"/>
+  </div>
+</section><section class="fb-sect" id="fb-talks">
+  <div class="fb-wrap" role="group" aria-labelledby="fb-talks-q">
+    <h3 class="fb-q" id="fb-talks-q">Your Favorite Talks</h3>
+    <p class="fb-help">Tick all applicable</p>
+    <div class="fb-picker">
+      <input type="search" class="fb-search" placeholder="Search by speaker or title" aria-label="Search by speaker or title" autocomplete="off" spellcheck="false" enterkeyhint="search"/>
+      <p class="fb-none" hidden>No talk matches that search.</p>
+      <div class="fb-days"><details class="fb-day"><summary class="fb-sum"><span class="fb-day-head"><span class="fb-dn">Friday</span><span class="fb-dd">30 October</span><span class="fb-count" hidden><b>0</b> ticked</span><span class="fb-chev" aria-hidden="true"></span></span></summary><ul class="fb-list"><li class="fb-talk" data-search="friday 3 pm benjamin breen cybernetics, psychedelics, utopia">
+  <label class="fb-row"><input type="checkbox" name="talk" value="66a2b8f3"/><span class="fb-time">3 pm</span><span class="fb-ti">Cybernetics, Psychedelics, Utopia</span><span class="fb-sp">Benjamin Breen</span></label>
+  <div class="fb-note"><textarea name="note-66a2b8f3" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Cybernetics, Psychedelics, Utopia: Benjamin Breen"></textarea></div>
+</li><li class="fb-talk" data-search="friday 3 pm ian duncan the fiction-making animal: darwin and human exceptionalism">
+  <label class="fb-row"><input type="checkbox" name="talk" value="4fa04405"/><span class="fb-time">3 pm</span><span class="fb-ti">The Fiction-Making Animal: Darwin and Human Exceptionalism</span><span class="fb-sp">Ian Duncan</span></label>
+  <div class="fb-note"><textarea name="note-4fa04405" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="The Fiction-Making Animal: Darwin and Human Exceptionalism: Ian Duncan"></textarea></div>
+</li><li class="fb-talk" data-search="friday 3 pm zack baker an introduction to center study">
+  <label class="fb-row"><input type="checkbox" name="talk" value="5667f5bd"/><span class="fb-time">3 pm</span><span class="fb-ti">An Introduction to Center Study</span><span class="fb-sp">Zack Baker</span></label>
+  <div class="fb-note"><textarea name="note-5667f5bd" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="An Introduction to Center Study: Zack Baker"></textarea></div>
+</li><li class="fb-talk" data-search="friday 4 pm adam robbert intelligence and attention: the case for ascetic perception">
+  <label class="fb-row"><input type="checkbox" name="talk" value="d6477a8a"/><span class="fb-time">4 pm</span><span class="fb-ti">Intelligence and Attention: The Case for Ascetic Perception</span><span class="fb-sp">Adam Robbert</span></label>
+  <div class="fb-note"><textarea name="note-d6477a8a" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Intelligence and Attention: The Case for Ascetic Perception: Adam Robbert"></textarea></div>
+</li><li class="fb-talk" data-search="friday 4 pm dan nguyen neo-confucian violence">
+  <label class="fb-row"><input type="checkbox" name="talk" value="327b945d"/><span class="fb-time">4 pm</span><span class="fb-ti">Neo-Confucian Violence</span><span class="fb-sp">Dan Nguyen</span></label>
+  <div class="fb-note"><textarea name="note-327b945d" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Neo-Confucian Violence: Dan Nguyen"></textarea></div>
+</li><li class="fb-talk" data-search="friday 4 pm doug oman arts and spiritually infused public health: an emerging frontier">
+  <label class="fb-row"><input type="checkbox" name="talk" value="8ac3cf9b"/><span class="fb-time">4 pm</span><span class="fb-ti">Arts and Spiritually Infused Public Health: An Emerging Frontier</span><span class="fb-sp">Doug Oman</span></label>
+  <div class="fb-note"><textarea name="note-8ac3cf9b" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Arts and Spiritually Infused Public Health: An Emerging Frontier: Doug Oman"></textarea></div>
+</li><li class="fb-talk" data-search="friday 5 pm andrew dombrowski poetry memorization as askesis, part 1">
+  <label class="fb-row"><input type="checkbox" name="talk" value="7d375393"/><span class="fb-time">5 pm</span><span class="fb-ti">Poetry Memorization as Askesis, part 1</span><span class="fb-sp">Andrew Dombrowski</span></label>
+  <div class="fb-note"><textarea name="note-7d375393" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Poetry Memorization as Askesis, part 1: Andrew Dombrowski"></textarea></div>
+</li><li class="fb-talk" data-search="friday 5 pm brian pines on the presence of enthusiasm in philosophy">
+  <label class="fb-row"><input type="checkbox" name="talk" value="8517a5de"/><span class="fb-time">5 pm</span><span class="fb-ti">On the Presence of Enthusiasm in Philosophy</span><span class="fb-sp">Brian Pines</span></label>
+  <div class="fb-note"><textarea name="note-8517a5de" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="On the Presence of Enthusiasm in Philosophy: Brian Pines"></textarea></div>
+</li><li class="fb-talk" data-search="friday 5 pm david pinault religion reconsidered through the experience of animals: doctrine, belief, and the limits of language">
+  <label class="fb-row"><input type="checkbox" name="talk" value="2c093799"/><span class="fb-time">5 pm</span><span class="fb-ti">Religion Reconsidered Through the Experience of Animals: Doctrine, Belief, and the Limits of Language</span><span class="fb-sp">David Pinault</span></label>
+  <div class="fb-note"><textarea name="note-2c093799" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Religion Reconsidered Through the Experience of Animals: Doctrine, Belief, and the Limits of Language: David Pinault"></textarea></div>
+</li><li class="fb-talk" data-search="friday 5 pm stephen skolnick welcome to the jungle: how the new science of the microbiome is redefining ‘human’">
+  <label class="fb-row"><input type="checkbox" name="talk" value="cd992fd5"/><span class="fb-time">5 pm</span><span class="fb-ti">Welcome to the Jungle: How the New Science of the Microbiome Is Redefining ‘Human’</span><span class="fb-sp">Stephen Skolnick</span></label>
+  <div class="fb-note"><textarea name="note-cd992fd5" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Welcome to the Jungle: How the New Science of the Microbiome Is Redefining ‘Human’: Stephen Skolnick"></textarea></div>
+</li><li class="fb-talk" data-search="friday 7:30 pm zoe curzi how fast should we go? a taste of live theatre">
+  <label class="fb-row"><input type="checkbox" name="talk" value="d88bb400"/><span class="fb-time">7:30 pm</span><span class="fb-ti">How Fast Should We Go? A Taste of Live Theatre</span><span class="fb-sp">Zoe Curzi</span></label>
+  <div class="fb-note"><textarea name="note-d88bb400" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="How Fast Should We Go? A Taste of Live Theatre: Zoe Curzi"></textarea></div>
+</li><li class="fb-talk" data-search="friday 8 pm adam jarvis desert operations at el alamein">
+  <label class="fb-row"><input type="checkbox" name="talk" value="808d542f"/><span class="fb-time">8 pm</span><span class="fb-ti">Desert Operations at El Alamein</span><span class="fb-sp">Adam Jarvis</span></label>
+  <div class="fb-note"><textarea name="note-808d542f" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Desert Operations at El Alamein: Adam Jarvis"></textarea></div>
+</li><li class="fb-talk" data-search="friday 8 pm james vaughn liberalism in world history">
+  <label class="fb-row"><input type="checkbox" name="talk" value="d6806b68"/><span class="fb-time">8 pm</span><span class="fb-ti">Liberalism in World History</span><span class="fb-sp">James Vaughn</span></label>
+  <div class="fb-note"><textarea name="note-d6806b68" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Liberalism in World History: James Vaughn"></textarea></div>
+</li><li class="fb-talk" data-search="friday 8:15 pm john boyle game theory, morality, and evolution">
+  <label class="fb-row"><input type="checkbox" name="talk" value="585da2cd"/><span class="fb-time">8:15 pm</span><span class="fb-ti">Game Theory, Morality, and Evolution</span><span class="fb-sp">John Boyle</span></label>
+  <div class="fb-note"><textarea name="note-585da2cd" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Game Theory, Morality, and Evolution: John Boyle"></textarea></div>
+</li><li class="fb-talk" data-search="friday 9 pm lola guthrie &amp; kai guthrie conjured from this dust">
+  <label class="fb-row"><input type="checkbox" name="talk" value="5b8aef51"/><span class="fb-time">9 pm</span><span class="fb-ti">Conjured from This Dust</span><span class="fb-sp">Lola Guthrie &amp; Kai Guthrie</span></label>
+  <div class="fb-note"><textarea name="note-5b8aef51" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Conjured from This Dust: Lola Guthrie &amp; Kai Guthrie"></textarea></div>
+</li></ul></details><details class="fb-day"><summary class="fb-sum"><span class="fb-day-head"><span class="fb-dn">Saturday</span><span class="fb-dd">31 October</span><span class="fb-count" hidden><b>0</b> ticked</span><span class="fb-chev" aria-hidden="true"></span></span></summary><ul class="fb-list"><li class="fb-talk" data-search="saturday 10 am diana fleischman the training instinct: behaviorism and countercontrol">
+  <label class="fb-row"><input type="checkbox" name="talk" value="9d2a251b"/><span class="fb-time">10 am</span><span class="fb-ti">The Training Instinct: Behaviorism and Countercontrol</span><span class="fb-sp">Diana Fleischman</span></label>
+  <div class="fb-note"><textarea name="note-9d2a251b" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="The Training Instinct: Behaviorism and Countercontrol: Diana Fleischman"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 10 am james poulos post-apocalyptic cybernetics">
+  <label class="fb-row"><input type="checkbox" name="talk" value="07e744f8"/><span class="fb-time">10 am</span><span class="fb-ti">Post-Apocalyptic Cybernetics</span><span class="fb-sp">James Poulos</span></label>
+  <div class="fb-note"><textarea name="note-07e744f8" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Post-Apocalyptic Cybernetics: James Poulos"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 11 am jonathan anomaly the social consequences of the polygenic revolution">
+  <label class="fb-row"><input type="checkbox" name="talk" value="17e5bcb8"/><span class="fb-time">11 am</span><span class="fb-ti">The Social Consequences of the Polygenic Revolution</span><span class="fb-sp">Jonathan Anomaly</span></label>
+  <div class="fb-note"><textarea name="note-17e5bcb8" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="The Social Consequences of the Polygenic Revolution: Jonathan Anomaly"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 11 am karol berger mahler: the semantics of sound">
+  <label class="fb-row"><input type="checkbox" name="talk" value="5a7b734d"/><span class="fb-time">11 am</span><span class="fb-ti">Mahler: The Semantics of Sound</span><span class="fb-sp">Karol Berger</span></label>
+  <div class="fb-note"><textarea name="note-5a7b734d" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Mahler: The Semantics of Sound: Karol Berger"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 11 am samo burja &amp; wolf tivy the future of martian society">
+  <label class="fb-row"><input type="checkbox" name="talk" value="4872ddaf"/><span class="fb-time">11 am</span><span class="fb-ti">The Future of Martian Society</span><span class="fb-sp">Samo Burja &amp; Wolf Tivy</span></label>
+  <div class="fb-note"><textarea name="note-4872ddaf" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="The Future of Martian Society: Samo Burja &amp; Wolf Tivy"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 11 am watson ladd what is the left?">
+  <label class="fb-row"><input type="checkbox" name="talk" value="3a1636c2"/><span class="fb-time">11 am</span><span class="fb-ti">What is the Left?</span><span class="fb-sp">Watson Ladd</span></label>
+  <div class="fb-note"><textarea name="note-3a1636c2" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="What is the Left?: Watson Ladd"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 1:30 pm c. philip mills do we still live under caesar?">
+  <label class="fb-row"><input type="checkbox" name="talk" value="601ea012"/><span class="fb-time">1:30 pm</span><span class="fb-ti">Do We Still Live Under Caesar?</span><span class="fb-sp">C. Philip Mills</span></label>
+  <div class="fb-note"><textarea name="note-601ea012" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Do We Still Live Under Caesar?: C. Philip Mills"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 1:30 pm eric crampton building affordability: new zealand’s reforms and the path to housing abundance">
+  <label class="fb-row"><input type="checkbox" name="talk" value="dc2a0f48"/><span class="fb-time">1:30 pm</span><span class="fb-ti">Building Affordability: New Zealand’s Reforms and the Path to Housing Abundance</span><span class="fb-sp">Eric Crampton</span></label>
+  <div class="fb-note"><textarea name="note-dc2a0f48" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Building Affordability: New Zealand’s Reforms and the Path to Housing Abundance: Eric Crampton"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 1:30 pm martin jay &amp; jonathan wallis magical nominalism: a conversation">
+  <label class="fb-row"><input type="checkbox" name="talk" value="7c6c3288"/><span class="fb-time">1:30 pm</span><span class="fb-ti">Magical Nominalism: A Conversation</span><span class="fb-sp">Martin Jay &amp; Jonathan Wallis</span></label>
+  <div class="fb-note"><textarea name="note-7c6c3288" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Magical Nominalism: A Conversation: Martin Jay &amp; Jonathan Wallis"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 1:30 pm stephen skolnick lost &amp; found: isolation &amp; characterization of cholesterol-reducing bacteria from the human gut">
+  <label class="fb-row"><input type="checkbox" name="talk" value="918e19ed"/><span class="fb-time">1:30 pm</span><span class="fb-ti">Lost &amp; Found: Isolation &amp; Characterization of Cholesterol-Reducing Bacteria from the Human Gut</span><span class="fb-sp">Stephen Skolnick</span></label>
+  <div class="fb-note"><textarea name="note-918e19ed" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Lost &amp; Found: Isolation &amp; Characterization of Cholesterol-Reducing Bacteria from the Human Gut: Stephen Skolnick"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 2:30 pm alexander nemerov &amp; brian pines art and efficiency: a conversation">
+  <label class="fb-row"><input type="checkbox" name="talk" value="a6883e43"/><span class="fb-time">2:30 pm</span><span class="fb-ti">Art and Efficiency: A Conversation</span><span class="fb-sp">Alexander Nemerov &amp; Brian Pines</span></label>
+  <div class="fb-note"><textarea name="note-a6883e43" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Art and Efficiency: A Conversation: Alexander Nemerov &amp; Brian Pines"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 2:30 pm christine peterson in praise of traditional strategies for finding a life partner">
+  <label class="fb-row"><input type="checkbox" name="talk" value="ab5ccc1b"/><span class="fb-time">2:30 pm</span><span class="fb-ti">In Praise of Traditional Strategies for Finding a Life Partner</span><span class="fb-sp">Christine Peterson</span></label>
+  <div class="fb-note"><textarea name="note-ab5ccc1b" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="In Praise of Traditional Strategies for Finding a Life Partner: Christine Peterson"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 2:30 pm felix marprelate city on a hill: alchemy and revolution in america">
+  <label class="fb-row"><input type="checkbox" name="talk" value="c7a10df3"/><span class="fb-time">2:30 pm</span><span class="fb-ti">City on a Hill: Alchemy and Revolution in America</span><span class="fb-sp">Felix Marprelate</span></label>
+  <div class="fb-note"><textarea name="note-c7a10df3" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="City on a Hill: Alchemy and Revolution in America: Felix Marprelate"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 2:30 pm keoni gandall live human sequencing">
+  <label class="fb-row"><input type="checkbox" name="talk" value="32071c16"/><span class="fb-time">2:30 pm</span><span class="fb-ti">Live human sequencing</span><span class="fb-sp">Keoni Gandall</span></label>
+  <div class="fb-note"><textarea name="note-32071c16" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Live human sequencing: Keoni Gandall"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 2:30 pm kieran zimmer moral patients and the evolutionary basis of morality">
+  <label class="fb-row"><input type="checkbox" name="talk" value="60399981"/><span class="fb-time">2:30 pm</span><span class="fb-ti">Moral Patients and the Evolutionary Basis of Morality</span><span class="fb-sp">Kieran Zimmer</span></label>
+  <div class="fb-note"><textarea name="note-60399981" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Moral Patients and the Evolutionary Basis of Morality: Kieran Zimmer"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 3:30 pm alex oaten towards a new napoleon">
+  <label class="fb-row"><input type="checkbox" name="talk" value="22fe426e"/><span class="fb-time">3:30 pm</span><span class="fb-ti">Towards a New Napoleon</span><span class="fb-sp">Alex Oaten</span></label>
+  <div class="fb-note"><textarea name="note-22fe426e" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Towards a New Napoleon: Alex Oaten"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 3:30 pm james vaughn &amp; jonathan wallis modernity and freedom">
+  <label class="fb-row"><input type="checkbox" name="talk" value="be804dbd"/><span class="fb-time">3:30 pm</span><span class="fb-ti">Modernity and Freedom</span><span class="fb-sp">James Vaughn &amp; Jonathan Wallis</span></label>
+  <div class="fb-note"><textarea name="note-be804dbd" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Modernity and Freedom: James Vaughn &amp; Jonathan Wallis"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 3:30 pm paula arai painting enlightenment: healing visions of the heart sutra">
+  <label class="fb-row"><input type="checkbox" name="talk" value="e49c4501"/><span class="fb-time">3:30 pm</span><span class="fb-ti">Painting Enlightenment: Healing Visions of the Heart Sutra</span><span class="fb-sp">Paula Arai</span></label>
+  <div class="fb-note"><textarea name="note-e49c4501" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Painting Enlightenment: Healing Visions of the Heart Sutra: Paula Arai"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 3:30 pm stephen skolnick on the origin of schizophrenia">
+  <label class="fb-row"><input type="checkbox" name="talk" value="5b015848"/><span class="fb-time">3:30 pm</span><span class="fb-ti">On the Origin of Schizophrenia</span><span class="fb-sp">Stephen Skolnick</span></label>
+  <div class="fb-note"><textarea name="note-5b015848" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="On the Origin of Schizophrenia: Stephen Skolnick"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 4:30 pm jacob falkovich thinking is hard (for humans)">
+  <label class="fb-row"><input type="checkbox" name="talk" value="51131b16"/><span class="fb-time">4:30 pm</span><span class="fb-ti">Thinking Is Hard (for Humans)</span><span class="fb-sp">Jacob Falkovich</span></label>
+  <div class="fb-note"><textarea name="note-51131b16" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Thinking Is Hard (for Humans): Jacob Falkovich"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 4:30 pm shani agarwal hood parallel lives &amp; afterlives: alexander the great &amp; mark the evangelist">
+  <label class="fb-row"><input type="checkbox" name="talk" value="cfbc2a79"/><span class="fb-time">4:30 pm</span><span class="fb-ti">Parallel Lives &amp; Afterlives: Alexander the Great &amp; Mark the Evangelist</span><span class="fb-sp">Shani Agarwal Hood</span></label>
+  <div class="fb-note"><textarea name="note-cfbc2a79" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Parallel Lives &amp; Afterlives: Alexander the Great &amp; Mark the Evangelist: Shani Agarwal Hood"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 5:30 pm bissera pentcheva icons of sound: chant and recitation in hagia sophia">
+  <label class="fb-row"><input type="checkbox" name="talk" value="642b4065"/><span class="fb-time">5:30 pm</span><span class="fb-ti">Icons of Sound: Chant and Recitation in Hagia Sophia</span><span class="fb-sp">Bissera Pentcheva</span></label>
+  <div class="fb-note"><textarea name="note-642b4065" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Icons of Sound: Chant and Recitation in Hagia Sophia: Bissera Pentcheva"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 5:30 pm jehan azad an introduction to homo sapiens for non-human intelligences">
+  <label class="fb-row"><input type="checkbox" name="talk" value="63331b48"/><span class="fb-time">5:30 pm</span><span class="fb-ti">An Introduction to Homo Sapiens for Non-Human Intelligences</span><span class="fb-sp">Jehan Azad</span></label>
+  <div class="fb-note"><textarea name="note-63331b48" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="An Introduction to Homo Sapiens for Non-Human Intelligences: Jehan Azad"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 5:30 pm michael curzi a short film set in ancient rome">
+  <label class="fb-row"><input type="checkbox" name="talk" value="29ae6681"/><span class="fb-time">5:30 pm</span><span class="fb-ti">A short film set in Ancient Rome</span><span class="fb-sp">Michael Curzi</span></label>
+  <div class="fb-note"><textarea name="note-29ae6681" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="A short film set in Ancient Rome: Michael Curzi"></textarea></div>
+</li><li class="fb-talk" data-search="saturday 5:30 pm niklaus largier mysticism, the senses, and the emotions">
+  <label class="fb-row"><input type="checkbox" name="talk" value="7a3a9d30"/><span class="fb-time">5:30 pm</span><span class="fb-ti">Mysticism, the Senses, and the Emotions</span><span class="fb-sp">Niklaus Largier</span></label>
+  <div class="fb-note"><textarea name="note-7a3a9d30" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Mysticism, the Senses, and the Emotions: Niklaus Largier"></textarea></div>
+</li></ul></details><details class="fb-day"><summary class="fb-sum"><span class="fb-day-head"><span class="fb-dn">Sunday</span><span class="fb-dd">1 November</span><span class="fb-count" hidden><b>0</b> ticked</span><span class="fb-chev" aria-hidden="true"></span></span></summary><ul class="fb-list"><li class="fb-talk" data-search="sunday 11 am adam rochussen science is largely fake">
+  <label class="fb-row"><input type="checkbox" name="talk" value="688ce9c4"/><span class="fb-time">11 am</span><span class="fb-ti">Science is largely fake</span><span class="fb-sp">Adam Rochussen</span></label>
+  <div class="fb-note"><textarea name="note-688ce9c4" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Science is largely fake: Adam Rochussen"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 11 am ana brooks the history, theory, and practice of yoga asana: a hands-on workshop">
+  <label class="fb-row"><input type="checkbox" name="talk" value="5d9b1c0a"/><span class="fb-time">11 am</span><span class="fb-ti">The History, Theory, and Practice of Yoga Asana: A Hands-On Workshop</span><span class="fb-sp">Ana Brooks</span></label>
+  <div class="fb-note"><textarea name="note-5d9b1c0a" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="The History, Theory, and Practice of Yoga Asana: A Hands-On Workshop: Ana Brooks"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 11 am brian allewelt agi is a cathedral">
+  <label class="fb-row"><input type="checkbox" name="talk" value="3b94700c"/><span class="fb-time">11 am</span><span class="fb-ti">AGI is a Cathedral</span><span class="fb-sp">Brian Allewelt</span></label>
+  <div class="fb-note"><textarea name="note-3b94700c" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="AGI is a Cathedral: Brian Allewelt"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 11 am ian fletcher the rationality of economic nationalism">
+  <label class="fb-row"><input type="checkbox" name="talk" value="54734b3e"/><span class="fb-time">11 am</span><span class="fb-ti">The Rationality of Economic Nationalism</span><span class="fb-sp">Ian Fletcher</span></label>
+  <div class="fb-note"><textarea name="note-54734b3e" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="The Rationality of Economic Nationalism: Ian Fletcher"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 12 pm stephen pimentel the best enemy: man and ai after nietzsche">
+  <label class="fb-row"><input type="checkbox" name="talk" value="5e132622"/><span class="fb-time">12 pm</span><span class="fb-ti">The Best Enemy: Man and AI after Nietzsche</span><span class="fb-sp">Stephen Pimentel</span></label>
+  <div class="fb-note"><textarea name="note-5e132622" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="The Best Enemy: Man and AI after Nietzsche: Stephen Pimentel"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 12 pm steven k. vogel if markets are human constructs, can we design them better?">
+  <label class="fb-row"><input type="checkbox" name="talk" value="80d05132"/><span class="fb-time">12 pm</span><span class="fb-ti">If Markets Are Human Constructs, Can We Design Them Better?</span><span class="fb-sp">Steven K. Vogel</span></label>
+  <div class="fb-note"><textarea name="note-80d05132" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="If Markets Are Human Constructs, Can We Design Them Better?: Steven K. Vogel"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 12:30 pm samo burja why alexandria was steampunk">
+  <label class="fb-row"><input type="checkbox" name="talk" value="0c28f355"/><span class="fb-time">12:30 pm</span><span class="fb-ti">Why Alexandria Was Steampunk</span><span class="fb-sp">Samo Burja</span></label>
+  <div class="fb-note"><textarea name="note-0c28f355" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Why Alexandria Was Steampunk: Samo Burja"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 12:30 pm york westenhaver the economics of ai enslavement">
+  <label class="fb-row"><input type="checkbox" name="talk" value="12f9bf31"/><span class="fb-time">12:30 pm</span><span class="fb-ti">The Economics of AI Enslavement</span><span class="fb-sp">York Westenhaver</span></label>
+  <div class="fb-note"><textarea name="note-12f9bf31" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="The Economics of AI Enslavement: York Westenhaver"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 2 pm adam jarvis neoliberalism’s shadow: infrastructure and process creep">
+  <label class="fb-row"><input type="checkbox" name="talk" value="01abc965"/><span class="fb-time">2 pm</span><span class="fb-ti">Neoliberalism’s Shadow: Infrastructure and Process Creep</span><span class="fb-sp">Adam Jarvis</span></label>
+  <div class="fb-note"><textarea name="note-01abc965" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Neoliberalism’s Shadow: Infrastructure and Process Creep: Adam Jarvis"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 2 pm andrew dombrowski learning the untranslatable: marina tsvetaeva and the instrumental case in russian">
+  <label class="fb-row"><input type="checkbox" name="talk" value="fc59d071"/><span class="fb-time">2 pm</span><span class="fb-ti">Learning the Untranslatable: Marina Tsvetaeva and the Instrumental Case in Russian</span><span class="fb-sp">Andrew Dombrowski</span></label>
+  <div class="fb-note"><textarea name="note-fc59d071" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Learning the Untranslatable: Marina Tsvetaeva and the Instrumental Case in Russian: Andrew Dombrowski"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 2 pm elliot neaman ernst junger at 100: post-history and the return of myth">
+  <label class="fb-row"><input type="checkbox" name="talk" value="075b8345"/><span class="fb-time">2 pm</span><span class="fb-ti">Ernst Jünger at 100: Post-History and the Return of Myth</span><span class="fb-sp">Elliot Neaman</span></label>
+  <div class="fb-note"><textarea name="note-075b8345" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Ernst Jünger at 100: Post-History and the Return of Myth: Elliot Neaman"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 2 pm fr. anselm ramelow, op could an ai ever be a person?">
+  <label class="fb-row"><input type="checkbox" name="talk" value="9de15741"/><span class="fb-time">2 pm</span><span class="fb-ti">Could an AI Ever Be a Person?</span><span class="fb-sp">Fr. Anselm Ramelow, OP</span></label>
+  <div class="fb-note"><textarea name="note-9de15741" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Could an AI Ever Be a Person?: Fr. Anselm Ramelow, OP"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 2 pm michael smith left-hand path game theory">
+  <label class="fb-row"><input type="checkbox" name="talk" value="5f69b121"/><span class="fb-time">2 pm</span><span class="fb-ti">Left-Hand Path Game Theory</span><span class="fb-sp">Michael Smith</span></label>
+  <div class="fb-note"><textarea name="note-5f69b121" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Left-Hand Path Game Theory: Michael Smith"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 3 pm ben landau-taylor why the best scientists are mystics">
+  <label class="fb-row"><input type="checkbox" name="talk" value="44261dbc"/><span class="fb-time">3 pm</span><span class="fb-ti">Why the Best Scientists Are Mystics</span><span class="fb-sp">Ben Landau-Taylor</span></label>
+  <div class="fb-note"><textarea name="note-44261dbc" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Why the Best Scientists Are Mystics: Ben Landau-Taylor"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 3 pm duncan umphrey against normativity: nietzsche, heidegger, buddha">
+  <label class="fb-row"><input type="checkbox" name="talk" value="383b74b7"/><span class="fb-time">3 pm</span><span class="fb-ti">Against Normativity: Nietzsche, Heidegger, Buddha</span><span class="fb-sp">Duncan Umphrey</span></label>
+  <div class="fb-note"><textarea name="note-383b74b7" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Against Normativity: Nietzsche, Heidegger, Buddha: Duncan Umphrey"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 3 pm gwern branwen pindar in the modern world">
+  <label class="fb-row"><input type="checkbox" name="talk" value="d616562d"/><span class="fb-time">3 pm</span><span class="fb-ti">Pindar in the Modern World</span><span class="fb-sp">Gwern Branwen</span></label>
+  <div class="fb-note"><textarea name="note-d616562d" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Pindar in the Modern World: Gwern Branwen"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 3 pm razib khan reaching for consilience: genomics and the two cultures">
+  <label class="fb-row"><input type="checkbox" name="talk" value="8e224eb4"/><span class="fb-time">3 pm</span><span class="fb-ti">Reaching for Consilience: Genomics and the Two Cultures</span><span class="fb-sp">Razib Khan</span></label>
+  <div class="fb-note"><textarea name="note-8e224eb4" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Reaching for Consilience: Genomics and the Two Cultures: Razib Khan"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 4 pm adam jarvis public service podcast">
+  <label class="fb-row"><input type="checkbox" name="talk" value="ae18e464"/><span class="fb-time">4 pm</span><span class="fb-ti">Public Service Podcast</span><span class="fb-sp">Adam Jarvis</span></label>
+  <div class="fb-note"><textarea name="note-ae18e464" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Public Service Podcast: Adam Jarvis"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 4 pm alexis gallagher the automated salon: conversation as culture in the age of ai">
+  <label class="fb-row"><input type="checkbox" name="talk" value="121b9a70"/><span class="fb-time">4 pm</span><span class="fb-ti">The Automated Salon: Conversation as Culture in the Age of AI</span><span class="fb-sp">Alexis Gallagher</span></label>
+  <div class="fb-note"><textarea name="note-121b9a70" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="The Automated Salon: Conversation as Culture in the Age of AI: Alexis Gallagher"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 4 pm andrew dombrowski poetry memorization as askesis, part 2">
+  <label class="fb-row"><input type="checkbox" name="talk" value="0b9e5e1b"/><span class="fb-time">4 pm</span><span class="fb-ti">Poetry Memorization as Askesis, part 2</span><span class="fb-sp">Andrew Dombrowski</span></label>
+  <div class="fb-note"><textarea name="note-0b9e5e1b" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Poetry Memorization as Askesis, part 2: Andrew Dombrowski"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 4 pm bett bollhoefer a pause for alignment: an embodied chakra meditation">
+  <label class="fb-row"><input type="checkbox" name="talk" value="302e29e8"/><span class="fb-time">4 pm</span><span class="fb-ti">A Pause for Alignment: An Embodied Chakra Meditation</span><span class="fb-sp">Bett Bollhoefer</span></label>
+  <div class="fb-note"><textarea name="note-302e29e8" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="A Pause for Alignment: An Embodied Chakra Meditation: Bett Bollhoefer"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 4 pm diana fleischman the training instinct: behaviorism and countercontrol">
+  <label class="fb-row"><input type="checkbox" name="talk" value="364f6914"/><span class="fb-time">4 pm</span><span class="fb-ti">The Training Instinct: Behaviorism and Countercontrol</span><span class="fb-sp">Diana Fleischman</span></label>
+  <div class="fb-note"><textarea name="note-364f6914" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="The Training Instinct: Behaviorism and Countercontrol: Diana Fleischman"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 4 pm nihal singh what human hands can do: language, creativity, and tradition in north indian classical drumming">
+  <label class="fb-row"><input type="checkbox" name="talk" value="c2501387"/><span class="fb-time">4 pm</span><span class="fb-ti">What Human Hands Can Do: Language, Creativity, and Tradition in North Indian Classical Drumming</span><span class="fb-sp">Nihal Singh</span></label>
+  <div class="fb-note"><textarea name="note-c2501387" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="What Human Hands Can Do: Language, Creativity, and Tradition in North Indian Classical Drumming: Nihal Singh"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 4 pm rafael luciani what is changing in the catholic church?">
+  <label class="fb-row"><input type="checkbox" name="talk" value="b2bf44ad"/><span class="fb-time">4 pm</span><span class="fb-ti">What Is Changing in the Catholic Church?</span><span class="fb-sp">Rafael Luciani</span></label>
+  <div class="fb-note"><textarea name="note-b2bf44ad" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="What Is Changing in the Catholic Church?: Rafael Luciani"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 5:15 pm jonathan wallis a new vision of the humanities">
+  <label class="fb-row"><input type="checkbox" name="talk" value="block-closing"/><span class="fb-time">5:15 pm</span><span class="fb-ti">A New Vision of the Humanities</span><span class="fb-sp">Jonathan Wallis</span></label>
+  <div class="fb-note"><textarea name="note-block-closing" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="A New Vision of the Humanities: Jonathan Wallis"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 6:30 pm micah stubbs &amp; janine subgang the fountain of youth and how to drink from it">
+  <label class="fb-row"><input type="checkbox" name="talk" value="72fe45ca"/><span class="fb-time">6:30 pm</span><span class="fb-ti">The Fountain of Youth and How to Drink from It</span><span class="fb-sp">Micah Stubbs &amp; Janine Subgang</span></label>
+  <div class="fb-note"><textarea name="note-72fe45ca" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="The Fountain of Youth and How to Drink from It: Micah Stubbs &amp; Janine Subgang"></textarea></div>
+</li><li class="fb-talk" data-search="sunday 8 pm christopher colby singing the odyssey">
+  <label class="fb-row"><input type="checkbox" name="talk" value="fd296708"/><span class="fb-time">8 pm</span><span class="fb-ti">Singing the Odyssey</span><span class="fb-sp">Christopher Colby</span></label>
+  <div class="fb-note"><textarea name="note-fd296708" rows="3" maxlength="2000" placeholder="What did you love about the talk" aria-label="Singing the Odyssey: Christopher Colby"></textarea></div>
+</li></ul></details></div>
+    </div>
+  </div>
+</section><section class="fb-sect" id="fb-praise">
+  <div class="fb-wrap">
+    <h3 class="fb-q" id="fb-praise-q">What did you love about the Exposition?</h3>
+    <p class="fb-help" id="fb-praise-h">Favorite moments, atmosphere, energy, etc.</p>
+    <textarea name="praise" rows="6" maxlength="6000" aria-labelledby="fb-praise-q" aria-describedby="fb-praise-h"></textarea><label class="fb-quote"><input type="checkbox" name="quote" value="yes"/><span>You can quote me on that</span></label><p class="fb-quote-help">We may use these words on our website and in what we write about the Exposition.</p>
+  </div>
+</section><section class="fb-sect" id="fb-comments">
+  <div class="fb-wrap">
+    <h3 class="fb-q" id="fb-comments-q">Any other feedback?</h3>
+    
+    <textarea name="comments" rows="6" maxlength="6000" aria-labelledby="fb-comments-q"></textarea>
+  </div>
+</section><div class="fb-hp" aria-hidden="true"><label>Leave this field empty <input type="text" name="website" tabindex="-1" autocomplete="off"/></label></div>
+<div class="fb-send">
+  <button class="btn btn-primary" type="submit" data-label="Send" data-sending="Sending…">Send</button>
+  <p class="fb-error fb-empty" hidden role="alert">Tick a talk or write something first.</p>
+  <p class="fb-error fb-fail" hidden role="alert">That did not go through. Please try again in a moment.</p>
+</div></form><section class="fb-thanks" tabindex="-1" hidden><h2>Thank you</h2>
+  <div><p class="lede">Your answers have reached the Avalon team.</p></div>
+  <a class="btn btn-ghost" href="/exposition/">Back to the Exposition</a></section>
+</main>
+<footer><span class="mark">◇</span> &nbsp; <a href="https://avalon.institute">The Avalon Institute</a> · Berkeley &nbsp; <span class="mark">◇</span></footer>
+<script>
+(function(){
+  var doc = document;
+  var all = function(sel, root){ return Array.prototype.slice.call((root || doc).querySelectorAll(sel)); };
+  var fold = function(s){ return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); };
+  var search = doc.querySelector('.fb-search');
+  var talks = all('.fb-talk'), days = all('.fb-day');
+  var none = doc.querySelector('.fb-none');
+  var searching = false, kept = [];
+
+  function ticked(root){ return all('.fb-row input:checked', root); }
+  function tally(){
+    days.forEach(function(d){
+      var n = ticked(d).length, c = d.querySelector('.fb-count');
+      if (c){ c.hidden = !n; c.querySelector('b').textContent = n; }
+    });
+  }
+  function mark(box){ box.closest('.fb-talk').classList.toggle('is-on', box.checked); }
+  function sync(){ all('.fb-row input').forEach(mark); tally(); }
+
+  // A search opens the days it finds something in and hides the rest; clearing it puts the folds
+  // back as they were (a day ticked through the search shows its count in the header).
+  function filter(){
+    var words = fold(search.value).split(/\s+/).filter(Boolean), shown = 0;
+    if (words.length && !searching){ kept = days.map(function(d){ return d.open; }); searching = true; }
+    talks.forEach(function(li){
+      var hay = li.getAttribute('data-search');
+      var ok = words.every(function(w){ return hay.indexOf(w) >= 0; });
+      li.hidden = !ok; if (ok) shown++;
+    });
+    days.forEach(function(d, i){
+      var any = !!d.querySelector('.fb-talk:not([hidden])');
+      d.hidden = !any;
+      if (words.length) d.open = any;
+      else if (searching) d.open = !!kept[i];
+    });
+    if (!words.length) searching = false;
+    if (none) none.hidden = shown > 0;
+  }
+  if (search){ search.addEventListener('input', filter); search.addEventListener('search', filter); }
+  doc.addEventListener('change', function(e){
+    var box = e.target;
+    if (box && box.matches && box.matches('.fb-row input[type="checkbox"]')){ mark(box); tally(); }
+  });
+
+  var form = doc.getElementById('fb-form');
+  if (!form) return;
+  var live = form.getAttribute('data-mode') === 'page';
+  var endpoint = form.getAttribute('data-endpoint') || '';
+  var btn = form.querySelector('.fb-send button[type="submit"]');
+  var empty = form.querySelector('.fb-empty'), fail = form.querySelector('.fb-fail');
+  var thanks = doc.querySelector('.fb-thanks');
+  var el = function(n){ return form.elements[n]; };
+  var val = function(n){ var x = el(n); return x && typeof x.value === 'string' ? x.value.trim() : ''; };
+
+  // Enter in a one-line field would send the whole form; only the button sends.
+  form.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' && e.target && e.target.tagName === 'INPUT') e.preventDefault();
+  });
+
+  function picked(){
+    return talks.filter(function(li){ return li.querySelector('.fb-row input').checked; }).map(function(li){
+      return { id: li.querySelector('.fb-row input').value, note: li.querySelector('textarea').value.trim() };
+    });
+  }
+  // sid names this visit's answer, so sending twice (a retry after a dropped connection) stores it once.
+  var sid = '';
+  function newId(){
+    try { if (window.crypto && crypto.randomUUID) return crypto.randomUUID(); } catch (err) {}
+    var s = '', i; for (i = 0; i < 32; i++) s += Math.floor(Math.random() * 16).toString(16);
+    return s;
+  }
+  function payload(){
+    return { sid: sid, name: val('name'), talks: picked(), praise: val('praise'),
+             quote: !!(el('quote') && el('quote').checked), comments: val('comments'), website: val('website') };
+  }
+
+  // What has been typed is kept in this browser until it is sent, so a reload or a closed tab loses nothing.
+  var KEY = 'avalon-expo-feedback-2026', store = null, timer = 0;
+  try { store = window.localStorage; store.getItem(KEY); } catch (err) { store = null; }
+  function saveNow(){
+    if (!store || !live || form.hidden) return;
+    try { store.setItem(KEY, JSON.stringify(payload())); } catch (err) {}
+  }
+  function save(){ clearTimeout(timer); timer = setTimeout(saveNow, 300); }
+  function restore(){
+    if (!store || !live) return;
+    var d = null;
+    try { d = JSON.parse(store.getItem(KEY) || 'null'); } catch (err) { d = null; }
+    if (!d || typeof d !== 'object') return;
+    if (typeof d.sid === 'string' && d.sid) sid = d.sid;
+    ['name', 'praise', 'comments'].forEach(function(n){ if (typeof d[n] === 'string' && el(n)) el(n).value = d[n]; });
+    if (el('quote')) el('quote').checked = !!d.quote;
+    (Array.isArray(d.talks) ? d.talks : []).forEach(function(t){
+      talks.forEach(function(li){
+        var box = li.querySelector('.fb-row input');
+        if (t && box.value === t.id){ box.checked = true; li.querySelector('textarea').value = typeof t.note === 'string' ? t.note : ''; }
+      });
+    });
+  }
+  restore();
+  if (!sid) sid = newId();
+  sync();
+  days.forEach(function(d){ if (ticked(d).length) d.open = true; });
+  window.addEventListener('pageshow', sync);
+  form.addEventListener('input', save);
+  form.addEventListener('change', save);
+  window.addEventListener('pagehide', saveNow);
+
+  function done(){
+    clearTimeout(timer);
+    form.hidden = true;
+    doc.body.className += ' fb-sent';
+    if (thanks){ thanks.hidden = false; thanks.focus(); window.scrollTo(0, 0); }
+  }
+  if (!window.fetch) return;  // the browser posts the form itself
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var p = payload();
+    empty.hidden = true; fail.hidden = true;
+    if (!p.talks.length && !p.praise && !p.comments){ empty.hidden = false; return; }
+    window.fbLastPayload = p;
+    if (!live || !endpoint){ done(); return; }
+    btn.disabled = true; btn.textContent = btn.getAttribute('data-sending');
+    var ctl = window.AbortController ? new AbortController() : null;
+    var t = setTimeout(function(){ if (ctl) ctl.abort(); }, 25000);
+    // A plain-text body keeps this a simple cross-site request (no preflight); the endpoint reads it as JSON.
+    fetch(endpoint, { method: 'POST', body: JSON.stringify(p), signal: ctl ? ctl.signal : undefined })
+      .then(function(r){
+        if (!r.ok) throw new Error(r.status);
+        clearTimeout(t);
+        try { if (store) store.removeItem(KEY); } catch (err) {}
+        done();
+      })
+      .catch(function(){
+        clearTimeout(t);
+        fail.hidden = false; btn.disabled = false; btn.textContent = btn.getAttribute('data-label');
+      });
+  });
+})();
+</script>
+</body>
+</html>
